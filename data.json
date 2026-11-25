@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-24T23:20:33-05:00",
-  "dataAsOf": "Tuesday, November 24, 2026, 10:20 PM ET",
-  "today": "2026-11-24",
+  "generatedAt": "2026-11-25T10:11:06-05:00",
+  "dataAsOf": "Wednesday, November 25, 2026, 9:00 AM ET",
+  "today": "2026-11-25",
   "igPaused": false,
   "posts": [
     {
@@ -46,26 +46,6 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-23|X|Ep 212 Angioedema",
-      "date": "2026-11-23",
-      "platform": "X",
-      "title": "Ep 212 Angioedema",
-      "format": "video",
-      "slotType": "Video short",
-      "author": "",
-      "postText": "#TBT Core EM Ep 212 (2025): Angioedema with Dr. Maria Mulligan-Buckmiller.\n\nHives + itch: histamine. No hives, no itch: think bradykinin.\nAirway first. Epi if unsure. Targeted drugs for HAE. Labs help later.\n\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
-        }
-      ],
-      "sheetStatus": "READY",
-      "posted": false,
-      "thumb": "asset:ep212-x.jpg",
-      "ratio": "800/1422"
-    },
-    {
       "id": "2026-11-23|IG|Ep 212 Angioedema",
       "date": "2026-11-23",
       "platform": "IG",
@@ -86,8 +66,28 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-24|X|Hemoptysis",
+      "id": "2026-11-24|IG|Ep 71 Acute Pulmonary Edema",
       "date": "2026-11-24",
+      "platform": "IG",
+      "title": "Ep 71 Acute Pulmonary Edema",
+      "format": "Reel",
+      "slotType": "CATCH-UP",
+      "author": "",
+      "postText": "#TBT: a 2016 Core EM classic, remastered.\n\nThe first 10 minutes of acute pulmonary edema with Anand Swaminathan:\n\n1) look, don't listen (B-lines beat the stethoscope)\n2) get NIPPV on the patient immediately\n3) nitrates unload preload and afterload\n4) find the cause\n\nSince this lecture is from 2016, the diuretic and nitrate guidance is updated on screen to current HF guidelines.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #PulmonaryEdema",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1fd6RzVA6HMEZh4GihQOjOIn6CzINKCmI/view"
+        }
+      ],
+      "sheetStatus": "POSTED 2026-11-24 ~8:55 PM ET (Julian confirmed)",
+      "posted": true,
+      "thumb": "asset:ep71-ig.jpg",
+      "ratio": "800/1422"
+    },
+    {
+      "id": "2026-11-25|X|Hemoptysis",
+      "date": "2026-11-25",
       "platform": "X",
       "title": "Hemoptysis",
       "format": "carousel",
@@ -124,26 +124,6 @@
       "posted": false,
       "thumb": "asset:hemo-card1.jpg",
       "ratio": "800/999"
-    },
-    {
-      "id": "2026-11-24|IG|Ep 71 Acute Pulmonary Edema",
-      "date": "2026-11-24",
-      "platform": "IG",
-      "title": "Ep 71 Acute Pulmonary Edema",
-      "format": "Reel",
-      "slotType": "CATCH-UP",
-      "author": "",
-      "postText": "#TBT: a 2016 Core EM classic, remastered.\n\nThe first 10 minutes of acute pulmonary edema with Anand Swaminathan:\n\n1) look, don't listen (B-lines beat the stethoscope)\n2) get NIPPV on the patient immediately\n3) nitrates unload preload and afterload\n4) find the cause\n\nSince this lecture is from 2016, the diuretic and nitrate guidance is updated on screen to current HF guidelines.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #PulmonaryEdema",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/1fd6RzVA6HMEZh4GihQOjOIn6CzINKCmI/view"
-        }
-      ],
-      "sheetStatus": "POSTED 2026-11-24 ~8:55 PM ET (Julian confirmed)",
-      "posted": true,
-      "thumb": "asset:ep71-ig.jpg",
-      "ratio": "800/1422"
     },
     {
       "id": "2026-11-25|IG|Ep 222 LAST",
@@ -203,6 +183,26 @@
       "sheetStatus": "READY",
       "posted": false,
       "thumb": "asset:thyroid-x.jpg",
+      "ratio": "800/1422"
+    },
+    {
+      "id": "2026-11-27|X|Ep 212 Angioedema",
+      "date": "2026-11-27",
+      "platform": "X",
+      "title": "Ep 212 Angioedema",
+      "format": "video",
+      "slotType": "Video short",
+      "author": "",
+      "postText": "#TBT Core EM Ep 212 (2025): Angioedema with Dr. Maria Mulligan-Buckmiller.\n\nHives + itch: histamine. No hives, no itch: think bradykinin.\nAirway first. Epi if unsure. Targeted drugs for HAE. Labs help later.\n\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
+        }
+      ],
+      "sheetStatus": "READY",
+      "posted": false,
+      "thumb": "asset:ep212-x.jpg",
       "ratio": "800/1422"
     },
     {
@@ -2401,6 +2401,21 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-12|IG|Ep 194 Nitrous Oxide Toxicity",
+      "date": "2027-04-12",
+      "platform": "IG",
+      "title": "Ep 194 Nitrous Oxide Toxicity",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
       "id": "2027-04-15|X|Ep 56 Sedation of the Agitated Patient",
       "date": "2027-04-15",
       "platform": "X",
@@ -2411,6 +2426,21 @@
       "postText": "",
       "media": [],
       "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
+      "id": "2027-04-15|IG|Ep 56 Sedation of the Agitated Patient",
+      "date": "2027-04-15",
+      "platform": "IG",
+      "title": "Ep 56 Sedation of the Agitated Patient",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
       "posted": false,
       "thumb": "",
       "ratio": ""
@@ -2431,6 +2461,21 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-19|IG|Ep 193 Threatened Abortion",
+      "date": "2027-04-19",
+      "platform": "IG",
+      "title": "Ep 193 Threatened Abortion",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
       "id": "2027-04-22|X|Ep 192 Syncope in Children",
       "date": "2027-04-22",
       "platform": "X",
@@ -2441,6 +2486,21 @@
       "postText": "",
       "media": [],
       "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
+      "id": "2027-04-22|IG|Ep 192 Syncope in Children",
+      "date": "2027-04-22",
+      "platform": "IG",
+      "title": "Ep 192 Syncope in Children",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
       "posted": false,
       "thumb": "",
       "ratio": ""
@@ -2461,6 +2521,21 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-26|IG|Ep 102 Valsalva Maneuver in SVT",
+      "date": "2027-04-26",
+      "platform": "IG",
+      "title": "Ep 102 Valsalva Maneuver in SVT",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
       "id": "2027-04-29|X|Ep 191 Rapid Atrial Fibrillation",
       "date": "2027-04-29",
       "platform": "X",
@@ -2476,6 +2551,21 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-29|IG|Ep 191 Rapid Atrial Fibrillation",
+      "date": "2027-04-29",
+      "platform": "IG",
+      "title": "Ep 191 Rapid Atrial Fibrillation",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
       "id": "2027-05-03|X|Ep 190 Electrical Storm",
       "date": "2027-05-03",
       "platform": "X",
@@ -2486,6 +2576,21 @@
       "postText": "",
       "media": [],
       "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": ""
+    },
+    {
+      "id": "2027-05-03|IG|Ep 190 Electrical Storm",
+      "date": "2027-05-03",
+      "platform": "IG",
+      "title": "Ep 190 Electrical Storm",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO WRITE",
       "posted": false,
       "thumb": "",
       "ratio": ""
