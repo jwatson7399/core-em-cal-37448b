@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6f8">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f17">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Posting">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<title>Posting calendar</title>
+<style>
+:root{
+  --bg:#f5f6f8;--card:#fff;--card2:#eef1f5;--text:#0f172a;--muted:#5b6474;--line:#e1e5eb;
+  --accent:#0f766e;--accentText:#fff;
+  --planned:#1d4ed8;--posted:#15803d;--missed:#b91c1c;--resched:#b45309;--chipText:#fff;
+  --tab-h:58px;--radius:16px;
+  --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0b0f17;--card:#151b26;--card2:#1c2432;--text:#e7eaf0;--muted:#9aa3b2;--line:#263041;
+  --accent:#2dd4bf;--accentText:#042f2e;
+  --planned:#60a5fa;--posted:#4ade80;--missed:#f87171;--resched:#fbbf24;--chipText:#0b0f17;
+}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.4 var(--font)}
+body{overscroll-behavior-y:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:var(--accent)}
+.muted{color:var(--muted)}
+.hidden{display:none!important}
+
+/* Header */
+.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(var(--safe-t) + 6px) 16px 6px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+.top h1{font-size:20px;margin:0;flex:1;letter-spacing:-.01em}
+.stamp{font-size:12px;color:var(--muted);text-align:right;line-height:1.2}
+.iconbtn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--card2)}
+.iconbtn svg{width:20px;height:20px}
+.iconbtn.spin svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Views */
+main{padding:12px 16px calc(var(--tab-h) + var(--safe-b) + 24px)}
+.view{display:none}.view.on{display:block}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 4px 8px}
+h2:first-child{margin-top:4px}
+.banner{border-radius:12px;padding:10px 12px;margin:0 0 10px;font-size:14px;background:var(--card2);display:flex;gap:10px;align-items:center}
+.banner.warn{border-left:4px solid var(--resched)}
+.banner.bad{border-left:4px solid var(--missed)}
+.banner button{min-height:44px;padding:0 6px;margin-left:auto;font-weight:600;color:var(--accent);white-space:nowrap}
+.empty{padding:16px;border-radius:var(--radius);background:var(--card);color:var(--muted);text-align:center}
+
+/* Chips and pills */
+.chip{position:relative;display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:7px;font-weight:800;font-size:12px;color:var(--chipText);letter-spacing:.02em;flex:none}
+.chip .sym{position:absolute;right:-5px;bottom:-5px;width:15px;height:15px;border-radius:50%;background:var(--card);display:grid;place-items:center;color:inherit}
+.chip .sym svg{width:11px;height:11px}
+.s-planned{background:var(--planned)}.s-posted{background:var(--posted)}.s-missed{background:var(--missed)}.s-rescheduled{background:var(--resched)}
+.c-planned{color:var(--planned)}.c-posted{color:var(--posted)}.c-missed{color:var(--missed)}.c-rescheduled{color:var(--resched)}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap}
+.pill svg{width:11px;height:11px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--card2);color:var(--muted);margin:0 4px 4px 0}
+.tag.local{color:var(--accent)}
+
+/* Full cards (Today) */
+.card{position:relative;border-radius:var(--radius);margin:0 0 12px;overflow:hidden;background:var(--card2)}
+.swipe-bg{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-weight:700;color:#fff}
+.swipe-bg .l{opacity:0}.swipe-bg .r{opacity:0}
+.card.go-r .swipe-bg{background:var(--posted)}.card.go-r .l{opacity:1}
+.card.go-l .swipe-bg{background:var(--resched)}.card.go-l .r{opacity:1}
+.fg{position:relative;background:var(--card);padding:14px;border-radius:var(--radius);touch-action:pan-y;transition:transform .2s ease}
+.fg.dragging{transition:none}
+.card-h{display:flex;gap:10px;align-items:flex-start}
+.card-h .ttl{flex:1;min-width:0}
+.t1{font-weight:700;font-size:16px;line-height:1.25}
+.t2{font-size:13px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.thumb{width:52px;height:52px;border-radius:10px;object-fit:cover;background:var(--card2);flex:none}
+.thumb.ph{display:grid;place-items:center;font-size:11px;color:var(--muted)}
+.txt{white-space:pre-wrap;font-size:15px;margin:10px 0 6px;overflow-wrap:anywhere}
+.clamp{display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.more{font-size:14px;font-weight:600;color:var(--accent);min-height:44px;padding:0 2px;margin:-6px 0 0}
+.acts{display:flex;gap:8px;margin-top:10px}
+.btn{flex:1;min-height:44px;border-radius:12px;background:var(--card2);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:6px;padding:0 10px}
+.btn.primary{background:var(--accent);color:var(--accentText);flex:2;white-space:nowrap}
+.btn.sq{flex:0 0 56px;padding:0}
+.btn.ok{background:var(--posted);color:var(--chipText)}
+.btn[disabled]{opacity:.45}
+.btn svg{width:18px;height:18px}
+.card.done .fg{opacity:.7}
+
+/* Compact rows */
+.row{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:10px;border-radius:12px;background:var(--card);margin-bottom:8px}
+.row .rt{flex:1;min-width:0}
+.row .r1{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .r2{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
+.row .thumb{width:44px;height:44px}
+
+/* Week strip */
+.weekbar{display:flex;align-items:center;gap:8px;margin:0 4px 10px}
+.weekbar .lbl{flex:1;font-weight:700}
+.smallbtn{font-size:14px;font-weight:600;padding:0 14px;min-height:44px;border-radius:999px;background:var(--card2)}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 7.5%;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{display:none}
+.day{flex:0 0 85%;scroll-snap-align:center;scroll-snap-stop:always;background:var(--card2);border-radius:20px;padding:14px;height:calc(100dvh - var(--safe-t) - var(--safe-b) - var(--tab-h) - 170px);min-height:320px;overflow:hidden;display:flex;flex-direction:column}
+.day h3{margin:0 0 10px;font-size:18px;display:flex;align-items:center;gap:8px}
+.day.is-today h3 .tb{font-size:12px;background:var(--accent);color:var(--accentText);padding:2px 8px;border-radius:999px}
+.day .row{background:var(--card)}
+.day .nothing{color:var(--muted);margin:auto;text-align:center;font-size:15px}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+
+/* Month */
+.monthbar{display:flex;align-items:center;gap:8px;margin:0 0 10px}
+.monthbar .lbl{flex:1;text-align:center;font-weight:700;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.wd{font-size:11px;text-align:center;color:var(--muted);font-weight:600;padding:2px 0 4px}
+.cell{min-height:64px;border-radius:10px;background:var(--card);padding:4px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;border:2px solid transparent}
+.cell.blank{background:transparent}
+.cell .n{font-size:13px;font-weight:600;width:24px;height:24px;display:grid;place-items:center;border-radius:50%}
+.cell.today .n{background:var(--accent);color:var(--accentText)}
+.cell.sel{border-color:var(--text)}
+.cell.past .n{color:var(--muted)}
+.cell .chip{min-width:0;width:26px;height:18px;font-size:10px;border-radius:5px;padding:0}
+.cell .chip .sym{width:12px;height:12px;right:-4px;bottom:-4px}
+.cell .chip .sym svg{width:9px;height:9px}
+.cell .plus{font-size:10px;color:var(--muted)}
+
+/* Tab bar */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:var(--safe-b)}
+.tab{flex:1;height:var(--tab-h);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-weight:600;color:var(--muted);position:relative}
+.tab svg{width:24px;height:24px}
+.tab.on{color:var(--accent)}
+.badge{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;background:var(--missed);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 5px}
+
+/* Bottom sheet */
+.backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .2s}
+.backdrop.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;max-height:88dvh;overflow-y:auto;background:var(--card);border-radius:20px 20px 0 0;padding:8px 16px calc(var(--safe-b) + 16px);transform:translateY(100%);transition:transform .25s ease;overscroll-behavior:contain}
+.sheet.on{transform:none}
+.sheethead{position:sticky;top:-8px;margin:-8px -16px 4px;padding:8px 16px 4px;background:var(--card);z-index:2;display:flex;align-items:center}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:4px auto 8px}
+.closebtn{position:absolute;right:8px;top:2px;font-weight:600;color:var(--accent);min-height:44px;min-width:44px;padding:0 10px}
+.sheet h3{margin:0 0 4px;font-size:19px}
+.sheet .txt{background:var(--card2);border-radius:12px;padding:12px;user-select:text;-webkit-user-select:text}
+.sheet .acts{flex-wrap:wrap}
+.sheet .acts .btn{flex:1 1 45%}
+.links{margin:14px 0 4px}
+.links a{display:flex;align-items:center;min-height:44px;padding:0 4px;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600}
+.links a.first{font-weight:700}
+.note{font-size:13px;color:var(--muted);margin:6px 2px}
+.keyrow{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.datein{width:100%;min-height:48px;font:inherit;font-size:17px;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--text)}
+.quick{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+
+/* Toast */
+.toast{position:fixed;left:16px;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 12px);z-index:50;background:var(--text);color:var(--bg);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:15px;transform:translateY(150%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .2s ease,opacity .2s,visibility .2s}
+.toast.on{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+.toast button{min-height:44px;min-width:44px;margin:-10px 0 -10px auto;font-weight:700;color:var(--accent)}
+@media (prefers-color-scheme:dark){.toast button{color:#0f766e}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="title">Today</h1>
+  <div class="stamp" id="stamp">Loading</div>
+  <button class="iconbtn" id="refresh" aria-label="Refresh data">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+  </button>
+  <button class="iconbtn" id="help" aria-label="Show key">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>
+  </button>
+</header>
+
+<main>
+  <section class="view on" id="v-today"></section>
+  <section class="view" id="v-week">
+    <div class="weekbar"><div class="lbl" id="weeklbl"></div><button class="smallbtn" id="wk-today">Today</button></div>
+    <div class="strip" id="strip"></div>
+  </section>
+  <section class="view" id="v-month">
+    <div class="monthbar">
+      <button class="iconbtn" id="m-prev" aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="lbl" id="monthlbl"></div>
+      <button class="iconbtn" id="m-next" aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="quick"><button class="smallbtn" id="m-today">This month</button></div>
+  </section>
+</main>
+
+<nav class="tabs" aria-label="Views">
+  <button class="tab on" data-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Today<span class="badge hidden" id="badge"></span></button>
+  <button class="tab" data-tab="week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="5" height="12" rx="1.5"/><rect x="9.5" y="6" width="5" height="12" rx="1.5"/><rect x="16" y="6" width="5" height="12" rx="1.5"/></svg>Week</button>
+  <button class="tab" data-tab="month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Month</button>
+</nav>
+
+<div class="backdrop" id="backdrop"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="sheethead"><div class="grab"></div><button class="closebtn" data-act="close">Close</button></div><div id="sheet-body"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-msg"></span><button id="toast-undo">Undo</button></div>
+
+<script>
+"use strict";
+/* ---------- Settings ---------- */
+const TZ = "America/New_York";
+const DATA_URL = "data.json";
+// App links tried after copying. Undocumented by X and Instagram: test on your phone.
+const OPEN_APP = {
+  X: (text) => "twitter://post?message=" + encodeURIComponent(text),
+  IG: () => "instagram://app"
+};
+const PLATFORM_NAME = { X: "X", IG: "Instagram" };
+const OV_KEY = "pc.overrides.v1", DATA_KEY = "pc.lastData.v1";
+
+/* ---------- Small helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+function todayET() {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+}
+const toUTC = (s) => { const [y, m, d] = s.split("-").map(Number); return Date.UTC(y, m - 1, d); };
+const fromUTC = (t) => new Date(t).toISOString().slice(0, 10);
+const addDays = (s, n) => fromUTC(toUTC(s) + n * 864e5);
+const fmt = (s, o) => new Date(toUTC(s)).toLocaleDateString("en-US", { timeZone: "UTC", ...o });
+const fmtDay = (s) => fmt(s, { weekday: "short", month: "short", day: "numeric" });
+const weekday = (s) => new Date(toUTC(s)).getUTCDay();
+const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || "");
+
+const SYM = {
+  posted: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.3 2.3L9.5 3.8"/></svg>',
+  planned: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3.6"/></svg>',
+  missed: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg>',
+  rescheduled: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h7.5M6.5 3l3 3-3 3"/></svg>'
+};
+const STATUS_LABEL = { posted: "Posted", planned: "Planned", missed: "Missed", rescheduled: "Moved" };
+const ICON = {
+  copy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  open: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>'
+};
+const chip = (p, status) => `<span class="chip s-${status}" aria-label="${esc(PLATFORM_NAME[p] || p)}, ${STATUS_LABEL[status]}">${esc(p)}<span class="sym c-${status}">${SYM[status]}</span></span>`;
+const pill = (status) => `<span class="pill c-${status}">${SYM[status]}${STATUS_LABEL[status]}</span>`;
+
+/* ---------- State ---------- */
+const S = {
+  raw: null, items: [], byKey: new Map(), byDate: new Map(),
+  overrides: store.get(OV_KEY, {}),
+  today: todayET(), view: "today", selected: todayET(), month: todayET().slice(0, 7),
+  genDate: null, stampText: "", offline: false, expired: false, loadedAt: 0,
+  prepared: {}, stripBuiltFor: null
+};
+const saveOv = () => store.set(OV_KEY, S.overrides);
+const pid = (p) => p.id || [p.date, p.platform, p.title].join("|");
+
+/* ---------- Data loading ---------- */
+async function load() {
+  $("#refresh").classList.add("spin");
+  let data = null, fromCache = false;
+  try {
+    const res = await fetch(DATA_URL, { cache: "no-store", redirect: "manual", credentials: "same-origin" });
+    if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
+      S.expired = true;
+    } else if (res.ok) {
+      data = await res.json();
+      fromCache = res.headers.get("x-from-cache") === "1";
+      S.expired = false;
+    }
+  } catch (e) { /* offline */ }
+  if (data) store.set(DATA_KEY, data);
+  else { data = store.get(DATA_KEY, null); fromCache = !!data; }
+  S.offline = fromCache && !S.expired;
+  S.loadedAt = Date.now();
+  S.today = todayET();
+  if (data && Array.isArray(data.posts)) {
+    S.raw = data;
+    readStamp();
+    reconcile();
+    derive();
+  }
+  $("#refresh").classList.remove("spin");
+  render();
+}
+
+function readStamp() {
+  const d = S.raw;
+  let date = null, time = null;
+  if (d.generatedAt && !isNaN(Date.parse(d.generatedAt))) {
+    const g = new Date(d.generatedAt);
+    date = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(g);
+    time = g.toLocaleTimeString("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
+  } else if (d.dataAsOf) {
+    const m = String(d.dataAsOf).match(/([A-Za-z]+ \d{1,2}, \d{4}),?\s*(\d{1,2}:\d{2}\s*[AP]M)/);
+    if (m) {
+      const t = new Date(m[1] + " 12:00");
+      if (!isNaN(t)) date = t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0");
+      time = m[2];
+    }
+  }
+  S.genDate = date;
+  S.stampText = time ? "Updated " + (date && date !== S.today ? fmt(date, { month: "short", day: "numeric" }) + ", " : "") + time + " ET" : "Updated time unknown";
+}
+
+/* Phone-only changes stay until the Sheet catches up. */
+function reconcile() {
+  const posts = S.raw.posts;
+  const byId = new Map(posts.map((p) => [pid(p), p]));
+  const same = (a, b) => a.platform === b.platform && a.title === b.title;
+  let changed = false;
+  for (const [id, o] of Object.entries(S.overrides)) {
+    const p = byId.get(id);
+    let drop = !p || (!o.posted && !o.resched);
+    if (p && !drop) {
+      const sheetMoved = /^RESCHEDULED/i.test(p.sheetStatus || "");
+      if (o.posted) {
+        drop = p.posted || posts.some((q) => q.posted && same(q, p) && q.date >= p.date);
+        if (!drop && o.resched && sheetMoved) {
+          // Sheet made the new row: carry the phone-only "posted" over to it.
+          const target = posts.find((q) => same(q, p) && q.date > p.date && !/^RESCHEDULED/i.test(q.sheetStatus || ""));
+          if (target) S.overrides[pid(target)] = { posted: true, at: o.at };
+          drop = true;
+        }
+      } else if (o.resched) {
+        drop = p.posted || sheetMoved;
+      }
+    }
+    if (o.at && Date.now() - Date.parse(o.at) > 30 * 864e5) drop = true;
+    if (drop) { delete S.overrides[id]; changed = true; }
+  }
+  if (changed) saveOv();
+}
+
+function derive() {
+  const t = S.today, paused = !!S.raw.igPaused, out = [];
+  const due = (p, date) => (date < t && !(paused && p.platform === "IG") ? "missed" : "planned");
+  for (const p of S.raw.posts) {
+    const id = pid(p), o = S.overrides[id], ss = p.sheetStatus || "";
+    const m = ss.match(/(\d{4}-\d{2}-\d{2})/);
+    const base = { ...p, id, baseId: id, media: p.media || [], postText: p.postText || "", local: null, movedTo: null };
+    if (p.posted) { out.push({ ...base, key: id, status: "posted" }); continue; }
+    if (/^RESCHEDULED/i.test(ss)) { out.push({ ...base, key: id, status: "rescheduled", movedTo: m ? m[1] : null }); continue; }
+    if (o && o.resched) {
+      out.push({ ...base, key: id, status: "rescheduled", movedTo: o.resched, local: "moved" });
+      out.push({ ...base, key: id + ">" + o.resched, date: o.resched, origDate: p.date, virtual: true,
+        status: o.posted ? "posted" : due(p, o.resched), local: o.posted ? "posted" : "moved" });
+      continue;
+    }
+    if (o && o.posted) { out.push({ ...base, key: id, status: "posted", local: "posted" }); continue; }
+    out.push({ ...base, key: id, status: due(p, p.date) });
+  }
+  const order = { X: 0, IG: 1 };
+  out.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : (order[a.platform] ?? 2) - (order[b.platform] ?? 2)));
+  S.items = out;
+  S.byKey = new Map(out.map((i) => [i.key, i]));
+  S.byDate = new Map();
+  for (const i of out) { if (!S.byDate.has(i.date)) S.byDate.set(i.date, []); S.byDate.get(i.date).push(i); }
+  S.stripBuiltFor = null;
+}
+
+const isOpen = (i) => i.status === "planned" || i.status === "missed";
+function prepGaps(i) {
+  const g = [];
+  if (/TO MAKE/i.test(i.sheetStatus)) g.push("Needs media made");
+  else if (!i.media.length) g.push("No media link");
+  if (/TO WRITE/i.test(i.sheetStatus) || !i.postText.trim()) g.push("No post text");
+  return g;
+}
+function pendingChanges() {
+  const list = [];
+  for (const [id, o] of Object.entries(S.overrides)) {
+    const i = S.byKey.get(id); if (!i) continue;
+    const name = `${i.title} (${i.platform}, ${fmt(i.date, { month: "short", day: "numeric" })})`;
+    if (o.resched) list.push(`${name}: moved to ${fmt(o.resched, { month: "short", day: "numeric" })}${o.posted ? ", then posted" : ""}`);
+    else if (o.posted) list.push(`${name}: posted`);
+  }
+  return list;
+}
+
+/* ---------- Rendering ---------- */
+function thumb(i, cls = "thumb") {
+  if (!i.thumb) return `<div class="${cls} ph">${esc(i.platform)}</div>`;
+  const src = String(i.thumb).replace(/^asset:/, "assets/");
+  return `<img class="${cls}" src="${esc(src)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'${cls} ph',textContent:'${esc(i.platform)}'}))">`;
+}
+function dateLine(i) {
+  const bits = [esc(i.format || "")];
+  if (i.date !== S.today) bits.push(fmtDay(i.date));
+  return bits.filter(Boolean).join(" · ");
+}
+function tags(i) {
+  let h = "";
+  if (i.local) h += `<span class="tag local">Phone only, not in Sheet yet</span>`;
+  if (i.virtual) h += `<span class="tag">Moved from ${fmt(i.origDate, { month: "short", day: "numeric" })}</span>`;
+  if (i.status === "rescheduled" && i.movedTo) h += `<span class="tag">Moved to ${fmt(i.movedTo, { month: "short", day: "numeric" })}</span>`;
+  if (isOpen(i)) for (const g of prepGaps(i)) h += `<span class="tag">${g}</span>`;
+  return h ? `<div>${h}</div>` : "";
+}
+
+function fullCard(i) {
+  const hasText = !!i.postText.trim();
+  const open = isOpen(i);
+  return `<article class="card${open ? "" : " done"}" data-key="${esc(i.key)}" ${open ? 'data-swipe="1"' : ""}>
+    <div class="swipe-bg"><span class="l">${ICON.check} Posted</span><span class="r">Reschedule</span></div>
+    <div class="fg">
+      <div class="card-h">${chip(i.platform, i.status)}
+        <div class="ttl"><div class="t1">${esc(i.title)}</div><div class="t2">${dateLine(i)} ${pill(i.status)}</div></div>
+        ${thumb(i)}
+      </div>
+      ${hasText ? `<div class="txt clamp">${esc(i.postText)}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Full post and media</button>`
+                : `<div class="txt muted">No post text yet.</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Details</button>`}
+      ${tags(i)}
+      <div class="acts">
+        <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(i.platform)}</button>
+        <button class="btn sq" data-act="copy" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"} aria-label="Copy text">${ICON.copy}</button>
+        ${open ? `<button class="btn ok sq" data-act="posted" data-key="${esc(i.key)}" aria-label="Mark posted">${ICON.check}</button>`
+               : i.local === "posted" ? `<button class="btn" data-act="unpost" data-key="${esc(i.key)}">Undo</button>` : ""}
+      </div>
+    </div>
+  </article>`;
+}
+function rowHTML(i, extra = "") {
+  return `<button class="row" data-act="sheet" data-key="${esc(i.key)}">${thumb(i)}
+    <div class="rt"><div class="r1">${esc(i.title)}</div><div class="r2">${esc(extra || i.postText.trim() || prepGaps(i).join(", ") || "No post text yet")}</div></div>
+    ${chip(i.platform, i.status)}</button>`;
+}
+
+function renderToday() {
+  const el = $("#v-today"), t = S.today;
+  if (!S.raw) {
+    el.innerHTML = S.expired ? signedOutBanner() : `<div class="empty">No data yet. Check your connection and tap refresh.</div>`;
+    return;
+  }
+  let h = "";
+  if (S.expired) h += signedOutBanner();
+  if (S.offline) h += `<div class="banner warn">Offline. Showing the last saved copy.</div>`;
+  if (S.genDate && S.genDate < t) h += `<div class="banner warn">This data is from ${fmtDay(S.genDate)}. Today's 8 AM update has not loaded yet.</div>`;
+  if (S.raw.igPaused) h += `<div class="banner warn">Instagram is paused. Instagram posts are not counted as missed.</div>`;
+  const pend = pendingChanges();
+  if (pend.length) h += `<div class="banner">${pend.length} change${pend.length > 1 ? "s" : ""} not in the Sheet yet<button data-act="pending">Review</button></div>`;
+
+  const missed = S.items.filter((i) => i.status === "missed");
+  const soon = S.items.filter((i) => isOpen(i) && i.date > t && i.date <= addDays(t, 3) && prepGaps(i).length);
+  if (missed.length || soon.length) {
+    h += `<h2>Needs attention</h2>`;
+    h += missed.map(fullCard).join("");
+    if (soon.length) h += `<div class="note">Due in the next 3 days, not ready</div>` + soon.map((i) => rowHTML(i, fmtDay(i.date) + ": " + prepGaps(i).join(", "))).join("");
+  }
+
+  const todays = (S.byDate.get(t) || []).filter((i) => i.status !== "rescheduled");
+  todays.sort((a, b) => Number(!isOpen(a)) - Number(!isOpen(b)));
+  h += `<h2>Today, ${fmtDay(t)}</h2>`;
+  h += todays.length ? todays.map(fullCard).join("") : `<div class="empty">Nothing scheduled today.</div>`;
+
+  const next = S.items.find((i) => i.date > t && isOpen(i));
+  if (next) {
+    const nd = next.date, list = (S.byDate.get(nd) || []).filter(isOpen);
+    h += `<h2>Next up, ${fmtDay(nd)}</h2>` + list.map((i) => rowHTML(i)).join("");
+  }
+  el.innerHTML = h;
+}
+const signedOutBanner = () => `<div class="banner bad">You are signed out.<button data-act="signin">Sign in</button></div>`;
+
+function stripRange() {
+  const dates = S.items.map((i) => i.date);
+  let a = addDays(S.today, -14), b = addDays(S.today, 28);
+  if (dates.length) { if (dates[0] < a) a = dates[0]; if (dates[dates.length - 1] > b) b = dates[dates.length - 1]; }
+  return [a, b];
+}
+function buildStrip() {
+  const [a, b] = stripRange();
+  let h = "";
+  for (let d = a; d <= b; d = addDays(d, 1)) {
+    const list = S.byDate.get(d) || [];
+    const shown = list.slice(0, 3), extra = list.length - shown.length;
+    h += `<section class="day${d === S.today ? " is-today" : ""}" data-date="${d}">
+      <h3>${fmtDay(d)}${d === S.today ? '<span class="tb">Today</span>' : ""}</h3>
+      ${list.length ? shown.map((i) => rowHTML(i)).join("") : `<div class="nothing">Nothing scheduled</div>`}
+      ${extra > 0 ? `<button class="smallbtn" data-act="daysheet" data-date="${d}">+${extra} more</button>` : ""}
+    </section>`;
+  }
+  $("#strip").innerHTML = h;
+  S.stripBuiltFor = S.today;
+  observeStrip();
+}
+let stripObs = null, programmatic = false;
+function observeStrip() {
+  if (stripObs) stripObs.disconnect();
+  stripObs = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting && !programmatic) { S.selected = e.target.dataset.date; updateWeekbar(); }
+    }
+  }, { root: $("#strip"), threshold: 0.6 });
+  document.querySelectorAll("#strip .day").forEach((el) => stripObs.observe(el));
+}
+function scrollStripTo(date, smooth) {
+  const el = document.querySelector(`#strip .day[data-date="${date}"]`);
+  if (!el) return;
+  const strip = $("#strip");
+  programmatic = true;
+  const left = el.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft - (strip.clientWidth - el.clientWidth) / 2;
+  strip.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
+  clearTimeout(scrollStripTo.t);
+  scrollStripTo.t = setTimeout(() => { programmatic = false; }, smooth ? 700 : 200);
+  S.selected = date; updateWeekbar();
+}
+function updateWeekbar() {
+  const sun = addDays(S.selected, -weekday(S.selected));
+  $("#weeklbl").textContent = "Week of " + fmt(sun, { month: "short", day: "numeric" });
+  $("#wk-today").classList.toggle("hidden", S.selected === S.today);
+}
+
+function renderMonth() {
+  const [y, m] = S.month.split("-").map(Number);
+  const first = `${S.month}-01`;
+  const days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  $("#monthlbl").textContent = fmt(first, { month: "long", year: "numeric" });
+  let h = ["S", "M", "T", "W", "T", "F", "S"].map((d) => `<div class="wd">${d}</div>`).join("");
+  for (let k = 0; k < weekday(first); k++) h += `<div class="cell blank"></div>`;
+  for (let n = 1; n <= days; n++) {
+    const d = `${S.month}-${String(n).padStart(2, "0")}`;
+    const list = S.byDate.get(d) || [];
+    const cls = ["cell", d === S.today ? "today" : "", d === S.selected ? "sel" : "", d < S.today ? "past" : ""].join(" ");
+    const chips = list.slice(0, 3).map((i) => chip(i.platform, i.status)).join("");
+    const label = `${fmtDay(d)}, ${list.length} post${list.length === 1 ? "" : "s"}`;
+    h += `<button class="${cls}" data-act="day" data-date="${d}" aria-label="${label}"><span class="n">${n}</span>${chips}${list.length > 3 ? `<span class="plus">+${list.length - 3}</span>` : ""}</button>`;
+  }
+  $("#grid").innerHTML = h;
+}
+
+function renderBadge() {
+  const n = S.items.filter((i) => i.status === "missed" || (i.date === S.today && isOpen(i))).length;
+  const b = $("#badge");
+  b.textContent = n; b.classList.toggle("hidden", !n);
+  try { if (navigator.setAppBadge) (n ? navigator.setAppBadge(n) : navigator.clearAppBadge()).catch(() => {}); } catch (e) {}
+}
+
+function render() {
+  $("#stamp").textContent = S.expired && !S.raw ? "Signed out" : (S.stampText || "Loading");
+  document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === S.view));
+  document.querySelectorAll(".view").forEach((v) => v.classList.toggle("on", v.id === "v-" + S.view));
+  $("#title").textContent = { today: "Today", week: "Week", month: "Month" }[S.view];
+  renderToday();
+  renderBadge();
+  if (S.view === "week") {
+    const target = S.selected;
+    programmatic = true; // ignore the observer's first report while we jump
+    if (S.stripBuiltFor !== S.today) buildStrip();
+    requestAnimationFrame(() => scrollStripTo(target, false));
+  }
+  if (S.view === "month") renderMonth();
+}
+function setView(v) { S.view = v; render(); window.scrollTo(0, 0); }
+
+/* ---------- Sheets ---------- */
+let sheetKey = null;
+function openSheet(html, key = null) {
+  sheetKey = key;
+  $("#sheet-body").innerHTML = html;
+  $("#sheet").scrollTop = 0;
+  $("#sheet").classList.add("on"); $("#backdrop").classList.add("on");
+}
+function closeSheet() { $("#sheet").classList.remove("on"); $("#backdrop").classList.remove("on"); sheetKey = null; }
+
+function postSheet(i) {
+  const hasText = !!i.postText.trim(), open = isOpen(i);
+  const pdf = i.media.filter((m) => /pdf/i.test(m.label));
+  const rest = i.media.filter((m) => !/pdf/i.test(m.label));
+  const files = i.media.filter((m) => m.file);
+  let h = `<h3>${esc(i.title)}</h3>
+    <div class="t2">${chip(i.platform, i.status)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)} ${pill(i.status)}</div>
+    <div class="note">Sheet: ${esc(i.sheetStatus || "no status")}${i.author ? " · " + esc(i.author) : ""}${i.slotType ? " · " + esc(i.slotType) : ""}</div>
+    ${tags(i)}
+    ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">No post text yet.</div>`}
+    <div class="acts">
+      <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(PLATFORM_NAME[i.platform] || i.platform)}</button>
+      <button class="btn" data-act="copy" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.copy} Copy text</button>
+      ${open ? `<button class="btn ok" data-act="posted" data-key="${esc(i.key)}">${ICON.check} Mark posted</button>
+               <button class="btn" data-act="resched" data-key="${esc(i.key)}">Reschedule</button>`
+             : i.local ? `<button class="btn" data-act="unpost" data-key="${esc(i.key)}">Undo phone change</button>` : ""}
+    </div>`;
+  if (i.media.length) {
+    h += `<div class="acts"><button class="btn" id="savebtn" data-act="save" data-key="${esc(i.key)}" disabled>${files.length ? "Preparing media" : "Save media"}</button></div>`;
+    if (!files.length) h += `<div class="note">Save to Photos needs copies of the files on this site. Until the bot adds them, use the Drive links.</div>`;
+  }
+  if (i.media.length) {
+    h += `<div class="links">` + pdf.map((m, n) => `<a class="first" href="${esc(m.href)}" target="_blank" rel="noopener">${esc(m.label)}</a>`).join("")
+      + rest.map((m) => `<a href="${esc(m.href)}" target="_blank" rel="noopener">${esc(m.label)}</a>`).join("") + `</div>`;
+  }
+  openSheet(h, i.key);
+  if (files.length) prepareFiles(i, files);
+}
+
+async function prepareFiles(i, files) {
+  const btn = () => document.getElementById("savebtn");
+  try {
+    if (!S.prepared[i.key]) {
+      const out = [];
+      for (const m of files) {
+        const res = await fetch(m.file, { credentials: "same-origin" });
+        if (!res.ok) throw new Error("fetch");
+        const blob = await res.blob();
+        const name = m.file.split("/").pop() || "file";
+        out.push(new File([blob], name, { type: blob.type || "application/octet-stream" }));
+      }
+      S.prepared[i.key] = out;
+    }
+    const ok = navigator.canShare && navigator.canShare({ files: S.prepared[i.key] });
+    if (sheetKey === i.key && btn()) {
+      btn().disabled = !ok;
+      btn().textContent = ok ? `Save ${files.length} file${files.length > 1 ? "s" : ""}` : "Sharing files not supported here";
+    }
+  } catch (e) {
+    if (sheetKey === i.key && btn()) btn().textContent = "Could not load media";
+  }
+}
+
+function reschedSheet(i) {
+  const t = S.today, start = i.date > t ? i.date : t;
+  const opts = [["Tomorrow", addDays(t, 1)], ["In 2 days", addDays(t, 2)], ["Next week", addDays(start, 7)]];
+  openSheet(`<h3>Reschedule</h3><div class="note">${esc(i.title)} (${esc(i.platform)}). Saved on this phone until the Sheet shows it.</div>
+    <div class="quick">${opts.map(([l, d]) => `<button class="smallbtn" data-act="pickdate" data-date="${d}">${l}, ${fmt(d, { month: "short", day: "numeric" })}</button>`).join("")}</div>
+    <input class="datein" type="date" id="rdate" min="${t}" value="${addDays(t, 1)}">
+    <div class="acts"><button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="doresched" data-key="${esc(i.key)}">Move</button></div>`, i.key);
+}
+
+function keySheet() {
+  const row = (s, text) => `<div class="keyrow">${chip("X", s)}${chip("IG", s)}<div><b>${STATUS_LABEL[s]}</b><div class="note">${text}</div></div></div>`;
+  openSheet(`<h3>Key</h3>
+    ${row("planned", "Scheduled and not yet posted.")}
+    ${row("posted", "Posted.")}
+    ${row("missed", "Date has passed and it was not posted.")}
+    ${row("rescheduled", "Moved to another day.")}
+    <div class="note" style="margin-top:12px"><b>X</b> is X, <b>IG</b> is Instagram. Color and the small shape both show status.</div>
+    <div class="note"><b>Today:</b> swipe a card right to mark it posted, left to reschedule. Buttons do the same.</div>
+    <div class="note"><b>Week:</b> swipe between days. Tap a post for full text and media.</div>
+    <div class="note"><b>Month:</b> tap a day to open it in Week. The outlined day is the one you last looked at.</div>
+    <div class="note"><b>Phone only:</b> changes you make here are kept on this phone until the Sheet shows the same thing. The Sheet stays the source of truth.</div>
+    <div class="note">${esc(S.stampText)}</div>`);
+}
+
+function pendingSheet() {
+  const list = pendingChanges();
+  openSheet(`<h3>Not in the Sheet yet</h3><div class="note">Update these rows in the Sheet. Each line disappears once the morning data matches.</div>
+    <div class="txt">${esc(list.join("\n"))}</div>
+    <div class="acts"><button class="btn" data-act="copylist">${ICON.copy} Copy list</button><button class="btn" data-act="close">Done</button></div>`);
+}
+
+function daySheet(d) {
+  const list = S.byDate.get(d) || [];
+  openSheet(`<h3>${fmtDay(d)}</h3>` + list.map((i) => rowHTML(i)).join(""));
+}
+
+/* ---------- Actions ---------- */
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch (e) {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e2) {}
+    ta.remove(); return ok;
+  }
+}
+function setOverride(baseId, next, msg) {
+  const prev = S.overrides[baseId] ? { ...S.overrides[baseId] } : null;
+  if (next) S.overrides[baseId] = { ...next, at: new Date().toISOString() }; else delete S.overrides[baseId];
+  saveOv(); derive(); render();
+  toast(msg, () => { if (prev) S.overrides[baseId] = prev; else delete S.overrides[baseId]; saveOv(); derive(); render(); });
+}
+function markPosted(i) {
+  const cur = S.overrides[i.baseId] || {};
+  setOverride(i.baseId, { ...cur, posted: true }, `Marked posted: ${i.title}`);
+}
+function unpost(i) {
+  const cur = { ...(S.overrides[i.baseId] || {}) };
+  if (cur.posted) delete cur.posted; else delete cur.resched;
+  setOverride(i.baseId, cur.posted || cur.resched ? cur : null, "Phone change undone");
+}
+function reschedule(i, date) {
+  if (!isDate(date)) return;
+  closeSheet();
+  if (date === i.date) return;
+  const original = S.raw.posts.find((p) => pid(p) === i.baseId);
+  if (original && date === original.date) setOverride(i.baseId, null, `Back on ${fmtDay(date)}`);
+  else setOverride(i.baseId, { resched: date }, `Moved to ${fmtDay(date)}`);
+}
+
+let toastTimer = null, undoFn = null;
+function toast(msg, undo) {
+  $("#toast-msg").textContent = msg;
+  undoFn = undo || null;
+  $("#toast-undo").classList.toggle("hidden", !undo);
+  $("#toast").classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { $("#toast").classList.remove("on"); undoFn = null; }, undo ? 6000 : 2200);
+}
+
+document.addEventListener("click", async (ev) => {
+  const el = ev.target.closest("[data-act],[data-tab]");
+  if (!el) return;
+  if (el.dataset.tab) { setView(el.dataset.tab); return; }
+  const act = el.dataset.act, i = el.dataset.key ? S.byKey.get(el.dataset.key) : null;
+  switch (act) {
+    case "sheet": if (i) postSheet(i); break;
+    case "copy": if (i && (await copyText(i.postText))) toast("Copied with line breaks"); break;
+    case "open":
+      if (!i) break;
+      if (await copyText(i.postText)) toast("Copied. Opening " + (PLATFORM_NAME[i.platform] || i.platform));
+      if (OPEN_APP[i.platform]) setTimeout(() => { location.href = OPEN_APP[i.platform](i.postText); }, 150);
+      break;
+    case "posted": if (i) { markPosted(i); if (sheetKey) closeSheet(); } break;
+    case "unpost": if (i) { unpost(i); if (sheetKey) closeSheet(); } break;
+    case "resched": if (i) reschedSheet(i); break;
+    case "pickdate": $("#rdate").value = el.dataset.date; break;
+    case "doresched": if (i) reschedule(i, $("#rdate").value); break;
+    case "save":
+      if (i && S.prepared[i.key]) {
+        try { await navigator.share({ files: S.prepared[i.key] }); } catch (e) { if (e.name !== "AbortError") toast("Could not open the share sheet"); }
+      }
+      break;
+    case "pending": pendingSheet(); break;
+    case "copylist": if (await copyText(pendingChanges().join("\n"))) toast("List copied"); break;
+    case "day": S.selected = el.dataset.date; setView("week"); break;
+    case "daysheet": daySheet(el.dataset.date); break;
+    case "signin": location.reload(); break;
+    case "close": closeSheet(); break;
+  }
+});
+$("#backdrop").addEventListener("click", closeSheet);
+$("#refresh").addEventListener("click", load);
+$("#help").addEventListener("click", keySheet);
+$("#toast-undo").addEventListener("click", () => { const f = undoFn; undoFn = null; $("#toast").classList.remove("on"); if (f) f(); });
+$("#wk-today").addEventListener("click", () => scrollStripTo(S.today, true));
+$("#m-prev").addEventListener("click", () => { const [y, m] = S.month.split("-").map(Number); S.month = fromUTC(Date.UTC(y, m - 2, 1)).slice(0, 7); renderMonth(); });
+$("#m-next").addEventListener("click", () => { const [y, m] = S.month.split("-").map(Number); S.month = fromUTC(Date.UTC(y, m, 1)).slice(0, 7); renderMonth(); });
+$("#m-today").addEventListener("click", () => { S.month = S.today.slice(0, 7); renderMonth(); });
+
+/* Swipe-down on the sheet's grab bar closes it */
+(() => {
+  let y0 = null;
+  const sheet = $("#sheet");
+  sheet.addEventListener("touchstart", (e) => { if (sheet.scrollTop <= 0) y0 = e.touches[0].clientY; }, { passive: true });
+  sheet.addEventListener("touchend", (e) => { if (y0 !== null && e.changedTouches[0].clientY - y0 > 90) closeSheet(); y0 = null; }, { passive: true });
+})();
+
+/* ---------- Swipe actions on Today cards ---------- */
+(() => {
+  const TH = 90;
+  let fg = null, card = null, x0 = 0, y0 = 0, dx = 0, mode = null;
+  const root = $("#v-today");
+  root.addEventListener("pointerdown", (e) => {
+    const c = e.target.closest(".card[data-swipe]");
+    if (!c || e.target.closest("button,a") || e.pointerType === "mouse" && e.button !== 0) return;
+    card = c; fg = c.querySelector(".fg"); x0 = e.clientX; y0 = e.clientY; dx = 0; mode = null;
+  });
+  root.addEventListener("pointermove", (e) => {
+    if (!fg) return;
+    const ddx = e.clientX - x0, ddy = e.clientY - y0;
+    if (!mode) {
+      if (Math.abs(ddx) < 8 && Math.abs(ddy) < 8) return;
+      mode = Math.abs(ddx) > Math.abs(ddy) ? "h" : "v";
+      if (mode === "h") { fg.classList.add("dragging"); try { fg.setPointerCapture(e.pointerId); } catch (_) {} }
+    }
+    if (mode !== "h") return;
+    dx = ddx;
+    fg.style.transform = `translateX(${dx}px)`;
+    card.classList.toggle("go-r", dx > 0); card.classList.toggle("go-l", dx < 0);
+  });
+  const end = () => {
+    if (!fg) return;
+    const i = S.byKey.get(card.dataset.key), d = dx, f = fg, c = card;
+    f.classList.remove("dragging");
+    f.style.transform = "";
+    setTimeout(() => c.classList.remove("go-r", "go-l"), 200);
+    fg = card = null;
+    if (mode === "h" && i) {
+      if (d > TH) markPosted(i);
+      else if (d < -TH) reschedSheet(i);
+    }
+    mode = null;
+  };
+  root.addEventListener("pointerup", end);
+  root.addEventListener("pointercancel", end);
+})();
+
+/* ---------- Lifecycle ---------- */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  const dayChanged = todayET() !== S.today;
+  if (dayChanged || Date.now() - S.loadedAt > 30 * 60 * 1000) load();
+});
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+load();
+</script>
+</body>
+</html>
