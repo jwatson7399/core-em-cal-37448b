@@ -66,6 +66,7 @@ h2:first-child{margin-top:4px}
 .pill svg{width:11px;height:11px}
 .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--card2);color:var(--muted);margin:0 4px 4px 0}
 .tag.local{color:var(--accent)}
+.tag.quiet{background:transparent;border:1px dashed var(--line);color:var(--muted)}
 
 /* Full cards (Today) */
 .card{position:relative;border-radius:var(--radius);margin:0 0 12px;overflow:hidden;background:var(--card2)}
@@ -365,12 +366,24 @@ function derive() {
 }
 
 const isOpen = (i) => i.status === "planned" || i.status === "missed";
+function textState(i) {
+  return i.textStatus === "awaiting_ok" ? "awaiting_ok" : "drafting";
+}
+function mediaGaps(i) {
+  if (/TO MAKE/i.test(i.sheetStatus || "")) return ["Needs media made"];
+  if (!(i.media && i.media.length)) return ["No media link"];
+  return [];
+}
 function prepGaps(i) {
-  const g = [];
-  if (/TO MAKE/i.test(i.sheetStatus)) g.push("Needs media made");
-  else if (!i.media.length) g.push("No media link");
-  if (/TO WRITE/i.test(i.sheetStatus) || !i.postText.trim()) g.push("No post text");
+  const g = mediaGaps(i);
+  if (!(i.postText || "").trim() && i.date <= addDays(S.today, 1)) {
+    g.push(textState(i) === "awaiting_ok" ? "Draft waiting for your OK" : "No post text yet");
+  }
   return g;
+}
+function quietText(i) {
+  if ((i.postText || "").trim() || i.date <= addDays(S.today, 1)) return "";
+  return textState(i) === "awaiting_ok" ? "Draft sent for your OK" : "Bot drafting text";
 }
 function pendingChanges() {
   const list = [];
@@ -400,6 +413,7 @@ function tags(i) {
   if (i.virtual) h += `<span class="tag">Moved from ${fmt(i.origDate, { month: "short", day: "numeric" })}</span>`;
   if (i.status === "rescheduled" && i.movedTo) h += `<span class="tag">Moved to ${fmt(i.movedTo, { month: "short", day: "numeric" })}</span>`;
   if (isOpen(i)) for (const g of prepGaps(i)) h += `<span class="tag">${g}</span>`;
+  if (isOpen(i) && quietText(i)) h += `<span class="tag quiet">${quietText(i)}</span>`;
   return h ? `<div>${h}</div>` : "";
 }
 
@@ -414,7 +428,7 @@ function fullCard(i) {
         ${thumb(i)}
       </div>
       ${hasText ? `<div class="txt clamp">${esc(i.postText)}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Full post and media</button>`
-                : `<div class="txt muted">No post text yet.</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Details</button>`}
+                : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Details</button>`}
       ${tags(i)}
       <div class="acts">
         <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(i.platform)}</button>
@@ -427,7 +441,7 @@ function fullCard(i) {
 }
 function rowHTML(i, extra = "") {
   return `<button class="row" data-act="sheet" data-key="${esc(i.key)}">${thumb(i)}
-    <div class="rt"><div class="r1">${esc(i.title)}</div><div class="r2">${esc(extra || i.postText.trim() || prepGaps(i).join(", ") || "No post text yet")}</div></div>
+    <div class="rt"><div class="r1">${esc(i.title)}</div><div class="r2">${esc(extra || i.postText.trim() || prepGaps(i).join(", ") || quietText(i) || "No post text yet")}</div></div>
     ${chip(i.platform, i.status)}</button>`;
 }
 
@@ -577,7 +591,7 @@ function postSheet(i) {
     <div class="t2">${chip(i.platform, i.status)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)} ${pill(i.status)}</div>
     <div class="note">Sheet: ${esc(i.sheetStatus || "no status")}${i.author ? " · " + esc(i.author) : ""}${i.slotType ? " · " + esc(i.slotType) : ""}</div>
     ${tags(i)}
-    ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">No post text yet.</div>`}
+    ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div>`}
     <div class="acts">
       <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(PLATFORM_NAME[i.platform] || i.platform)}</button>
       <button class="btn" data-act="copy" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.copy} Copy text</button>
