@@ -29,7 +29,7 @@
   --planned:#60a5fa;--posted:#4ade80;--missed:#f87171;--resched:#fbbf24;--chipText:#0b0f17;
 }}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.4 var(--font)}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.4 var(--font);overflow-x:hidden}
 body{overscroll-behavior-y:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 a{color:var(--accent)}
@@ -101,13 +101,14 @@ h2:first-child{margin-top:4px}
 .row .r2{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
 .row .thumb{width:44px;height:44px}
 
-/* Week strip */
-.weekbar{display:flex;align-items:center;gap:8px;margin:0 4px 10px}
+/* Merged calendar: month grid on top, swipeable week below */
+#v-calendar.on{display:flex;flex-direction:column;max-height:calc(100dvh - var(--safe-t) - 62px - var(--tab-h) - var(--safe-b) - 12px);min-height:0;overflow:hidden}
+.weekbar{display:flex;align-items:center;gap:8px;margin:8px 4px 8px}
 .weekbar .lbl{flex:1;font-weight:700}
 .smallbtn{font-size:14px;font-weight:600;padding:0 14px;min-height:44px;border-radius:999px;background:var(--card2)}
-.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 7.5%;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.strip{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 7.5%;scrollbar-width:none;-webkit-overflow-scrolling:touch;flex:1 1 auto;min-height:160px;align-items:stretch;overscroll-behavior-x:contain;touch-action:pan-x}
 .strip::-webkit-scrollbar{display:none}
-.day{flex:0 0 85%;scroll-snap-align:center;scroll-snap-stop:always;background:var(--card2);border-radius:20px;padding:14px;height:calc(100dvh - var(--safe-t) - var(--safe-b) - var(--tab-h) - 170px);min-height:320px;overflow:hidden;display:flex;flex-direction:column}
+.day{flex:0 0 85%;scroll-snap-align:center;scroll-snap-stop:always;background:var(--card2);border-radius:20px;padding:14px;height:auto;min-height:0;max-height:100%;overflow:hidden;display:flex;flex-direction:column}
 .day h3{margin:0 0 10px;font-size:18px;display:flex;align-items:center;gap:8px}
 .day.is-today h3 .tb{font-size:12px;background:var(--accent);color:var(--accentText);padding:2px 8px;border-radius:999px}
 .day .row{background:var(--card)}
@@ -115,20 +116,23 @@ h2:first-child{margin-top:4px}
 .dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
 
 /* Month */
-.monthbar{display:flex;align-items:center;gap:8px;margin:0 0 10px}
+.monthbar{display:flex;align-items:center;gap:8px;margin:0 0 6px;flex:none}
 .monthbar .lbl{flex:1;text-align:center;font-weight:700;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;width:100%;margin:0;flex:none}
 .wd{font-size:11px;text-align:center;color:var(--muted);font-weight:600;padding:2px 0 4px}
-.cell{min-height:64px;border-radius:10px;background:var(--card);padding:4px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;border:2px solid transparent}
+.cell{min-height:44px;width:100%;border-radius:8px;background:transparent;padding:3px 1px;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;color:inherit;overflow:hidden}
 .cell.blank{background:transparent}
-.cell .n{font-size:13px;font-weight:600;width:24px;height:24px;display:grid;place-items:center;border-radius:50%}
+.cell.in-week{background:var(--card2)}
+.cell.focus{outline:2px solid var(--accent);outline-offset:-2px}
+.cell.focus:not(.in-week){background:transparent}
+.cell.out{opacity:.4}
+.cell .n{font-size:13px;font-weight:600;width:22px;height:22px;display:grid;place-items:center;border-radius:50%}
 .cell.today .n{background:var(--accent);color:var(--accentText)}
-.cell.sel{border-color:var(--text)}
 .cell.past .n{color:var(--muted)}
-.cell .chip{min-width:0;width:26px;height:18px;font-size:10px;border-radius:5px;padding:0}
-.cell .chip .sym{width:12px;height:12px;right:-4px;bottom:-4px}
-.cell .chip .sym svg{width:9px;height:9px}
-.cell .plus{font-size:10px;color:var(--muted)}
+.cell .chip{min-width:0;width:22px;height:14px;font-size:8px;border-radius:4px;padding:0}
+.cell .chip .sym{width:10px;height:10px;right:-3px;bottom:-3px}
+.cell .chip .sym svg{width:8px;height:8px}
+.cell .plus{font-size:9px;color:var(--muted)}
 
 /* Tab bar */
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:var(--safe-b)}
@@ -179,25 +183,21 @@ h2:first-child{margin-top:4px}
 
 <main>
   <section class="view on" id="v-today"></section>
-  <section class="view" id="v-week">
-    <div class="weekbar"><div class="lbl" id="weeklbl"></div><button class="smallbtn" id="wk-today">Today</button></div>
-    <div class="strip" id="strip"></div>
-  </section>
-  <section class="view" id="v-month">
+  <section class="view" id="v-calendar">
     <div class="monthbar">
       <button class="iconbtn" id="m-prev" aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
       <div class="lbl" id="monthlbl"></div>
       <button class="iconbtn" id="m-next" aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
     <div class="grid" id="grid"></div>
-    <div class="quick"><button class="smallbtn" id="m-today">This month</button></div>
+    <div class="weekbar"><div class="lbl" id="weeklbl"></div><button class="smallbtn" id="wk-today">Today</button></div>
+    <div class="strip" id="strip"></div>
   </section>
 </main>
 
 <nav class="tabs" aria-label="Views">
   <button class="tab on" data-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Today<span class="badge hidden" id="badge"></span></button>
-  <button class="tab" data-tab="week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="5" height="12" rx="1.5"/><rect x="9.5" y="6" width="5" height="12" rx="1.5"/><rect x="16" y="6" width="5" height="12" rx="1.5"/></svg>Week</button>
-  <button class="tab" data-tab="month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Month</button>
+  <button class="tab" data-tab="calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button>
 </nav>
 
 <div class="backdrop" id="backdrop"></div>
@@ -233,6 +233,7 @@ const addDays = (s, n) => fromUTC(toUTC(s) + n * 864e5);
 const fmt = (s, o) => new Date(toUTC(s)).toLocaleDateString("en-US", { timeZone: "UTC", ...o });
 const fmtDay = (s) => fmt(s, { weekday: "short", month: "short", day: "numeric" });
 const weekday = (s) => new Date(toUTC(s)).getUTCDay();
+const weekStartOf = (s) => addDays(s, -weekday(s));
 const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || "");
 
 const SYM = {
@@ -501,17 +502,26 @@ function buildStrip() {
   }
   $("#strip").innerHTML = h;
   S.stripBuiltFor = S.today;
-  observeStrip();
 }
-let stripObs = null, programmatic = false;
-function observeStrip() {
-  if (stripObs) stripObs.disconnect();
-  stripObs = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting && !programmatic) { S.selected = e.target.dataset.date; updateWeekbar(); }
-    }
-  }, { root: $("#strip"), threshold: 0.6 });
-  document.querySelectorAll("#strip .day").forEach((el) => stripObs.observe(el));
+let programmatic = false;
+function snappedDay() {
+  const root = $("#strip");
+  if (!root) return null;
+  const cards = root.querySelectorAll(".day[data-date]");
+  const left = root.getBoundingClientRect().left;
+  let best = null, bestDist = Infinity;
+  for (const el of cards) {
+    const dist = Math.abs(el.getBoundingClientRect().left - left);
+    if (dist < bestDist) { bestDist = dist; best = el; }
+  }
+  return best ? best.dataset.date : null;
+}
+function onStripScroll() {
+  if (programmatic) return;
+  const day = snappedDay();
+  if (!day || day === S.selected) return;
+  S.selected = day;
+  updateCalendarChrome();
 }
 function scrollStripTo(date, smooth) {
   const el = document.querySelector(`#strip .day[data-date="${date}"]`);
@@ -522,30 +532,42 @@ function scrollStripTo(date, smooth) {
   strip.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
   clearTimeout(scrollStripTo.t);
   scrollStripTo.t = setTimeout(() => { programmatic = false; }, smooth ? 700 : 200);
-  S.selected = date; updateWeekbar();
+  S.selected = date;
+  updateCalendarChrome();
 }
-function updateWeekbar() {
-  const sun = addDays(S.selected, -weekday(S.selected));
-  $("#weeklbl").textContent = "Week of " + fmt(sun, { month: "short", day: "numeric" });
-  $("#wk-today").classList.toggle("hidden", S.selected === S.today);
+function updateCalendarChrome() {
+  const sel = S.selected || S.today;
+  const sun = weekStartOf(sel);
+  if ($("#weeklbl")) $("#weeklbl").textContent = "Week of " + fmt(sun, { month: "short", day: "numeric" });
+  if ($("#wk-today")) $("#wk-today").classList.toggle("hidden", sel === S.today);
+  const mon = sel.slice(0, 7);
+  if (S.month !== mon) S.month = mon;
+  if (S.view === "calendar") renderMonth();
 }
 
 function renderMonth() {
-  const [y, m] = S.month.split("-").map(Number);
-  const first = `${S.month}-01`;
-  const days = new Date(Date.UTC(y, m, 0)).getUTCDate();
-  $("#monthlbl").textContent = fmt(first, { month: "long", year: "numeric" });
+  const focus = S.selected || S.today;
+  const monthKey = S.month || focus.slice(0, 7);
+  const [y, m] = monthKey.split("-").map(Number);
+  const first = `${monthKey}-01`;
+  const dim = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const last = `${monthKey}-${String(dim).padStart(2, "0")}`;
+  const gridStart = weekStartOf(first);
+  const gridEnd = addDays(weekStartOf(last), 6);
+  const weekA = weekStartOf(focus);
+  const weekB = addDays(weekA, 6);
+  if ($("#monthlbl")) $("#monthlbl").textContent = fmt(first, { month: "long", year: "numeric" });
   let h = ["S", "M", "T", "W", "T", "F", "S"].map((d) => `<div class="wd">${d}</div>`).join("");
-  for (let k = 0; k < weekday(first); k++) h += `<div class="cell blank"></div>`;
-  for (let n = 1; n <= days; n++) {
-    const d = `${S.month}-${String(n).padStart(2, "0")}`;
+  for (let d = gridStart; d <= gridEnd; d = addDays(d, 1)) {
     const list = S.byDate.get(d) || [];
-    const cls = ["cell", d === S.today ? "today" : "", d === S.selected ? "sel" : "", d < S.today ? "past" : ""].join(" ");
+    const inMonth = d >= first && d <= last;
+    const cls = ["cell", d === S.today ? "today" : "", d === focus ? "focus" : "", (d >= weekA && d <= weekB) ? "in-week" : "", inMonth ? "" : "out", d < S.today ? "past" : ""].filter(Boolean).join(" ");
+    const n = Number(d.slice(8, 10));
     const chips = list.slice(0, 3).map((i) => chip(i.platform, i.status)).join("");
     const label = `${fmtDay(d)}, ${list.length} post${list.length === 1 ? "" : "s"}`;
     h += `<button class="${cls}" data-act="day" data-date="${d}" aria-label="${label}"><span class="n">${n}</span>${chips}${list.length > 3 ? `<span class="plus">+${list.length - 3}</span>` : ""}</button>`;
   }
-  $("#grid").innerHTML = h;
+  if ($("#grid")) $("#grid").innerHTML = h;
 }
 
 function renderBadge() {
@@ -559,16 +581,17 @@ function render() {
   $("#stamp").textContent = S.expired && !S.raw ? "Signed out" : (S.stampText || "Loading");
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === S.view));
   document.querySelectorAll(".view").forEach((v) => v.classList.toggle("on", v.id === "v-" + S.view));
-  $("#title").textContent = { today: "Today", week: "Week", month: "Month" }[S.view];
+  $("#title").textContent = { today: "Today", calendar: "Calendar" }[S.view] || "Today";
   renderToday();
   renderBadge();
-  if (S.view === "week") {
-    const target = S.selected;
-    programmatic = true; // ignore the observer's first report while we jump
+  if (S.view === "calendar") {
+    const target = S.selected || S.today;
+    programmatic = true;
     if (S.stripBuiltFor !== S.today) buildStrip();
+    S.month = target.slice(0, 7);
+    renderMonth();
     requestAnimationFrame(() => scrollStripTo(target, false));
   }
-  if (S.view === "month") renderMonth();
 }
 function setView(v) { S.view = v; render(); window.scrollTo(0, 0); }
 
@@ -653,8 +676,7 @@ function keySheet() {
     ${row("rescheduled", "Moved to another day.")}
     <div class="note" style="margin-top:12px"><b>X</b> is X, <b>IG</b> is Instagram. Color and the small shape both show status.</div>
     <div class="note"><b>Today:</b> swipe a card right to mark it posted, left to reschedule. Buttons do the same.</div>
-    <div class="note"><b>Week:</b> swipe between days. Tap a post for full text and media.</div>
-    <div class="note"><b>Month:</b> tap a day to open it in Week. The outlined day is the one you last looked at.</div>
+    <div class="note"><b>Calendar:</b> the month grid sits above a swipeable week. This week is highlighted, and the day you are on has an accent outline. Swiping into another month updates the grid. Tap a day on the month to jump to that week. Tap a post for full text and media.</div>
     <div class="note"><b>Phone only:</b> changes you make here are kept on this phone until the Sheet shows the same thing. The Sheet stays the source of truth.</div>
     <div class="note">${esc(S.stampText)}</div>`);
 }
@@ -741,7 +763,12 @@ document.addEventListener("click", async (ev) => {
       break;
     case "pending": pendingSheet(); break;
     case "copylist": if (await copyText(pendingChanges().join("\n"))) toast("List copied"); break;
-    case "day": S.selected = el.dataset.date; setView("week"); break;
+    case "day":
+      S.selected = el.dataset.date;
+      S.month = S.selected.slice(0, 7);
+      if (S.view !== "calendar") setView("calendar");
+      else { renderMonth(); scrollStripTo(S.selected, true); }
+      break;
     case "daysheet": daySheet(el.dataset.date); break;
     case "signin": location.reload(); break;
     case "close": closeSheet(); break;
@@ -752,9 +779,17 @@ $("#refresh").addEventListener("click", load);
 $("#help").addEventListener("click", keySheet);
 $("#toast-undo").addEventListener("click", () => { const f = undoFn; undoFn = null; $("#toast").classList.remove("on"); if (f) f(); });
 $("#wk-today").addEventListener("click", () => scrollStripTo(S.today, true));
-$("#m-prev").addEventListener("click", () => { const [y, m] = S.month.split("-").map(Number); S.month = fromUTC(Date.UTC(y, m - 2, 1)).slice(0, 7); renderMonth(); });
-$("#m-next").addEventListener("click", () => { const [y, m] = S.month.split("-").map(Number); S.month = fromUTC(Date.UTC(y, m, 1)).slice(0, 7); renderMonth(); });
-$("#m-today").addEventListener("click", () => { S.month = S.today.slice(0, 7); renderMonth(); });
+$("#m-prev").addEventListener("click", () => jumpMonth(-1));
+$("#m-next").addEventListener("click", () => jumpMonth(1));
+function jumpMonth(delta) {
+  const [y, m] = S.month.split("-").map(Number);
+  S.month = fromUTC(Date.UTC(y, m - 1 + delta, 1)).slice(0, 7);
+  S.selected = (S.today.slice(0, 7) === S.month) ? S.today : (S.month + "-01");
+  if (S.stripBuiltFor !== S.today) buildStrip();
+  renderMonth();
+  scrollStripTo(S.selected, true);
+}
+$("#strip").addEventListener("scroll", onStripScroll, { passive: true });
 
 /* Swipe-down on the sheet's grab bar closes it */
 (() => {
