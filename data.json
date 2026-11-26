@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T01:50:45-05:00",
-  "dataAsOf": "Wednesday, November 25, 2026, 9:00 AM ET",
+  "generatedAt": "2026-11-26T01:55:58-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 2:05 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -187,26 +187,6 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-27|X|Ep 212 Angioedema",
-      "date": "2026-11-27",
-      "platform": "X",
-      "title": "Ep 212 Angioedema",
-      "format": "video",
-      "slotType": "Video short",
-      "author": "",
-      "postText": "#TBT Core EM Ep 212 (2025): Angioedema with Dr. Maria Mulligan-Buckmiller.\n\nHives + itch: histamine. No hives, no itch: think bradykinin.\nAirway first. Epi if unsure. Targeted drugs for HAE. Labs help later.\n\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
-        }
-      ],
-      "sheetStatus": "READY",
-      "posted": false,
-      "thumb": "asset:ep212-x.jpg",
-      "ratio": "800/1422"
-    },
-    {
       "id": "2026-11-27|IG|Ep 212 Angioedema",
       "date": "2026-11-27",
       "platform": "IG",
@@ -259,7 +239,8 @@
       "sheetStatus": "CARDS MADE",
       "posted": false,
       "thumb": "asset:bag-cards.jpg",
-      "ratio": "800/800"
+      "ratio": "800/800",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-11-28|IG|Ep 230 DRESS",
@@ -302,19 +283,25 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-30|X|Ep 149 Simplified Approach to Peds Trauma",
+      "id": "2026-11-30|X|Ep 212 Angioedema",
       "date": "2026-11-30",
       "platform": "X",
-      "title": "Ep 149 Simplified Approach to Peds Trauma",
+      "title": "Ep 212 Angioedema",
       "format": "video",
       "slotType": "Video short",
       "author": "",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
+      "postText": "No hives, no itch?\nThink bradykinin, not histamine. 🚑\n\nHives + itch: histamine.\nAirway first. Epi if unsure.\nTargeted drugs for HAE. Labs help later.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
+        }
+      ],
+      "sheetStatus": "READY",
       "posted": false,
-      "thumb": "",
-      "ratio": ""
+      "thumb": "asset:ep212-x.jpg",
+      "ratio": "800/1422",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-11-30|IG|Ep 218 SCAPE",
@@ -349,7 +336,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-01|IG|Ep 229 Iron Poisoning #TBT",
@@ -409,7 +397,8 @@
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep214-x.jpg",
-      "ratio": "800/1422"
+      "ratio": "800/1422",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-03|IG|Ep 214 Acute Pulmonary Embolism",
@@ -514,7 +503,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-07|IG|Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves)",
@@ -544,7 +534,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-08|IG|Bag & Guard wound irrigation cards",
@@ -639,7 +630,8 @@
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep204-x.jpg",
-      "ratio": "800/1422"
+      "ratio": "800/1422",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-10|IG|Ep 204 Necrotizing Fasciitis",
@@ -684,7 +676,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-12|IG|Point-of-Care Ultrasound for Suspected Pulmonary Embolism",
@@ -734,7 +727,8 @@
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep213-x.jpg",
-      "ratio": "800/1422"
+      "ratio": "800/1422",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-14|IG|Ep 213 Pneumothorax",
@@ -764,7 +758,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-15|IG|Pediatric Asthma",
@@ -809,7 +804,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-17|IG|Ep 9.1 The Evolution of Pain Management with Sergey Motov",
@@ -839,7 +835,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-21|IG|Ep 225 Group A Strep",
@@ -869,7 +866,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-22|IG|Measles",
@@ -899,7 +897,8 @@
       "sheetStatus": "TO MAKE",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-24|IG|Ep 224 Kidney Stones",
@@ -2595,6 +2594,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-05-06|X|Ep 149 Simplified Approach to Peds Trauma",
+      "date": "2027-05-06",
+      "platform": "X",
+      "title": "Ep 149 Simplified Approach to Peds Trauma",
+      "format": "video",
+      "slotType": "Video short",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "8:00 AM ET"
     }
   ]
 }
