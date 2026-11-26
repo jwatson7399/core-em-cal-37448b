@@ -57,13 +57,18 @@ h2:first-child{margin-top:4px}
 .empty{padding:16px;border-radius:var(--radius);background:var(--card);color:var(--muted);text-align:center}
 
 /* Chips and pills */
-.chip{position:relative;display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:7px;font-weight:800;font-size:12px;color:var(--chipText);letter-spacing:.02em;flex:none}
+.chip{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:30px;height:24px;padding:0 7px;border-radius:7px;font-weight:800;font-size:12px;color:var(--chipText);letter-spacing:.02em;flex:none}
+.chip .fi{width:11px;height:11px;flex:none;display:block}
+.chip .pl{line-height:1}
 .chip .sym{position:absolute;right:-5px;bottom:-5px;width:15px;height:15px;border-radius:50%;background:var(--card);display:grid;place-items:center;color:inherit}
 .chip .sym svg{width:11px;height:11px}
 .s-planned{background:var(--planned)}.s-posted{background:var(--posted)}.s-missed{background:var(--missed)}.s-rescheduled{background:var(--resched)}
 .c-planned{color:var(--planned)}.c-posted{color:var(--posted)}.c-missed{color:var(--missed)}.c-rescheduled{color:var(--resched)}
 .pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap}
 .pill svg{width:11px;height:11px}
+.fpill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:999px;background:var(--card2);color:var(--text);border:1px solid var(--line);white-space:nowrap;flex:none}
+.fpill .fi{width:11px;height:11px;flex:none;display:block}
+.rchips{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none}
 .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--card2);color:var(--muted);margin:0 4px 4px 0}
 .tag.local{color:var(--accent)}
 .tag.quiet{background:transparent;border:1px dashed var(--line);color:var(--muted)}
@@ -129,7 +134,8 @@ h2:first-child{margin-top:4px}
 .cell .n{font-size:13px;font-weight:600;width:22px;height:22px;display:grid;place-items:center;border-radius:50%}
 .cell.today .n{background:var(--accent);color:var(--accentText)}
 .cell.past .n{color:var(--muted)}
-.cell .chip{min-width:0;width:22px;height:14px;font-size:8px;border-radius:4px;padding:0}
+.cell .chip{min-width:0;width:auto;height:15px;font-size:8px;border-radius:4px;padding:0 3px;gap:1px}
+.cell .chip .fi{width:8px;height:8px}
 .cell .chip .sym{width:10px;height:10px;right:-3px;bottom:-3px}
 .cell .chip .sym svg{width:8px;height:8px}
 .cell .plus{font-size:9px;color:var(--muted)}
@@ -340,7 +346,38 @@ const ICON = {
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
   open: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>'
 };
-const chip = (p, status) => `<span class="chip s-${status}" aria-label="${esc(PLATFORM_NAME[p] || p)}, ${STATUS_LABEL[status]}">${esc(p)}<span class="sym c-${status}">${SYM[status]}</span></span>`;
+const FMT_ICON = {
+  video: '<svg class="fi" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 2.1v7.8L10.2 6 3 2.1z"/></svg>',
+  cards: '<svg class="fi" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 2.2h6.2A1.2 1.2 0 0 1 10.6 3.4v5"/><rect x="1.4" y="3.4" width="7.4" height="6.4" rx="1.1"/></svg>'
+};
+function formatKind(i) {
+  const t = [i && i.format, i && i.slotType].filter(Boolean).join(" ").toLowerCase();
+  if (/video|reel|\bshorts?\b/.test(t)) return "video";
+  if (/carousel|infographic|\bcards?\b/.test(t)) return "cards";
+  return "";
+}
+function formatLabel(i) {
+  const k = formatKind(i);
+  if (k === "video") return "Video";
+  if (k === "cards") return "Cards";
+  const raw = String((i && (i.format || i.slotType)) || "").trim();
+  if (!raw) return "";
+  return raw.replace(/[_-]+/g, " ").replace(/\b[a-z]/g, (c) => c.toUpperCase());
+}
+const chip = (p, status, i) => {
+  const kind = i ? formatKind(i) : "";
+  const fl = i ? formatLabel(i) : "";
+  const icon = (kind && FMT_ICON[kind]) || "";
+  const aria = [PLATFORM_NAME[p] || p, fl, STATUS_LABEL[status]].filter(Boolean).join(", ");
+  return `<span class="chip s-${status}${kind ? " fmt-" + kind : ""}" aria-label="${esc(aria)}">${icon}<span class="pl">${esc(p)}</span><span class="sym c-${status}">${SYM[status]}</span></span>`;
+};
+const formatPill = (i) => {
+  const label = formatLabel(i);
+  if (!label) return "";
+  const kind = formatKind(i);
+  const icon = (kind && FMT_ICON[kind]) || "";
+  return `<span class="fpill${kind ? " fmt-" + kind : ""}">${icon}${esc(label)}</span>`;
+};
 const pill = (status) => `<span class="pill c-${status}">${SYM[status]}${STATUS_LABEL[status]}</span>`;
 
 /* ---------- State ---------- */
@@ -523,7 +560,7 @@ function thumb(i, cls = "thumb") {
   return `<img class="${cls}" src="${esc(src)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'${cls} ph',textContent:'${esc(i.platform)}'}))">`;
 }
 function dateLine(i) {
-  const bits = [esc(i.format || "")];
+  const bits = [];
   if (i.date !== S.today) bits.push(fmtDay(i.date));
   if (i.time) bits.push(esc(i.time));
   return bits.filter(Boolean).join(" · ");
@@ -544,8 +581,8 @@ function fullCard(i) {
   return `<article class="card${open ? "" : " done"}" data-key="${esc(i.key)}" ${open ? 'data-swipe="1"' : ""}>
     <div class="swipe-bg"><span class="l">${ICON.check} Posted</span><span class="r">Reschedule</span></div>
     <div class="fg">
-      <div class="card-h">${chip(i.platform, i.status)}
-        <div class="ttl"><div class="t1">${esc(i.title)}</div><div class="t2">${dateLine(i)} ${pill(i.status)}</div></div>
+      <div class="card-h">${chip(i.platform, i.status, i)}
+        <div class="ttl"><div class="t1">${esc(i.title)}</div><div class="t2">${formatPill(i)} ${dateLine(i)} ${pill(i.status)}</div></div>
         ${thumb(i)}
       </div>
       ${hasText ? `<div class="txt clamp">${esc(i.postText)}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Full post and media</button>`
@@ -563,7 +600,7 @@ function fullCard(i) {
 function rowHTML(i, extra = "") {
   return `<button class="row" data-act="sheet" data-key="${esc(i.key)}">${thumb(i)}
     <div class="rt"><div class="r1">${esc(i.title)}</div><div class="r2">${esc(extra || i.postText.trim() || prepGaps(i).join(", ") || quietText(i) || "No post text yet")}</div></div>
-    ${chip(i.platform, i.status)}</button>`;
+    <span class="rchips">${chip(i.platform, i.status, i)}${formatPill(i)}</span></button>`;
 }
 
 function renderToday() {
@@ -683,8 +720,9 @@ function renderMonth() {
     const inMonth = d >= first && d <= last;
     const cls = ["cell", d === S.today ? "today" : "", d === focus ? "focus" : "", (d >= weekA && d <= weekB) ? "in-week" : "", inMonth ? "" : "out", d < S.today ? "past" : ""].filter(Boolean).join(" ");
     const n = Number(d.slice(8, 10));
-    const chips = list.slice(0, 3).map((i) => chip(i.platform, i.status)).join("");
-    const label = `${fmtDay(d)}, ${list.length} post${list.length === 1 ? "" : "s"}`;
+    const chips = list.slice(0, 3).map((i) => chip(i.platform, i.status, i)).join("");
+    const bits = list.map((i) => [PLATFORM_NAME[i.platform] || i.platform, formatLabel(i)].filter(Boolean).join(" "));
+    const label = `${fmtDay(d)}${list.length ? ", " + bits.join("; ") : ", no posts"}`;
     h += `<button class="${cls}" data-act="day" data-date="${d}" aria-label="${label}"><span class="n">${n}</span>${chips}${list.length > 3 ? `<span class="plus">+${list.length - 3}</span>` : ""}</button>`;
   }
   if ($("#grid")) $("#grid").innerHTML = h;
@@ -734,7 +772,7 @@ function postSheet(i) {
   const rest = i.media.filter((m) => !/pdf/i.test(m.label));
   const files = i.media.filter((m) => m.file);
   let h = `<h3>${esc(i.title)}</h3>
-    <div class="t2">${chip(i.platform, i.status)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)}${i.time ? " · " + esc(i.time) : ""} ${pill(i.status)}</div>
+    <div class="t2">${chip(i.platform, i.status, i)} ${formatPill(i)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)}${i.time ? " · " + esc(i.time) : ""} ${pill(i.status)}</div>
     <div class="note">Sheet: ${esc(i.sheetStatus || "no status")}${i.author ? " · " + esc(i.author) : ""}${i.slotType ? " · " + esc(i.slotType) : ""}</div>
     ${tags(i)}
     ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div>`}
@@ -799,6 +837,9 @@ function keySheet() {
     ${row("missed", "Date has passed and it was not posted.")}
     ${row("rescheduled", "Moved to another day.")}
     <div class="note" style="margin-top:12px"><b>X</b> is X, <b>IG</b> is Instagram. Color and the small shape both show status.</div>
+    <div class="sub-h">Format</div>
+    <div class="keyrow">${chip("X", "planned", { format: "video" })}${formatPill({ format: "video" })}<div><b>Video</b><div class="note">A video, reel, or short. On the month grid, a play mark sits next to the platform letters.</div></div></div>
+    <div class="keyrow">${chip("X", "planned", { format: "carousel" })}${formatPill({ format: "carousel" })}<div><b>Cards</b><div class="note">A carousel, infographic, or card set. On the month grid, a stacked-cards mark sits next to the platform letters.</div></div></div>
     <div class="note"><b>Today:</b> swipe a card right to mark it posted, left to reschedule. Buttons do the same.</div>
     <div class="note"><b>Calendar:</b> the month grid sits above a swipeable week. This week is highlighted, and the day you are on has an accent outline. Swiping into another month updates the grid. Tap a day on the month to jump to that week. Tap a post for full text and media.</div>
     <div class="note"><b>Phone only:</b> changes you make here are kept on this phone until the Sheet shows the same thing. The Sheet stays the source of truth.</div>
