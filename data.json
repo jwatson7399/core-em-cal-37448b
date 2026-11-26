@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T01:56:29-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 1:57 AM ET",
+  "generatedAt": "2026-11-26T02:19:32-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 2:19 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -93,7 +93,7 @@
       "format": "carousel",
       "slotType": "Infographic cards",
       "author": "Jude Luke, MD",
-      "postText": "New Core EM review: Hemoptysis (Jude Luke, MD) 🫁\n\nFirst confirm a pulmonary source.\nInspect the mouth and nose, and consider a GI bleed.\n\nA normal chest film has limited sensitivity.\nIf bleeding persists or cancer risk is high, keep going.\n\nhttps://coreem.net/core/hemoptysis/\n#FOAMed",
+      "postText": "New Core EM review: Hemoptysis (Jude Luke, MD)\n\nFirst confirm a pulmonary source.\nInspect the mouth and nose, and consider a GI bleed.\n\nA normal chest film has limited sensitivity.\nIf bleeding persists or cancer risk is high, keep going.\n\nhttps://coreem.net/core/hemoptysis/\n#FOAMed",
       "media": [
         {
           "label": "Preview all (PDF)",
@@ -133,7 +133,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "2 minutes on local anesthetic systemic toxicity (LAST). ⚡\n\nMetallic taste. Seizures.\nA wide QRS or arrest after a block or lidocaine.\nThink LAST.\n\nStop the injection.\nGet lipid 20% early:\n• 1.5 mL/kg bolus\n• then 0.25 mL/kg/min\n\nArrest? Use modified ACLS:\n• low-dose epi\n• amiodarone\n• no more lidocaine\n\nCore EM Ep 222.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #LAST",
+      "postText": "2 minutes on local anesthetic systemic toxicity (LAST).\n\nMetallic taste. Seizures.\nA wide QRS or arrest after a block or lidocaine.\nThink LAST.\n\nStop the injection.\nGet lipid 20% early:\n• 1.5 mL/kg bolus\n• then 0.25 mL/kg/min\n\nArrest? Use modified ACLS:\n• low-dose epi\n• amiodarone\n• no more lidocaine\n\nCore EM Ep 222.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #LAST",
       "media": [
         {
           "label": "Video",
@@ -146,45 +146,25 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-26|X|Ep 223 Thyroid Storm",
+      "id": "2026-11-26|X|Ep 212 Angioedema",
       "date": "2026-11-26",
       "platform": "X",
-      "title": "Ep 223 Thyroid Storm",
+      "title": "Ep 212 Angioedema",
       "format": "video",
       "slotType": "Video short",
       "author": "",
-      "postText": "Thyroid storm has no lab cutoff.\nAltered mentation is the tell. 🔥\n\nOrder matters:\n• PTU first\n• Wait at least 1 hour\n• Then iodine\n\nFever? Acetaminophen. Never aspirin.\n\n#TBT Core EM Ep 223 (2026) with Dr. Annaliese Elam\nhttps://coreem.net/podcast/episode-223-thyroid-storm/\n#FOAMed",
+      "postText": "No hives, no itch?\nThink bradykinin, not histamine.\n\nHives + itch: histamine.\nAirway first. Epi if unsure.\nTargeted drugs for HAE. Labs help later.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
       "media": [
         {
           "label": "Video",
-          "href": "https://drive.google.com/file/d/1XlGHmjZ3-43IgG22HbhSi-UIMYpmCt-W/view"
+          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
         }
       ],
       "sheetStatus": "READY",
       "posted": false,
-      "thumb": "asset:thyroid-x.jpg",
+      "thumb": "asset:ep212-x.jpg",
       "ratio": "800/1422",
       "time": "8:00 AM ET"
-    },
-    {
-      "id": "2026-11-26|IG|Ep 223 Thyroid Storm",
-      "date": "2026-11-26",
-      "platform": "IG",
-      "title": "Ep 223 Thyroid Storm",
-      "format": "Reel",
-      "slotType": "MIRROR X",
-      "author": "",
-      "postText": "#TBT Core EM Ep 223 (2026): Thyroid Storm. ⚡\n\nThyroid storm is a clinical diagnosis.\n\nAltered mentation is often what separates it from compensated thyrotoxicosis.\n\nOrder matters:\n• PTU first\n• wait at least an hour\n• then iodine\n\nBlock T4 to T3 with propranolol, PTU, and steroids.\n\nThey are volume-down, so give crystalloid.\n\nCool with acetaminophen, never aspirin.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #ThyroidStorm #TBT",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/1XlGHmjZ3-43IgG22HbhSi-UIMYpmCt-W/view"
-        }
-      ],
-      "sheetStatus": "READY",
-      "posted": false,
-      "thumb": "asset:thyroid-x.jpg",
-      "ratio": "800/1422"
     },
     {
       "id": "2026-11-27|IG|Ep 212 Angioedema",
@@ -194,7 +174,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "#TBT Core EM Ep 212 (2025): Angioedema\nwith Dr. Maria Mulligan-Buckmiller and host Brian Gilberti. 🚑\n\nAirway first.\nMake sure the airway is secure.\nThey're controlling their secretions, and the airway is patent.\n\nWatch for:\n• stridor\n• labored breathing\n• a sensation of throat closure\n• trouble breathing or talking\n\nIf it's histamine-mediated, epi is lifesaving.\n\nNo hives and no itching should make you think bradykinin, like hereditary angioedema.\n\nIn Mia's case, there was no redness and no itching.\nIt had happened in her dad.\nShe had been off her prescribed medicine for a year.\n\nACE inhibitors are a frequent trigger for bradykinin-mediated angioedema.\nIn rare situations, ARBs are also the culprits.\n\nTrust your clinical judgment.\nLabs and imaging often help with downstream care, not the initial decision.\n\nTargeted HAE treatments are covered in the full episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #Angioedema",
+      "postText": "#TBT Core EM Ep 212 (2025): Angioedema\nwith Dr. Maria Mulligan-Buckmiller and host Brian Gilberti.\n\nAirway first.\nMake sure the airway is secure.\nThey're controlling their secretions, and the airway is patent.\n\nWatch for:\n• stridor\n• labored breathing\n• a sensation of throat closure\n• trouble breathing or talking\n\nIf it's histamine-mediated, epi is lifesaving.\n\nNo hives and no itching should make you think bradykinin, like hereditary angioedema.\n\nIn Mia's case, there was no redness and no itching.\nIt had happened in her dad.\nShe had been off her prescribed medicine for a year.\n\nACE inhibitors are a frequent trigger for bradykinin-mediated angioedema.\nIn rare situations, ARBs are also the culprits.\n\nTrust your clinical judgment.\nLabs and imaging often help with downstream care, not the initial decision.\n\nTargeted HAE treatments are covered in the full episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #Angioedema",
       "media": [
         {
           "label": "IG Reel",
@@ -250,7 +230,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "Core EM Ep 230: DRESS. ⚡\n\nDiffuse rash plus hypotension, and epinephrine isn't helping?\n\nDon't anchor on anaphylaxis.\n\nLook back weeks to months for a culprit drug.\n\nClassic clues:\n• facial edema\n• lymphadenopathy\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #DRESS",
+      "postText": "Core EM Ep 230: DRESS.\n\nDiffuse rash plus hypotension, and epinephrine isn't helping?\n\nDon't anchor on anaphylaxis.\n\nLook back weeks to months for a culprit drug.\n\nClassic clues:\n• facial edema\n• lymphadenopathy\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #DRESS",
       "media": [
         {
           "label": "Video",
@@ -270,7 +250,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "#TBT Core EM Ep 220 (2026): Post-ROSC Care\nwith Dr. Jonathan Elmer and host Brian Gilberti. 🚑\n\nROSC isn't the finish line.\n\nExpect the crash, and be ready.\nThe epi we gave during the code wears off, so have a push-dose pressor at the bedside.\n\nDon't anchor on ischemic-looking EKG changes.\nThey may be a consequence of the arrest.\nCast a broad net.\n\nThe stunned brain often looks bleak in the first minutes or hours.\nIt often gets better with time.\n\nBring the family to the bedside if they're willing.\nWhen asked about prognosis, it's okay to say I don't know.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #CardiacArrest",
+      "postText": "#TBT Core EM Ep 220 (2026): Post-ROSC Care\nwith Dr. Jonathan Elmer and host Brian Gilberti.\n\nROSC isn't the finish line.\n\nExpect the crash, and be ready.\nThe epi we gave during the code wears off, so have a push-dose pressor at the bedside.\n\nDon't anchor on ischemic-looking EKG changes.\nThey may be a consequence of the arrest.\nCast a broad net.\n\nThe stunned brain often looks bleak in the first minutes or hours.\nIt often gets better with time.\n\nBring the family to the bedside if they're willing.\nWhen asked about prognosis, it's okay to say I don't know.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #CardiacArrest",
       "media": [
         {
           "label": "IG Reel",
@@ -283,23 +263,18 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-30|X|Ep 212 Angioedema",
+      "id": "2026-11-30|X|Ep 223 Thyroid Storm",
       "date": "2026-11-30",
       "platform": "X",
-      "title": "Ep 212 Angioedema",
+      "title": "Ep 223 Thyroid Storm",
       "format": "video",
       "slotType": "Video short",
       "author": "",
-      "postText": "No hives, no itch?\nThink bradykinin, not histamine. 🚑\n\nHives + itch: histamine.\nAirway first. Epi if unsure.\nTargeted drugs for HAE. Labs help later.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
-        }
-      ],
-      "sheetStatus": "READY",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "IN PROGRESS (remake)",
       "posted": false,
-      "thumb": "asset:ep212-x.jpg",
+      "thumb": "asset:thyroid-x.jpg",
       "ratio": "800/1422",
       "time": "8:00 AM ET"
     },
@@ -311,7 +286,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "#TBT Core EM Ep 218 (2026): SCAPE\nwith Naz Sarpoulaki and host Brian Gilberti. 🫁\n\nSCAPE is a maldistribution problem, not necessarily volume overload.\nWet lungs, maybe a dry tank.\n\nDon't wait for the x-ray.\nBilateral B-lines on bedside ultrasound in a hypertensive, dyspneic patient point firmly to it, in seconds.\n\nStart BiPAP or CPAP immediately when appropriate.\n\nThen high-dose nitro for arterial dilation, roughly 100 to 150 mcg/min and up as described in the episode.\n\nAsk about phosphodiesterase inhibitors first, since they're a contraindication.\n\nTruly overloaded? Consider IV diuretics after stabilizing.\nThey take time.\n\nVasodilators fix the pipes, and in SCAPE the pipes are the immediate problem.\n\nAvoid morphine and beta blockers when possible.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #SCAPE #TBT",
+      "postText": "#TBT Core EM Ep 218 (2026): SCAPE\nwith Naz Sarpoulaki and host Brian Gilberti.\n\nSCAPE is a maldistribution problem, not necessarily volume overload.\nWet lungs, maybe a dry tank.\n\nDon't wait for the x-ray.\nBilateral B-lines on bedside ultrasound in a hypertensive, dyspneic patient point firmly to it, in seconds.\n\nStart BiPAP or CPAP immediately when appropriate.\n\nThen high-dose nitro for arterial dilation, roughly 100 to 150 mcg/min and up as described in the episode.\n\nAsk about phosphodiesterase inhibitors first, since they're a contraindication.\n\nTruly overloaded? Consider IV diuretics after stabilizing.\nThey take time.\n\nVasodilators fix the pipes, and in SCAPE the pipes are the immediate problem.\n\nAvoid morphine and beta blockers when possible.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #SCAPE #TBT",
       "media": [
         {
           "label": "IG Reel",
@@ -347,7 +322,7 @@
       "format": "Reel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "#TBT Core EM Ep 229 (2026): Iron Poisoning\nwith Dr. Brian Chastain and host Brian Gilberti. ⚠️\n\nThe latent phase is a dangerous trap.\nThey can look like they're turning the corner right before they crump.\n\nImprovement in GI symptoms doesn't mean the toxic effects have run their course.\nIron is being absorbed, and cardiovascular collapse and shock can follow.\n\nTreat the patient, not the number.\nIf they're in shock or have a profound metabolic acidosis, start deferoxamine even if the serum iron level hasn't peaked or is lower than expected.\nThere's little harm other than hypotension.\n\nIt's the elemental iron dose, not the mass of the pill.\nFerrous sulfate has roughly 65 mg of elemental iron per 325 mg pill.\nUnder 20 mg/kg is usually asymptomatic.\nOver 60 mg/kg is the threshold for serious toxicity and possible death.\n\nGet an X-ray.\nIf you see pills on KUB, reach for whole bowel irrigation.\nSkip the charcoal, and hold off on routine lavage.\nGet poison control on the line early.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #IronPoisoning",
+      "postText": "#TBT Core EM Ep 229 (2026): Iron Poisoning\nwith Dr. Brian Chastain and host Brian Gilberti.\n\nThe latent phase is a dangerous trap.\nThey can look like they're turning the corner right before they crump.\n\nImprovement in GI symptoms doesn't mean the toxic effects have run their course.\nIron is being absorbed, and cardiovascular collapse and shock can follow.\n\nTreat the patient, not the number.\nIf they're in shock or have a profound metabolic acidosis, start deferoxamine even if the serum iron level hasn't peaked or is lower than expected.\nThere's little harm other than hypotension.\n\nIt's the elemental iron dose, not the mass of the pill.\nFerrous sulfate has roughly 65 mg of elemental iron per 325 mg pill.\nUnder 20 mg/kg is usually asymptomatic.\nOver 60 mg/kg is the threshold for serious toxicity and possible death.\n\nGet an X-ray.\nIf you see pills on KUB, reach for whole bowel irrigation.\nSkip the charcoal, and hold off on routine lavage.\nGet poison control on the line early.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #IronPoisoning",
       "media": [
         {
           "label": "IG Reel",
@@ -408,7 +383,7 @@
       "format": "Reel",
       "slotType": "MIRROR X",
       "author": "",
-      "postText": "#TBT Core EM Ep 214 (2025): Acute PE\nwith Dr. Vivian Chiu and host Brian Gilberti. 🫁\n\nPE is a master of disguise, from subtle shortness of breath to collapse.\n\nKeep a broad differential:\n• pneumonia\n• ACS\n• pneumothorax\n• heart failure exacerbation\n• aortic dissection\n\nAlarm bells for high-risk PE:\n• SBP under 90 for over 15 minutes\n• needing vasopressors\n• signs of shock\n\nCall your PERT team.\n\nFor low or intermediate risk, a negative D-dimer lets you skip the CT radiation.\nHigh risk goes straight to imaging.\n\nTroponin and BNP gauge RV strain and severity, not the diagnosis.\n\nThe RV despises big swings:\n• skimp on fluids if you can\n• lead with norepinephrine for low pressure\n• avoid intubation when possible, since positive pressure can worsen RV dysfunction\n\nDon't anchor on the obvious.\nAlways risk stratify and resuscitate with precision.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #PulmonaryEmbolism",
+      "postText": "#TBT Core EM Ep 214 (2025): Acute PE\nwith Dr. Vivian Chiu and host Brian Gilberti.\n\nPE is a master of disguise, from subtle shortness of breath to collapse.\n\nKeep a broad differential:\n• pneumonia\n• ACS\n• pneumothorax\n• heart failure exacerbation\n• aortic dissection\n\nAlarm bells for high-risk PE:\n• SBP under 90 for over 15 minutes\n• needing vasopressors\n• signs of shock\n\nCall your PERT team.\n\nFor low or intermediate risk, a negative D-dimer lets you skip the CT radiation.\nHigh risk goes straight to imaging.\n\nTroponin and BNP gauge RV strain and severity, not the diagnosis.\n\nThe RV despises big swings:\n• skimp on fluids if you can\n• lead with norepinephrine for low pressure\n• avoid intubation when possible, since positive pressure can worsen RV dysfunction\n\nDon't anchor on the obvious.\nAlways risk stratify and resuscitate with precision.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #PulmonaryEmbolism",
       "media": [
         {
           "label": "IG Reel",
@@ -458,7 +433,7 @@
       "format": "carousel",
       "slotType": "MIRROR X",
       "author": "",
-      "postText": "New Core EM review: Hemoptysis (Jude Luke, MD) 🫁\n\nSwipe for severity, imaging, and source control.\n\nA first step that is easy to skip:\nconfirm a pulmonary source.\nInspect the mouth and nose, and consider a GI bleed.\n\nA normal chest film has limited sensitivity.\nIf bleeding persists or cancer risk is high, keep going.\n\nIf you image, ask for a CTA tailored to bronchial and systemic arteries.\n\nFull review at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #Hemoptysis",
+      "postText": "New Core EM review: Hemoptysis (Jude Luke, MD)\n\nSwipe for severity, imaging, and source control.\n\nA first step that is easy to skip:\nconfirm a pulmonary source.\nInspect the mouth and nose, and consider a GI bleed.\n\nA normal chest film has limited sensitivity.\nIf bleeding persists or cancer risk is high, keep going.\n\nIf you image, ask for a CTA tailored to bronchial and systemic arteries.\n\nFull review at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #Hemoptysis",
       "media": [
         {
           "label": "Preview all (PDF)",
@@ -580,7 +555,7 @@
       "format": "carousel",
       "slotType": "CATCH-UP",
       "author": "",
-      "postText": "Core EM Ep 226: Superwarfarin toxicity\nwith Mac Josh Reandelar, DO and Avir Mitra, MD. ⚠️\n\nThey can look well, with a staggering INR, before bleeding is obvious.\n\nDo not wait for confirmatory testing to start treatment.\n\nCall poison control early. They can help with dosing and the months-long taper.\n\nSwipe for recognition and reversal.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #Toxicology",
+      "postText": "Core EM Ep 226: Superwarfarin toxicity\nwith Mac Josh Reandelar, DO and Avir Mitra, MD.\n\nThey can look well, with a staggering INR, before bleeding is obvious.\n\nDo not wait for confirmatory testing to start treatment.\n\nCall poison control early. They can help with dosing and the months-long taper.\n\nSwipe for recognition and reversal.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #Toxicology",
       "media": [
         {
           "label": "Preview all (PDF)",
@@ -821,6 +796,27 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2026-12-18|IG|Ep 223 Thyroid Storm",
+      "date": "2026-12-18",
+      "platform": "IG",
+      "title": "Ep 223 Thyroid Storm",
+      "format": "Reel",
+      "slotType": "MIRROR X",
+      "author": "",
+      "postText": "#TBT Core EM Ep 223 (2026): Thyroid Storm.\n\nThyroid storm is a clinical diagnosis.\n\nAltered mentation is often what separates it from compensated thyrotoxicosis.\n\nOrder matters:\n• PTU first\n• wait at least an hour\n• then iodine\n\nBlock T4 to T3 with propranolol, PTU, and steroids.\n\nThey are volume-down, so give crystalloid.\n\nCool with acetaminophen, never aspirin.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #ThyroidStorm #TBT",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1XlGHmjZ3-43IgG22HbhSi-UIMYpmCt-W/view"
+        }
+      ],
+      "sheetStatus": "READY. Post time: 10:00 AM ET. Moved 2026-11-26 from Thu 2026-11-26 to Fri 2026-12-18 to follow the X remake (Mon 11-30 already has the Ep 218 SCAPE catch-up).",
+      "posted": false,
+      "thumb": "asset:thyroid-x.jpg",
+      "ratio": "800/1422",
+      "time": "10:00 AM ET"
     },
     {
       "id": "2026-12-21|X|Ep 225 Group A Strep",
