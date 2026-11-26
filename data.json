@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T11:45:38-05:00",
+  "generatedAt": "2026-11-26T11:52:00-05:00",
   "dataAsOf": "Thursday, November 26, 2026, 11:45 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
@@ -126,8 +126,8 @@
       "ratio": "800/999"
     },
     {
-      "id": "2026-11-26|X|Ep 212 Angioedema",
-      "date": "2026-11-26",
+      "id": "2026-11-30|X|Ep 212 Angioedema",
+      "date": "2026-11-30",
       "platform": "X",
       "title": "Ep 212 Angioedema",
       "format": "video",
@@ -263,8 +263,8 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-30|X|Ep 223 Thyroid Storm",
-      "date": "2026-11-30",
+      "id": "2026-11-26|X|Ep 223 Thyroid Storm",
+      "date": "2026-11-26",
       "platform": "X",
       "title": "Ep 223 Thyroid Storm",
       "format": "video",
@@ -277,11 +277,11 @@
           "href": "https://drive.google.com/file/d/17-wo-aGexR27f2K6vLaiLbgqh327cOcn/view"
         }
       ],
-      "sheetStatus": "READY",
-      "posted": false,
+      "sheetStatus": "POSTED 2026-11-26 10:44 AM ET https://x.com/Core_EM/status/2125979011243254132",
+      "posted": true,
       "thumb": "asset:thyroid-x.jpg",
       "ratio": "800/1422",
-      "time": "8:00 AM ET"
+      "time": "10:44 AM ET"
     },
     {
       "id": "2026-11-30|IG|Ep 218 SCAPE",
