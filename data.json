@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T11:07:01-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 10:22 AM ET",
+  "generatedAt": "2026-11-26T11:45:38-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 11:45 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -137,13 +137,13 @@
       "media": [
         {
           "label": "Video",
-          "href": "https://drive.google.com/file/d/16wT9iD14w2II7lOXpouzcMNfuRLuyyno/view"
+          "href": "https://drive.google.com/file/d/1UHxyOnVQW003B0DMJSpaJGKkK_BP6UkE/view"
         }
       ],
       "sheetStatus": "READY",
       "posted": false,
       "thumb": "asset:ep212-x.jpg",
-      "ratio": "800/1422",
+      "ratio": "4/5",
       "time": "8:00 AM ET"
     },
     {
