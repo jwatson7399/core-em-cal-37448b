@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T03:35:40-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 3:35 AM ET",
+  "generatedAt": "2026-11-26T08:35:54-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 8:35 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -57,7 +57,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view"
+          "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
       "sheetStatus": "RESCHEDULED to 2026-11-27",
@@ -120,30 +120,10 @@
           "file": "media/hemoptysis/card4.jpg"
         }
       ],
-      "sheetStatus": "CARDS MADE",
-      "posted": false,
+      "sheetStatus": "POSTED 2026-11-25 4:27 PM ET https://x.com/Core_EM/status/2125702883756708161",
+      "posted": true,
       "thumb": "asset:hemo-card1.jpg",
       "ratio": "800/999"
-    },
-    {
-      "id": "2026-11-25|IG|Ep 222 LAST",
-      "date": "2026-11-25",
-      "platform": "IG",
-      "title": "Ep 222 LAST",
-      "format": "Reel",
-      "slotType": "CATCH-UP",
-      "author": "",
-      "postText": "2 minutes on local anesthetic systemic toxicity (LAST).\n\nMetallic taste. Seizures.\nA wide QRS or arrest after a block or lidocaine.\nThink LAST.\n\nStop the injection.\nGet lipid 20% early:\n• 1.5 mL/kg bolus\n• then 0.25 mL/kg/min\n\nArrest? Use modified ACLS:\n• low-dose epi\n• amiodarone\n• no more lidocaine\n\nCore EM Ep 222.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #LAST",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/1I2Nag2zdOA9OvvDpxyibxrJ2BM2ndUQk/view"
-        }
-      ],
-      "sheetStatus": "READY",
-      "posted": false,
-      "thumb": "asset:last-ig.jpg",
-      "ratio": "800/1422"
     },
     {
       "id": "2026-11-26|X|Ep 212 Angioedema",
@@ -167,6 +147,27 @@
       "time": "8:00 AM ET"
     },
     {
+      "id": "2026-11-26|IG|Ep 222 LAST",
+      "date": "2026-11-26",
+      "platform": "IG",
+      "title": "Ep 222 LAST",
+      "format": "Reel",
+      "slotType": "CATCH-UP",
+      "author": "",
+      "postText": "2 minutes on local anesthetic systemic toxicity (LAST).\n\nMetallic taste. Seizures.\nA wide QRS or arrest after a block or lidocaine.\nThink LAST.\n\nStop the injection.\nGet lipid 20% early:\n• 1.5 mL/kg bolus\n• then 0.25 mL/kg/min\n\nArrest? Use modified ACLS:\n• low-dose epi\n• amiodarone\n• no more lidocaine\n\nCore EM Ep 222.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #LAST",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1I2Nag2zdOA9OvvDpxyibxrJ2BM2ndUQk/view"
+        }
+      ],
+      "sheetStatus": "READY. Post time: 1:00 PM ET. Auto-rescheduled 2026-11-26 from Wed 2026-11-25 to Thu 2026-11-26 1:00 PM ET (not seen posted by next day; @core.em could not be checked without access; rule t243u). Alternative: Sat 2026-12-19 10:00 AM ET.",
+      "posted": false,
+      "thumb": "asset:last-ig.jpg",
+      "ratio": "800/1422",
+      "time": "1:00 PM ET"
+    },
+    {
       "id": "2026-11-27|IG|Ep 212 Angioedema",
       "date": "2026-11-27",
       "platform": "IG",
@@ -178,7 +179,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view"
+          "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
       "sheetStatus": "READY",
@@ -254,7 +255,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/1N9za8h2g0gIfxScIlBHc23M70ODc956g/view"
+          "href": "https://drive.google.com/file/d/1N9za8h2g0gIfxScIlBHc23M70ODc956g/view | IG reach cut 1:47 (was 5:33)"
         }
       ],
       "sheetStatus": "READY",
@@ -295,7 +296,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/15XdBMJBVRSZo1KuXM6qk0aDx-6Qf_7l0/view"
+          "href": "https://drive.google.com/file/d/15XdBMJBVRSZo1KuXM6qk0aDx-6Qf_7l0/view | IG reach cut 1:58 (was 5:08)"
         }
       ],
       "sheetStatus": "READY",
@@ -331,7 +332,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/1_FjMxQVZRz3VEkBexw5CMonB62MefDka/view"
+          "href": "https://drive.google.com/file/d/1_FjMxQVZRz3VEkBexw5CMonB62MefDka/view | IG reach cut 1:53 (was 3:09)"
         }
       ],
       "sheetStatus": "READY",
@@ -368,12 +369,7 @@
       "slotType": "Video short",
       "author": "",
       "postText": "",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/1ssQDt5XuQJ-TIXPksdzC_Lcdgk06w0JD/view"
-        }
-      ],
+      "media": [],
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep214-x.jpg",
@@ -392,7 +388,7 @@
       "media": [
         {
           "label": "IG Reel",
-          "href": "https://drive.google.com/file/d/19qD_M-JHqGeMBowK8Cu5n-l_RVuntDPM/view"
+          "href": "https://drive.google.com/file/d/19qD_M-JHqGeMBowK8Cu5n-l_RVuntDPM/view | IG reach cut 1:35 (was 5:51)"
         }
       ],
       "sheetStatus": "READY",
@@ -601,12 +597,7 @@
       "slotType": "Video short",
       "author": "",
       "postText": "",
-      "media": [
-        {
-          "label": "File",
-          "href": "https://drive.google.com/file/d/1HhQgDu3REDclesY3CaEf6M4fGnkcwKd0/view"
-        }
-      ],
+      "media": [],
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep204-x.jpg",
@@ -698,12 +689,7 @@
       "slotType": "Video short",
       "author": "",
       "postText": "",
-      "media": [
-        {
-          "label": "File",
-          "href": "https://drive.google.com/file/d/1f8oSqqSK0lKPubV7vAvSTclh-FnJX4iD/view"
-        }
-      ],
+      "media": [],
       "sheetStatus": "QUEUED",
       "posted": false,
       "thumb": "asset:ep213-x.jpg",
@@ -1102,7 +1088,7 @@
       "platform": "X",
       "title": "Ep 14 Grand Rounds with Mike Stone - US Guided Nerve Blocks",
       "format": "video",
-      "slotType": "Video short",
+      "slotType": "short video",
       "author": "",
       "postText": "",
       "media": [],
@@ -1142,10 +1128,10 @@
       "ratio": ""
     },
     {
-      "id": "2027-01-09|IG|An EM Resident's Guide to Basic Airway Management",
+      "id": "2027-01-09|IG|An EM Resident’s Guide to Basic Airway Management",
       "date": "2027-01-09",
       "platform": "IG",
-      "title": "An EM Resident's Guide to Basic Airway Management",
+      "title": "An EM Resident’s Guide to Basic Airway Management",
       "format": "carousel",
       "slotType": "MIRROR X",
       "author": "",
@@ -2242,7 +2228,7 @@
       "platform": "X",
       "title": "Ep 46 Grand Rounds (Ilene Claudius) - Pediatric SOB",
       "format": "video",
-      "slotType": "Video short",
+      "slotType": "short video",
       "author": "",
       "postText": "",
       "media": [],
