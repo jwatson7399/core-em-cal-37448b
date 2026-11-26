@@ -1,9 +1,9 @@
 /* Posting calendar service worker.
    Shell: cache first, refreshed in the background.
-   Page loads and data.json: network first, cached copy when offline.
+   Page loads, data.json and playbook.json: network first, cached copy when offline.
    A sign-in redirect from Cloudflare Access is passed through, never cached. */
 
-const VERSION = "pc-v1-t1126";
+const VERSION = "pc-v2-t1126-playbook";
 const SHELL_CACHE = VERSION + "-shell";
 const DATA_CACHE = VERSION + "-data";
 const MEDIA_CACHE = VERSION + "-media";
@@ -93,6 +93,12 @@ self.addEventListener("fetch", (event) => {
 
   if (url.pathname.endsWith("/data.json")) {
     event.respondWith(networkFirst(req, DATA_CACHE, "data.json"));
+    return;
+  }
+
+  // The Playbook tab reads this file. Same rule as data.json.
+  if (url.pathname.endsWith("/playbook.json")) {
+    event.respondWith(networkFirst(req, DATA_CACHE, "playbook.json"));
     return;
   }
 

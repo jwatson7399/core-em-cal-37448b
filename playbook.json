@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 1,
+  "asOf": "Thursday, November 26, 2026, 10:34 AM ET",
+  "asOfIso": "2026-11-26T10:34:14-05:00",
+  "timezone": "America/New_York",
+  "scope": "X only (@Core_EM posting tactics and public metrics). Instagram may be noted when a rule touches both, but this tab is not an IG dashboard.",
+  "sources": {
+    "xApi": "X public read tools (namespace x): get_users_by_username and get_users_posts on user id 2981500955. No engagement actions.",
+    "engagementAnalysis": "/workspace/coreem/x-engagement/ (em_x_posts_dataset.csv, core_em_posts.csv, upcoming_x_proposals.csv)",
+    "playbookPage": "https://cursor.com/canvas/store-894b8995-84b5-4c5f-b14a-031decede4a6/0f9d6cdf-5816-4172-b4eb-cf744897031f",
+    "sheet": "Core EM Content Log & Playbook, spreadsheet 113fjVvICACvS4UiLFnaxBk79bqLyad3CpYExurZU69g, tabs Rules & Principles and Growth Tracker",
+    "timingTestBackup": "/workspace/coreem/backups-timing-test-2026-11-26-0150/"
+  },
+  "metricsNotes": {
+    "publiclyAvailable": [
+      "User public_metrics: followers_count, following_count, tweet_count, listed_count, media_count, like_count (likes this account has given, not likes received).",
+      "Post public_metrics: like_count, retweet_count, reply_count, quote_count, bookmark_count, impression_count.",
+      "Native video media public_metrics.view_count (video views). This is not the same as post impressions."
+    ],
+    "notPubliclyAvailable": [
+      "verified_followers_count (API returned a field authorization error on this pull).",
+      "organic_metrics, non_public_metrics, and promoted_metrics.",
+      "Profile visits and reach.",
+      "Lifetime impressions at the profile level.",
+      "Instagram Insights from a follower account (no owner Insights in this pull)."
+    ],
+    "engagementRateDefinition": "Engagement rate (%) = 100 * (likes + reposts + replies + quotes + bookmarks) / impressions. Same definition as the 2026-11-25 engagement analysis."
+  },
+  "account": {
+    "handle": "Core_EM",
+    "userId": "2981500955",
+    "name": "Core EM",
+    "verified": true,
+    "verifiedType": "blue",
+    "createdAt": "2015-01-16T18:15:12.000Z",
+    "description": "Core EM is the official blog and podcast of the NYU/Bellevue EM Residency.",
+    "followers": 15858,
+    "following": 307,
+    "tweetCount": 2087,
+    "listedCount": 149,
+    "mediaCount": 880,
+    "lifetimeLikesGiven": 1863,
+    "source": "X public API get_users_by_username",
+    "asOf": "Thursday, November 26, 2026, 10:34 AM ET"
+  },
+  "followerTrend": [
+    {
+      "asOf": "2026-11-19 2:31 PM ET",
+      "followers": 15857,
+      "source": "Sheet Growth Tracker (X public API)"
+    },
+    {
+      "asOf": "2026-11-23 8:41 AM ET",
+      "followers": 15849,
+      "source": "Sheet Growth Tracker (X public API)"
+    },
+    {
+      "asOf": "Thursday, November 26, 2026, 10:34 AM ET",
+      "followers": 15858,
+      "source": "X public API get_users_by_username, this pull"
+    }
+  ],
+  "recentPosts": [
+    {
+      "id": "2125702883756708161",
+      "url": "https://x.com/Core_EM/status/2125702883756708161",
+      "createdAtET": "2026-11-25 4:27 PM ET",
+      "title": "Hemoptysis review (Jude Luke, MD)",
+      "format": "multi-image (4 cards)",
+      "likes": 52,
+      "impressions": 2565,
+      "bookmarks": 30,
+      "reposts": 15,
+      "replies": 3,
+      "quotes": 0,
+      "videoViews": null,
+      "firstLine": "New Core EM review: Hemoptysis",
+      "engagementRatePct": 3.9
+    },
+    {
+      "id": "2122326215344185370",
+      "url": "https://x.com/Core_EM/status/2122326215344185370",
+      "createdAtET": "2026-11-16 8:49 AM ET",
+      "title": "Ep 218 SCAPE",
+      "format": "native video",
+      "likes": 31,
+      "impressions": 1361,
+      "bookmarks": 12,
+      "reposts": 7,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 347,
+      "firstLine": "#TBT Core EM Ep 218 (2026): SCAPE with Dr. Naz Sarpoulaki.",
+      "engagementRatePct": 3.67
+    },
+    {
+      "id": "2122044288905183595",
+      "url": "https://x.com/Core_EM/status/2122044288905183595",
+      "createdAtET": "2026-11-15 2:09 PM ET",
+      "title": "Bag and Guard wound irrigation",
+      "format": "link post (no native video)",
+      "likes": 17,
+      "impressions": 1978,
+      "bookmarks": 6,
+      "reposts": 5,
+      "replies": 1,
+      "quotes": 0,
+      "videoViews": null,
+      "firstLine": "New on Core EM: One-handed wound irrigation.",
+      "engagementRatePct": 1.47
+    },
+    {
+      "id": "2121390738214731994",
+      "url": "https://x.com/Core_EM/status/2121390738214731994",
+      "createdAtET": "2026-11-13 6:52 PM ET",
+      "title": "Ep 220 Post-ROSC Care",
+      "format": "native video",
+      "likes": 33,
+      "impressions": 1659,
+      "bookmarks": 14,
+      "reposts": 3,
+      "replies": 2,
+      "quotes": 0,
+      "videoViews": 409,
+      "firstLine": "#TBT Core EM Ep 220 (2026): Post-ROSC Care with Dr. Jonathan Elmer",
+      "engagementRatePct": 3.13
+    },
+    {
+      "id": "2120944840921809034",
+      "url": "https://x.com/Core_EM/status/2120944840921809034",
+      "createdAtET": "2026-11-12 1:20 PM ET",
+      "title": "Ep 229 Iron Poisoning",
+      "format": "native video",
+      "likes": 16,
+      "impressions": 986,
+      "bookmarks": 8,
+      "reposts": 4,
+      "replies": 1,
+      "quotes": 0,
+      "videoViews": 194,
+      "firstLine": "#TBT Core EM Ep 229 (2026): Iron Poisoning",
+      "engagementRatePct": 2.94
+    },
+    {
+      "id": "2120607625540747467",
+      "url": "https://x.com/Core_EM/status/2120607625540747467",
+      "createdAtET": "2026-11-11 3:00 PM ET",
+      "title": "Ep 230 DRESS",
+      "format": "native video",
+      "likes": 32,
+      "impressions": 1673,
+      "bookmarks": 14,
+      "reposts": 6,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 355,
+      "firstLine": "Core EM Ep 230: DRESS.",
+      "engagementRatePct": 3.11
+    },
+    {
+      "id": "2120187043011530830",
+      "url": "https://x.com/Core_EM/status/2120187043011530830",
+      "createdAtET": "2026-11-10 11:09 AM ET",
+      "title": "Ep 71 Acute Pulmonary Edema",
+      "format": "native video",
+      "likes": 42,
+      "impressions": 2496,
+      "bookmarks": 16,
+      "reposts": 10,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 614,
+      "firstLine": "#ThrowbackThursday vibes on a Tuesday: a 2016 Core EM classic, remastered.",
+      "engagementRatePct": 2.72
+    },
+    {
+      "id": "2119825608360222850",
+      "url": "https://x.com/Core_EM/status/2119825608360222850",
+      "createdAtET": "2026-11-09 11:13 AM ET",
+      "title": "Ep 222 LAST",
+      "format": "native video",
+      "likes": 35,
+      "impressions": 2305,
+      "bookmarks": 16,
+      "reposts": 8,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 576,
+      "firstLine": "2 minutes on local anesthetic systemic toxicity (LAST).",
+      "engagementRatePct": 2.56
+    }
+  ],
+  "topPosts": [
+    {
+      "rank": 1,
+      "rankedBy": "likes, then impressions, among recent original teaching posts in this pull",
+      "id": "2125702883756708161",
+      "url": "https://x.com/Core_EM/status/2125702883756708161",
+      "createdAtET": "2026-11-25 4:27 PM ET",
+      "title": "Hemoptysis review (Jude Luke, MD)",
+      "format": "multi-image (4 cards)",
+      "likes": 52,
+      "impressions": 2565,
+      "bookmarks": 30,
+      "reposts": 15,
+      "replies": 3,
+      "quotes": 0,
+      "videoViews": null,
+      "firstLine": "New Core EM review: Hemoptysis",
+      "engagementRatePct": 3.9
+    },
+    {
+      "rank": 2,
+      "rankedBy": "likes, then impressions, among recent original teaching posts in this pull",
+      "id": "2120187043011530830",
+      "url": "https://x.com/Core_EM/status/2120187043011530830",
+      "createdAtET": "2026-11-10 11:09 AM ET",
+      "title": "Ep 71 Acute Pulmonary Edema",
+      "format": "native video",
+      "likes": 42,
+      "impressions": 2496,
+      "bookmarks": 16,
+      "reposts": 10,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 614,
+      "firstLine": "#ThrowbackThursday vibes on a Tuesday: a 2016 Core EM classic, remastered.",
+      "engagementRatePct": 2.72
+    },
+    {
+      "rank": 3,
+      "rankedBy": "likes, then impressions, among recent original teaching posts in this pull",
+      "id": "2119825608360222850",
+      "url": "https://x.com/Core_EM/status/2119825608360222850",
+      "createdAtET": "2026-11-09 11:13 AM ET",
+      "title": "Ep 222 LAST",
+      "format": "native video",
+      "likes": 35,
+      "impressions": 2305,
+      "bookmarks": 16,
+      "reposts": 8,
+      "replies": 0,
+      "quotes": 0,
+      "videoViews": 576,
+      "firstLine": "2 minutes on local anesthetic systemic toxicity (LAST).",
+      "engagementRatePct": 2.56
+    }
+  ],
+  "currentRules": [
+    {
+      "id": "no-emoji",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "No emoji in Core EM X post text or IG captions",
+      "detail": "Julian adds any emoji himself. Bots and drafts must ship with none. This replaced 'emoji optional, 0 to 2' later the same day.",
+      "source": "Julian 2026-11-26 (after the approved playbook; t271u / no-emoji rule)"
+    },
+    {
+      "id": "hook-first-tbt",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "#TBT posts open with the clinical hook",
+      "detail": "The '#TBT Core EM Ep N (year) with Dr. Name' credit line sits on its own line just above the link. The year stays. A new first line may only restate a claim already in that post's approved text or the episode source; anything new goes to Claude for a fact-check first.",
+      "source": "Julian 2026-11-26 (approved playbook, Sheet rule 49, t267)"
+    },
+    {
+      "id": "plain-topic-first-line",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "Plain-topic first lines, not case vignettes",
+      "detail": "Name the clinical topic in line 1. Case vignettes and quizzes underdelivered in the peer sample (case lift 0.90, n=46).",
+      "source": "Engagement playbook 2026-11-25; adopted with hook-first rule, Julian 2026-11-26"
+    },
+    {
+      "id": "cards-multi-image",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "Card sets go out as one multi-image post",
+      "detail": "Up to 4 images in one post, never a reply thread. Core EM's August 2026 card thread: card 1 reached 1,609 views; cards 2 to 4 reached 125 to 236.",
+      "source": "Julian 2026-11-26 (approved playbook, Sheet rule 50, t267)"
+    },
+    {
+      "id": "no-quote-posts",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "No quote posts as the delivery for new content",
+      "detail": "Post new content as an original post. Originals beat quote posts in 7 of 8 peer accounts (lift 1.04 vs 0.84).",
+      "source": "Julian 2026-11-26 (approved playbook, Sheet rule 51, t267)"
+    },
+    {
+      "id": "timing-test",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "4-week timing test",
+      "detail": "From Thursday 2026-11-26 through Thursday 2026-12-24: X videos at 8:00 AM ET on Monday and Thursday; X card sets at 7:30 PM ET on Tuesday and Saturday. Write 'Post time: H:MM AM/PM ET' at the start of the row's Notes. Compare views and engagement to the November video baseline after Dec 24. This is a test, not a fixed rule. IG times are unchanged.",
+      "source": "Julian 2026-11-26 (approved playbook, Sheet rule 52, t267)"
+    },
+    {
+      "id": "cards-new-info",
+      "adopted": "2026-11-24",
+      "status": "current",
+      "title": "Card post text adds new info and never repeats the cards",
+      "detail": "Read the cards before writing the X text. Useful text (a hook, the clinical why, a pitfall, or a pearl the cards leave out) or minimal text (a one-line hook plus the link).",
+      "source": "Julian 2026-11-24 (Sheet rule 47, t238u)"
+    },
+    {
+      "id": "no-em-dashes",
+      "adopted": "2026-11-24",
+      "status": "current",
+      "title": "No em dashes in post text",
+      "detail": "Use plain punctuation. This applies to X post text and IG captions.",
+      "source": "Julian 2026-11-24 (Sheet rule 46, t236u)"
+    },
+    {
+      "id": "video-standard",
+      "adopted": "2026-11-13",
+      "status": "current",
+      "title": "Current video standard",
+      "detail": "Guest intro near the start with a name card when the episode has one. Every take-home is set up in the body, not only in the wrap-up. Every clip teaches the why. Signpost every splice. Badge-only logo, top-left. 1 to 3 word bottom captions, karaoke-style. Runtime may flex to about 5 minutes to cover take-homes.",
+      "source": "Julian 2026-11-08 LAST standard, plus 2026-11-12 guest-intro and 2026-11-13 teach-the-why / take-home rules (Sheet rules 9, 14, 17, 20, 21, 22)"
+    },
+    {
+      "id": "x-video-4x5",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "X videos in 4:5 with a caption band",
+      "detail": "New X video standard (format trial starting with the Ep 223 Thyroid Storm remake): 1080x1350 (4:5). Captions stay in the bottom 270 px band. The CORE EM badge stays top-left only. No pictorial logo on the end card. Deliver a Google Drive .mov (video/quicktime) so it opens on Julian's iPhone; a raw .mp4 often lands as application/mp4, which his phone cannot open. A 9:16 cut may still exist for Instagram.",
+      "source": "Julian 2026-11-26 (Ep 223 4:5 remake; Drive .mov lesson from Sheet rule 6 and the 2026-11-26 .mp4 upload)"
+    },
+    {
+      "id": "instagram-browser-check",
+      "adopted": "2026-11-26",
+      "status": "current",
+      "title": "Instagram browser check before assuming a post was missed",
+      "detail": "When checking whether an Instagram post went out, open the public @core.em profile in a browser (read only, no engagement). Do not skip the check, and do not auto-reschedule only because a connector or a follower login could not see the account. If the check still fails, say so plainly. On 2026-11-26, Ep 222 LAST had already been posted by Julian on the original Wednesday 11-25 slot, but the row had been auto-rescheduled to Thursday 11-26 at 1:00 PM ET after the account could not be checked.",
+      "source": "Julian 2026-11-26 (he posted the LAST Reel himself and asked why it had not been checked)"
+    }
+  ],
+  "priorRules": [
+    {
+      "id": "emoji-0-2",
+      "adopted": "2026-11-26",
+      "replacedOn": "2026-11-26",
+      "replacedBy": "no-emoji",
+      "status": "prior",
+      "title": "Emoji optional, 0 to 2 per post",
+      "detail": "Approved in the morning playbook pass (Sheet rule 48). Replaced later the same day by no emoji at all.",
+      "source": "Julian 2026-11-26 (approved playbook, t267)"
+    },
+    {
+      "id": "emoji-1-3",
+      "adopted": "2026-11-24",
+      "replacedOn": "2026-11-26",
+      "replacedBy": "emoji-0-2",
+      "status": "prior",
+      "title": "1 to 3 emojis in every post",
+      "detail": "Part of the 2026-11-24 copy-ready post format (Sheet rule 46, original wording). Replaced by 0 to 2 optional, then by none.",
+      "source": "Julian 2026-11-24 (t236u)"
+    },
+    {
+      "id": "tbt-opens-with-credit",
+      "adopted": "2026-11-09",
+      "replacedOn": "2026-11-26",
+      "replacedBy": "hook-first-tbt",
+      "status": "prior",
+      "title": "#TBT posts opened with the credit line",
+      "detail": "Older-episode remakes flagged as a throwback with the episode year and #TBT, typically in the first line.",
+      "source": "Julian 2026-11-09 (Sheet rule 26), replaced by Sheet rule 49"
+    },
+    {
+      "id": "cards-as-threads",
+      "adopted": null,
+      "replacedOn": "2026-11-26",
+      "replacedBy": "cards-multi-image",
+      "status": "prior",
+      "title": "Card sets could go out as a reply thread",
+      "detail": "No set format until 2026-11-26. The August 2026 Superwarfarin-style card thread is the example of why this was dropped.",
+      "source": "Engagement playbook 2026-11-25; Sheet rule 50"
+    },
+    {
+      "id": "no-set-posting-time",
+      "adopted": null,
+      "replacedOn": "2026-11-26",
+      "replacedBy": "timing-test",
+      "status": "prior",
+      "title": "No set posting time",
+      "detail": "Julian posted when he was free. Sheet rows had no Post time until the 4-week timing test.",
+      "source": "Engagement playbook 2026-11-25; Sheet rule 52"
+    },
+    {
+      "id": "video-60s",
+      "adopted": "2026-10-19",
+      "replacedOn": "2026-11-08",
+      "replacedBy": "video-1-2-min",
+      "status": "prior",
+      "title": "Target about 60 seconds for new shorts",
+      "detail": "Superwarfarin recap style.",
+      "source": "Julian / style ref 2026-10-19 (Sheet rule 11)"
+    },
+    {
+      "id": "video-1-2-min",
+      "adopted": "2026-11-08",
+      "replacedOn": "2026-11-13",
+      "replacedBy": "video-standard",
+      "status": "prior",
+      "title": "Coherent 1 to 2 minute structured short",
+      "detail": "The LAST standard runtime. Later flexed to about 5 minutes when take-home coverage required it. People sometimes still describe the pre-flex standard as 90 to 120 seconds.",
+      "source": "Julian 2026-11-08 (Sheet rules 11-12); flexed 2026-11-13 (rule 14)"
+    },
+    {
+      "id": "video-9x16",
+      "adopted": null,
+      "replacedOn": "2026-11-26",
+      "replacedBy": "x-video-4x5",
+      "status": "prior",
+      "title": "X videos in 9:16 (1080x1920)",
+      "detail": "Posted November videos on @Core_EM were 1080x1920. The 4:5 (1080x1350) caption-band frame is the new X trial starting 2026-11-26.",
+      "source": "Public media on Nov 9-16 @Core_EM videos; Ep 223 remake 2026-11-26"
+    }
+  ],
+  "proposedRules": [
+    {
+      "id": "hooks-held-for-factcheck",
+      "status": "proposed",
+      "proposedOn": "2026-11-26",
+      "title": "20 proposed first lines are held for a Claude fact-check",
+      "detail": "Sheet rule 53: for posts with no approved text yet, keep the proposed first line in upcoming_x_proposals.csv only, never in Post text, until Julian approves full text. These 20 hooks are marked HOLD because they add a clinical claim.",
+      "items": [
+        {
+          "date": "2026-12-10",
+          "title": "Ep 204 Necrotizing Fasciitis",
+          "hook": "Pain out of proportion is the clue you can't afford to miss."
+        },
+        {
+          "date": "2026-12-26",
+          "title": "Infant Botulism",
+          "hook": "Constipated, floppy infant? Think botulism."
+        },
+        {
+          "date": "2026-12-28",
+          "title": "Ep 129 Toxic Alcohols",
+          "hook": "A normal osmolar gap doesn't rule out toxic alcohol."
+        },
+        {
+          "date": "2026-12-29",
+          "title": "Non-Rebreather Masks: Perils, Pearls and Pitfalls",
+          "hook": "Your non-rebreather may not deliver what you think."
+        },
+        {
+          "date": "2026-12-31",
+          "title": "Ep 221 High-Output Heart Failure",
+          "hook": "Heart failure with a strong heart? Think high-output."
+        },
+        {
+          "date": "2027-01-11",
+          "title": "Ep 215 Marburg Virus and Global EM",
+          "hook": "Fever plus travel history: when to think Marburg."
+        },
+        {
+          "date": "2027-01-12",
+          "title": "Skin Tears",
+          "hook": "Skin tears in older adults: a gentler repair."
+        },
+        {
+          "date": "2027-01-18",
+          "title": "Ep 211 Granulomatosis with Polyangiitis",
+          "hook": "Lung bleeding plus kidney injury? Think vasculitis."
+        },
+        {
+          "date": "2027-02-11",
+          "title": "Ep 179 Precipitous Breech Deliveries",
+          "hook": "Precipitous breech delivery: hands off the breech."
+        },
+        {
+          "date": "2027-02-23",
+          "title": "Transfusion Reactions",
+          "hook": "Fever during a transfusion: stop, then sort it out."
+        },
+        {
+          "date": "2027-02-25",
+          "title": "Ep 203 Acetaminophen Toxicity",
+          "hook": "The overdose that looks fine early: acetaminophen."
+        },
+        {
+          "date": "2027-03-04",
+          "title": "Ep 182 Wellens",
+          "hook": "Chest pain gone, troponin flat. Look at the T waves."
+        },
+        {
+          "date": "2027-03-06",
+          "title": "Pneumocystis Jirovecii Pneumonia",
+          "hook": "Hypoxic, immunocompromised, chest film not that bad? Think PJP."
+        },
+        {
+          "date": "2027-03-09",
+          "title": "Chagas Disease",
+          "hook": "Young patient with new heart block? Ask where they grew up."
+        },
+        {
+          "date": "2027-03-11",
+          "title": "Ep 200 Immune Checkpoint Inhibitors",
+          "hook": "On immunotherapy: any organ can be the target."
+        },
+        {
+          "date": "2027-03-15",
+          "title": "Ep 13 Diabetic Ketoacidosis: A Case",
+          "hook": "DKA, a case: the order of fluids, potassium and insulin."
+        },
+        {
+          "date": "2027-03-16",
+          "title": "Acute Radiation Exposure",
+          "hook": "Radiation exposure: treat the trauma first."
+        },
+        {
+          "date": "2027-04-05",
+          "title": "Ep 115 Wernicke's Encephalopathy",
+          "hook": "Confused and malnourished? Give thiamine first.",
+          "status": "needs fact-check",
+          "note": "Needs fact-check. Do not delay glucose in hypoglycemia. Do not ship this hook as is."
+        },
+        {
+          "date": "2027-04-12",
+          "title": "Ep 194 Nitrous Oxide Toxicity",
+          "hook": "Whippets and numb legs: nitrous oxide toxicity."
+        },
+        {
+          "date": "2027-04-26",
+          "title": "Ep 102 Valsalva Maneuver in SVT",
+          "hook": "Try the modified Valsalva before adenosine."
+        }
+      ],
+      "source": "/workspace/coreem/x-engagement/upcoming_x_proposals.csv (20 rows with factcheck HOLD), Sheet rule 53"
+    },
+    {
+      "id": "link-in-first-reply-test",
+      "status": "proposed",
+      "proposedOn": "2026-11-25",
+      "title": "Optional 4-week test with the link in the first reply",
+      "detail": "The engagement analysis showed no clear penalty for links in the post. This test was proposed and not adopted. Current practice keeps the link in the post, with #FOAMed only.",
+      "source": "Engagement playbook, Proposed rule changes, 2026-11-25"
+    },
+    {
+      "id": "picks-log-metrics",
+      "status": "proposed",
+      "proposedOn": "2026-11-25",
+      "title": "Log likes, bookmarks, and views for each daily EM X pick",
+      "detail": "The 300-likes floor for daily EM X picks is already a current workflow rule (Sheet rule 38, Julian 2026-11-09). The playbook also proposed logging likes, bookmarks, and views for each pick at pick time. That logging step is not adopted yet.",
+      "source": "Engagement playbook, Proposed rule changes, 2026-11-25"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "em-cc-x-engagement-2026-11-25",
+      "logged": "2026-11-25",
+      "loggedAt": "2026-11-25 about 8:30 PM ET",
+      "title": "Engagement analysis of daily EM and critical care X picks, plus @Core_EM",
+      "sample": {
+        "peerPosts": 665,
+        "coreEmPosts": 22,
+        "dailyPicksLog": 91,
+        "accounts": "14 EM and critical care accounts with at least 8 posts in the window (18 tried; 4 had no posts in the window), plus 7 topic searches",
+        "window": "2026-09-26 to 2026-11-25",
+        "originalPosts": 526,
+        "postsWith300PlusLikes": 18,
+        "coreEmNovemberVideosInBaseline": 6
+      },
+      "source": [
+        "/workspace/coreem/x-engagement/em_x_posts_dataset.csv",
+        "/workspace/coreem/x-engagement/core_em_posts.csv",
+        "/workspace/coreem/x-engagement/upcoming_x_proposals.csv",
+        "https://cursor.com/canvas/store-894b8995-84b5-4c5f-b14a-031decede4a6/0f9d6cdf-5816-4172-b4eb-cf744897031f"
+      ],
+      "headline": "Core EM November videos converted viewers better than the peer set (median engagement rate 3.04% vs 1.18%, and 2.05 likes per 1,000 followers vs 0.45) but reached fewer people (median 1,659 impressions vs 3,481).",
+      "findings": [
+        {
+          "n": "1",
+          "finding": "Video and multi-image posts beat single images and text-only posts from the same account.",
+          "numbers": "Median lift vs the account's own median: multi-image 1.64 (n=22), video 1.33 (n=47), single image 1.00 (n=149), text 1.00 (n=105). Held in 5 of 6 accounts that used both.",
+          "strength": "Moderate to strong"
+        },
+        {
+          "n": "2",
+          "finding": "Original posts beat quote posts.",
+          "numbers": "Pooled lift 1.04 for originals (n=228) vs 0.84 for quotes (n=106). Originals won in 7 of 8 accounts that did both.",
+          "strength": "Moderate"
+        },
+        {
+          "n": "3",
+          "finding": "'What's new' posts travel and get saved.",
+          "numbers": "Guideline or new-evidence posts: lift 1.15 (n=54) and the highest bookmark-to-like ratio, 0.50. 6 of the 18 posts with 300+ likes were 2026 guideline or journal updates.",
+          "strength": "Moderate"
+        },
+        {
+          "n": "4",
+          "finding": "Reference posts built to be saved earn bookmarks close to likes.",
+          "numbers": "Reference or summary topics: lift 1.48 (n=17). Example: @cliffreid 3D heart tool, 1,186 likes, 1,381 bookmarks, 89,478 views.",
+          "strength": "Moderate"
+        },
+        {
+          "n": "5",
+          "finding": "First lines that name the topic plainly do best. Cases and quizzes underdeliver.",
+          "numbers": "13 of the 18 posts with 300+ likes opened with a plain title or statement; 1 opened with a case. Case vignettes: lift 0.90 (n=46).",
+          "strength": "Moderate to weak"
+        },
+        {
+          "n": "6",
+          "finding": "Posts with no line breaks underperform.",
+          "numbers": "No line breaks: lift 0.85 (n=63) vs 1.00 to 1.03 with breaks. Bookmark-to-like 0.10 vs 0.33 to 0.38.",
+          "strength": "Weak; Core EM already uses breaks"
+        },
+        {
+          "n": "7",
+          "finding": "Timing: early morning, evening, and Monday are slightly better. Overnight, Wednesday, and Friday are worse.",
+          "numbers": "6 to 9 AM ET lift 1.24 (n=39); 6 PM to midnight 1.31 (n=51); midnight to 6 AM 0.85 (n=42). Monday 1.31 (n=51), Wednesday 0.81 (n=37), Friday 0.87 (n=37).",
+          "strength": "Weak, confounded"
+        },
+        {
+          "n": "8",
+          "finding": "Hashtags, links, and emoji show no consistent effect.",
+          "numbers": "Of the 18 posts with 300+ likes, 12 had no hashtags, 15 had no link, and 17 had no emoji. Within the same account, results split both ways.",
+          "strength": "No clear effect"
+        },
+        {
+          "n": "9",
+          "finding": "Opinion posts about the profession got the biggest lift but almost no saves. They do not fit Core EM's brand.",
+          "numbers": "Lift 4.05 (n=13), bookmark-to-like 0.09.",
+          "strength": "Note only"
+        }
+      ],
+      "caveats": [
+        "Observational. Format, topic, and account habits overlap, so no pattern is proven to cause anything.",
+        "X search cannot filter by likes, so the 300+ set is small (18).",
+        "The API cut long posts off at 280 characters, so length, hashtag, and link counts are understated for long posts.",
+        "Newer posts were still collecting likes when read, which slightly understates late-November ones.",
+        "The Core EM November video sample is small (n=6), so Core EM-specific timing effects cannot be measured yet."
+      ]
+    }
+  ],
+  "observedEffects": [
+    {
+      "id": "timing-test-2026-11-26",
+      "change": "4-week X posting-time test: videos Monday and Thursday at 8:00 AM ET; cards Tuesday and Saturday at 7:30 PM ET.",
+      "startDate": "2026-11-26",
+      "endDatePlanned": "2026-12-24",
+      "status": "in progress",
+      "results": "Not yet. The test started today. Compare after enough posts, planned after 2026-12-24.",
+      "note": "As of this public pull, the Thursday 2026-11-26 8:00 AM ET Ep 212 Angioedema video was not yet visible on the @Core_EM original-post timeline (newest original post remained Hemoptysis on 2026-11-25 at 4:27 PM ET). This is an as-of observation, not a conclusion about the test.",
+      "baseline": {
+        "label": "November 2026 teaching-video baseline (n=6): Ep 222 LAST, Ep 71 Acute Pulmonary Edema, Ep 230 DRESS, Ep 229 Iron Poisoning, Ep 220 Post-ROSC Care, Ep 218 SCAPE",
+        "frozenAt": "2026-11-25 about 8:30 PM ET",
+        "frozenSource": "Verifiable from /workspace/coreem/x-engagement/core_em_posts.csv, read 2026-11-25 about 8:30 PM ET. The six November teaching videos and their impressions / engagement rate were: Ep 222 LAST 2,303 / 2.56%, Ep 71 Acute Pulmonary Edema 2,492 / 2.73%, Ep 230 DRESS 1,667 / 3.12%, Ep 229 Iron Poisoning 981 / 2.96%, Ep 220 Post-ROSC Care 1,650 / 3.15%, Ep 218 SCAPE 1,349 / 3.71%. Median impressions is the midpoint of 1,650 and 1,667, which is 1,658.5, recorded as 1,659 in Sheet rule 52 and on the playbook Page (https://cursor.com/canvas/store-894b8995-84b5-4c5f-b14a-031decede4a6/0f9d6cdf-5816-4172-b4eb-cf744897031f). Median engagement rate is the midpoint of 2.96% and 3.12%, which is 3.04%. Likes 32.5, bookmarks 14, reposts 6.5, and replies 0 are medians from the same six CSV rows.",
+        "frozenMedians": {
+          "impressions": 1659,
+          "engagementRatePct": 3.04,
+          "likes": 32.5,
+          "bookmarks": 14,
+          "reposts": 6.5,
+          "replies": 0
+        },
+        "liveRefreshAt": "Thursday, November 26, 2026, 10:34 AM ET",
+        "liveRefreshSource": "X public API get_users_posts, same six posts (they can still collect metrics after the freeze)",
+        "liveMedians": {
+          "impressions": 1666,
+          "engagementRatePct": 3.025,
+          "likes": 32.5,
+          "bookmarks": 14,
+          "reposts": 6.5,
+          "replies": 0
+        },
+        "posts": [
+          {
+            "id": "2122326215344185370",
+            "url": "https://x.com/Core_EM/status/2122326215344185370",
+            "createdAtET": "2026-11-16 8:49 AM ET",
+            "title": "Ep 218 SCAPE",
+            "format": "native video",
+            "likes": 31,
+            "impressions": 1361,
+            "bookmarks": 12,
+            "reposts": 7,
+            "replies": 0,
+            "quotes": 0,
+            "videoViews": 347,
+            "firstLine": "#TBT Core EM Ep 218 (2026): SCAPE with Dr. Naz Sarpoulaki.",
+            "engagementRatePct": 3.67
+          },
+          {
+            "id": "2121390738214731994",
+            "url": "https://x.com/Core_EM/status/2121390738214731994",
+            "createdAtET": "2026-11-13 6:52 PM ET",
+            "title": "Ep 220 Post-ROSC Care",
+            "format": "native video",
+            "likes": 33,
+            "impressions": 1659,
+            "bookmarks": 14,
+            "reposts": 3,
+            "replies": 2,
+            "quotes": 0,
+            "videoViews": 409,
+            "firstLine": "#TBT Core EM Ep 220 (2026): Post-ROSC Care with Dr. Jonathan Elmer",
+            "engagementRatePct": 3.13
+          },
+          {
+            "id": "2120944840921809034",
+            "url": "https://x.com/Core_EM/status/2120944840921809034",
+            "createdAtET": "2026-11-12 1:20 PM ET",
+            "title": "Ep 229 Iron Poisoning",
+            "format": "native video",
+            "likes": 16,
+            "impressions": 986,
+            "bookmarks": 8,
+            "reposts": 4,
+            "replies": 1,
+            "quotes": 0,
+            "videoViews": 194,
+            "firstLine": "#TBT Core EM Ep 229 (2026): Iron Poisoning",
+            "engagementRatePct": 2.94
+          },
+          {
+            "id": "2120607625540747467",
+            "url": "https://x.com/Core_EM/status/2120607625540747467",
+            "createdAtET": "2026-11-11 3:00 PM ET",
+            "title": "Ep 230 DRESS",
+            "format": "native video",
+            "likes": 32,
+            "impressions": 1673,
+            "bookmarks": 14,
+            "reposts": 6,
+            "replies": 0,
+            "quotes": 0,
+            "videoViews": 355,
+            "firstLine": "Core EM Ep 230: DRESS.",
+            "engagementRatePct": 3.11
+          },
+          {
+            "id": "2120187043011530830",
+            "url": "https://x.com/Core_EM/status/2120187043011530830",
+            "createdAtET": "2026-11-10 11:09 AM ET",
+            "title": "Ep 71 Acute Pulmonary Edema",
+            "format": "native video",
+            "likes": 42,
+            "impressions": 2496,
+            "bookmarks": 16,
+            "reposts": 10,
+            "replies": 0,
+            "quotes": 0,
+            "videoViews": 614,
+            "firstLine": "#ThrowbackThursday vibes on a Tuesday: a 2016 Core EM classic, remastered.",
+            "engagementRatePct": 2.72
+          },
+          {
+            "id": "2119825608360222850",
+            "url": "https://x.com/Core_EM/status/2119825608360222850",
+            "createdAtET": "2026-11-09 11:13 AM ET",
+            "title": "Ep 222 LAST",
+            "format": "native video",
+            "likes": 35,
+            "impressions": 2305,
+            "bookmarks": 16,
+            "reposts": 8,
+            "replies": 0,
+            "quotes": 0,
+            "videoViews": 576,
+            "firstLine": "2 minutes on local anesthetic systemic toxicity (LAST).",
+            "engagementRatePct": 2.56
+          }
+        ]
+      },
+      "after": null
+    }
+  ]
+}
