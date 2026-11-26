@@ -406,6 +406,7 @@ function thumb(i, cls = "thumb") {
 function dateLine(i) {
   const bits = [esc(i.format || "")];
   if (i.date !== S.today) bits.push(fmtDay(i.date));
+  if (i.time) bits.push(esc(i.time));
   return bits.filter(Boolean).join(" · ");
 }
 function tags(i) {
@@ -611,7 +612,7 @@ function postSheet(i) {
   const rest = i.media.filter((m) => !/pdf/i.test(m.label));
   const files = i.media.filter((m) => m.file);
   let h = `<h3>${esc(i.title)}</h3>
-    <div class="t2">${chip(i.platform, i.status)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)} ${pill(i.status)}</div>
+    <div class="t2">${chip(i.platform, i.status)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)}${i.time ? " · " + esc(i.time) : ""} ${pill(i.status)}</div>
     <div class="note">Sheet: ${esc(i.sheetStatus || "no status")}${i.author ? " · " + esc(i.author) : ""}${i.slotType ? " · " + esc(i.slotType) : ""}</div>
     ${tags(i)}
     ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div>`}

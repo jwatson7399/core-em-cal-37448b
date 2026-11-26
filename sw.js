@@ -3,7 +3,7 @@
    Page loads and data.json: network first, cached copy when offline.
    A sign-in redirect from Cloudflare Access is passed through, never cached. */
 
-const VERSION = "pc-v1";
+const VERSION = "pc-v1-t1126";
 const SHELL_CACHE = VERSION + "-shell";
 const DATA_CACHE = VERSION + "-data";
 const MEDIA_CACHE = VERSION + "-media";
