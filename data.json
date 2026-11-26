@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T02:19:32-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 2:19 AM ET",
+  "generatedAt": "2026-11-26T03:35:40-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 3:35 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -270,9 +270,14 @@
       "format": "video",
       "slotType": "Video short",
       "author": "",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "IN PROGRESS (remake)",
+      "postText": "Thyroid storm has no lab cutoff.\nAltered mentation is the tell.\n\nPTU first. Wait at least an hour. Then iodine.\nSteroids and high-dose propranolol block T4 to T3 conversion.\nFever? Acetaminophen. Never aspirin.\n\n#TBT Core EM Ep 223 (2026) with Dr. Annaliese Elam\nhttps://coreem.net/podcast/episode-223-thyroid-storm/\n#FOAMed",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1PiAWojo7DHjiB3_N4hOBxrKYI2tF_3cp/view"
+        }
+      ],
+      "sheetStatus": "READY",
       "posted": false,
       "thumb": "asset:thyroid-x.jpg",
       "ratio": "800/1422",
