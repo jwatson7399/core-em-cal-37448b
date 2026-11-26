@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T10:14:27-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 10:14 AM ET",
+  "generatedAt": "2026-11-26T10:22:52-05:00",
+  "dataAsOf": "Thursday, November 26, 2026, 10:22 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
   "posts": [
@@ -147,8 +147,8 @@
       "time": "8:00 AM ET"
     },
     {
-      "id": "2026-11-26|IG|Ep 222 LAST",
-      "date": "2026-11-26",
+      "id": "2026-11-25|IG|Ep 222 LAST",
+      "date": "2026-11-25",
       "platform": "IG",
       "title": "Ep 222 LAST",
       "format": "Reel",
@@ -161,11 +161,10 @@
           "href": "https://drive.google.com/file/d/1I2Nag2zdOA9OvvDpxyibxrJ2BM2ndUQk/view"
         }
       ],
-      "sheetStatus": "READY. Post time: 1:00 PM ET. Auto-rescheduled 2026-11-26 from Wed 2026-11-25 to Thu 2026-11-26 1:00 PM ET (not seen posted by next day; @core.em could not be checked without access; rule t243u). Alternative: Sat 2026-12-19 10:00 AM ET.",
-      "posted": false,
+      "sheetStatus": "POSTED. Posted by Julian (per Julian 2026-11-26); auto-reschedule to 11-26 1 PM undone",
+      "posted": true,
       "thumb": "asset:last-ig.jpg",
-      "ratio": "800/1422",
-      "time": "1:00 PM ET"
+      "ratio": "800/1422"
     },
     {
       "id": "2026-11-27|IG|Ep 212 Angioedema",
