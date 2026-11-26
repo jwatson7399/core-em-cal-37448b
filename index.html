@@ -5,8 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6f8">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f17">
+<meta name="theme-color" id="theme-color" content="#f5f6f8">
+<script>
+/* Apply the saved theme before the first paint so the wrong palette never flashes. */
+(function () {
+  var KEY = "pc.theme.v1";
+  var t = "system";
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (parsed === "light" || parsed === "dark" || parsed === "system") t = parsed;
+    }
+  } catch (e) {}
+  var dark = t === "dark" || (t !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  var root = document.documentElement;
+  root.setAttribute("data-theme", t);
+  root.setAttribute("data-dark", dark ? "true" : "false");
+  root.style.colorScheme = t === "system" ? "light dark" : t;
+  var meta = document.getElementById("theme-color");
+  if (meta) meta.setAttribute("content", dark ? "#0b0f17" : "#f5f6f8");
+  var cs = document.querySelector("meta[name='color-scheme']");
+  if (cs) cs.setAttribute("content", t === "system" ? "light dark" : t);
+})();
+</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Posting">
@@ -19,15 +41,26 @@
   --bg:#f5f6f8;--card:#fff;--card2:#eef1f5;--text:#0f172a;--muted:#5b6474;--line:#e1e5eb;
   --accent:#0f766e;--accentText:#fff;
   --planned:#1d4ed8;--posted:#15803d;--missed:#b91c1c;--resched:#b45309;--chipText:#fff;
+  --toastBtn:#2dd4bf;
   --tab-h:58px;--radius:16px;
   --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root{
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-dark="false"]){
   --bg:#0b0f17;--card:#151b26;--card2:#1c2432;--text:#e7eaf0;--muted:#9aa3b2;--line:#263041;
   --accent:#2dd4bf;--accentText:#042f2e;
   --planned:#60a5fa;--posted:#4ade80;--missed:#f87171;--resched:#fbbf24;--chipText:#0b0f17;
+  --toastBtn:#0f766e;
+  color-scheme:dark;
 }}
+:root[data-dark="true"]{
+  --bg:#0b0f17;--card:#151b26;--card2:#1c2432;--text:#e7eaf0;--muted:#9aa3b2;--line:#263041;
+  --accent:#2dd4bf;--accentText:#042f2e;
+  --planned:#60a5fa;--posted:#4ade80;--missed:#f87171;--resched:#fbbf24;--chipText:#0b0f17;
+  --toastBtn:#0f766e;
+  color-scheme:dark;
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.4 var(--font);overflow-x:hidden}
 body{overscroll-behavior-y:none}
@@ -75,7 +108,7 @@ h2:first-child{margin-top:4px}
 
 /* Full cards (Today) */
 .card{position:relative;border-radius:var(--radius);margin:0 0 12px;overflow:hidden;background:var(--card2)}
-.swipe-bg{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-weight:700;color:#fff}
+.swipe-bg{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-weight:700;color:var(--chipText)}
 .swipe-bg .l{opacity:0}.swipe-bg .r{opacity:0}
 .card.go-r .swipe-bg{background:var(--posted)}.card.go-r .l{opacity:1}
 .card.go-l .swipe-bg{background:var(--resched)}.card.go-l .r{opacity:1}
@@ -145,7 +178,7 @@ h2:first-child{margin-top:4px}
 .tab{flex:1;height:var(--tab-h);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-weight:600;color:var(--muted);position:relative}
 .tab svg{width:24px;height:24px}
 .tab.on{color:var(--accent)}
-.badge{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;background:var(--missed);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 5px}
+.badge{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;background:var(--missed);color:var(--chipText);font-size:11px;display:grid;place-items:center;padding:0 5px}
 
 /* Bottom sheet */
 .backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .2s}
@@ -164,14 +197,16 @@ h2:first-child{margin-top:4px}
 .links a.first{font-weight:700}
 .note{font-size:13px;color:var(--muted);margin:6px 2px}
 .keyrow{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.themeseg{display:flex;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:3px;margin:4px 0 8px}
+.themeseg button{flex:1;min-height:44px;border-radius:9px;font-weight:600;font-size:15px;color:var(--muted)}
+.themeseg button[aria-checked="true"]{background:var(--card);color:var(--text);box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(0,0,0,.18)}
 .datein{width:100%;min-height:48px;font:inherit;font-size:17px;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--text)}
 .quick{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 
 /* Toast */
 .toast{position:fixed;left:16px;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 12px);z-index:50;background:var(--text);color:var(--bg);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:15px;transform:translateY(150%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .2s ease,opacity .2s,visibility .2s}
 .toast.on{transform:none;opacity:1;visibility:visible;pointer-events:auto}
-.toast button{min-height:44px;min-width:44px;margin:-10px 0 -10px auto;font-weight:700;color:var(--accent)}
-@media (prefers-color-scheme:dark){.toast button{color:#0f766e}}
+.toast button{min-height:44px;min-width:44px;margin:-10px 0 -10px auto;font-weight:700;color:var(--toastBtn)}
 /* Playbook (X only). Every value shown here comes from playbook.json. */
 .jump{position:sticky;top:var(--top-h,57px);z-index:15;background:var(--bg);display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;margin:-12px -16px 8px;padding:8px 16px;border-bottom:1px solid var(--line);overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .jump::-webkit-scrollbar{display:none}
@@ -339,6 +374,43 @@ const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
+const THEME_KEY = "pc.theme.v1";
+const THEMES = ["system", "light", "dark"];
+const THEME_LABEL = { system: "System", light: "Light", dark: "Dark" };
+function readTheme() {
+  const t = store.get(THEME_KEY, "system");
+  return THEMES.includes(t) ? t : "system";
+}
+function themeIsDark(mode) {
+  if (mode === "dark") return true;
+  if (mode === "light") return false;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function applyTheme(mode) {
+  const t = THEMES.includes(mode) ? mode : "system";
+  const dark = themeIsDark(t);
+  const root = document.documentElement;
+  root.setAttribute("data-theme", t);
+  root.setAttribute("data-dark", dark ? "true" : "false");
+  root.style.colorScheme = t === "system" ? "light dark" : t;
+  const meta = document.getElementById("theme-color");
+  if (meta) meta.setAttribute("content", dark ? "#0b0f17" : "#f5f6f8");
+  const cs = document.querySelector("meta[name='color-scheme']");
+  if (cs) cs.setAttribute("content", t === "system" ? "light dark" : t);
+}
+function setTheme(mode) {
+  const t = THEMES.includes(mode) ? mode : "system";
+  store.set(THEME_KEY, t);
+  applyTheme(t);
+}
+function themeSeg() {
+  const cur = readTheme();
+  return `<div class="sub-h">Appearance</div>
+    <div class="themeseg" role="radiogroup" aria-label="Color theme">${THEMES.map((t) =>
+      `<button type="button" role="radio" aria-checked="${t === cur ? "true" : "false"}" data-act="theme" data-theme="${t}">${THEME_LABEL[t]}</button>`
+    ).join("")}</div>
+    <div class="note">System follows the light or dark setting on this phone.</div>`;
+}
 function todayET() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 }
@@ -932,6 +1004,7 @@ function keySheet() {
   if (S.view === "playbook") { pbHelpSheet(); return; }
   const row = (s, text) => `<div class="keyrow">${chip("X", s)}${chip("IG", s)}<div><b>${STATUS_LABEL[s]}</b><div class="note">${text}</div></div></div>`;
   openSheet(`<h3>Key</h3>
+    ${themeSeg()}
     ${row("planned", "Scheduled and not yet posted.")}
     ${row("posted", "Posted.")}
     ${row("missed", "Date has passed and it was not posted.")}
@@ -1420,6 +1493,7 @@ function pbPostSheet(id) {
 function pbHelpSheet() {
   const pb = S.pb || {};
   openSheet(`<h3>About the Playbook</h3>
+    ${themeSeg()}
     <div class="note"><b>What it is:</b> the living X playbook for ${esc(pb.account && pb.account.handle ? "@" + pb.account.handle : "the account")}. It is X only.</div>
     <div class="note"><b>Where it comes from:</b> every number, rule, and log entry is read from playbook.json on this site. A scheduled run refreshes the stats and adds evidence and results there. This page does not invent or fill in numbers. When something is missing it says "not given", "none", or "not yet".</div>
     <div class="note"><b>Views</b> are post impressions. <b>Video views</b> are plays of a native video and are a different, smaller count.</div>
@@ -1499,6 +1573,14 @@ document.addEventListener("click", async (ev) => {
       break;
     case "pending": pendingSheet(); break;
     case "copylist": if (await copyText(pendingChanges().join("\n"))) toast("List copied"); break;
+    case "theme": {
+      setTheme(el.dataset.theme);
+      const group = el.closest(".themeseg");
+      if (group) group.querySelectorAll("[data-act='theme']").forEach((b) => {
+        b.setAttribute("aria-checked", b.dataset.theme === el.dataset.theme ? "true" : "false");
+      });
+      break;
+    }
     case "day":
       S.selected = el.dataset.date;
       S.month = S.selected.slice(0, 7);
@@ -1608,6 +1690,11 @@ $("#strip").addEventListener("scroll", onStripScroll, { passive: true });
 })();
 
 /* ---------- Lifecycle ---------- */
+try {
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (readTheme() === "system") applyTheme("system");
+  });
+} catch (e) {}
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState !== "visible") return;
   const dayChanged = todayET() !== S.today;
