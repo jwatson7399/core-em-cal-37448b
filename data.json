@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T17:49:08-05:00",
+  "generatedAt": "2026-11-26T18:00:35-05:00",
   "dataAsOf": "Thursday, November 26, 2026, 11:45 AM ET",
   "today": "2026-11-26",
   "igPaused": false,
@@ -2948,6 +2948,35 @@
       "thumb": "",
       "ratio": "",
       "time": "7:30 PM ET"
+    }
+  ],
+  "replies": [
+    {
+      "id": "x-reply-2026-11-26-hemoptysis-paramedic-lifeline",
+      "status": "pending",
+      "platform": "X",
+      "account": "@Core_EM",
+      "authorHandle": "",
+      "authorName": "Paramedic Lifeline | Critical Care",
+      "authorVerified": true,
+      "replyText": "Great review. What are your thoughts on intubate when necessary in this scenario? Anything EMS should keep in mind?",
+      "replyUrl": "",
+      "parent": {
+        "title": "Core EM Hemoptysis card set",
+        "url": "https://x.com/Core_EM/status/2125702883756708161",
+        "articleUrl": "https://coreem.net/core/hemoptysis/",
+        "postedAt": "2026-11-25T16:27:00-05:00",
+        "postId": "2026-11-25|X|Hemoptysis"
+      },
+      "why": "Verified critical care/EMS account asking a real clinical question on our top post",
+      "draftText": "If oxygenation or the airway is failing, intubate early with the largest tube you can (8.0+) to allow bronchoscopy. For EMS: bleeding side down, suction, O2, and early notification to a center with IR and bronchoscopy. Mainstem intubation of the good lung is a rescue move.",
+      "createdAt": "2026-11-26T17:51:00-05:00",
+      "notes": [
+        "Clinical content matches standard massive hemoptysis airway care: large tube (8.0 or bigger) so a bronchoscope fits, bleeding side down, and selective mainstem intubation of the non-bleeding lung as a rescue.",
+        "Author handle not captured yet; only the display name is known.",
+        "Reply URL not captured; Open on X goes to the parent post. The reply is in that thread.",
+        "createdAt is when this item was queued, not when the reply was posted on X."
+      ]
     }
   ]
 }

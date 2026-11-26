@@ -259,6 +259,21 @@ details.box>.body{padding:0 0 14px}
 .samp span{display:block;font-size:11px;color:var(--muted);line-height:1.25}
 .kvline{font-size:13px;margin-top:6px}
 .kvline span{color:var(--muted)}
+/* Replies (Needs attention). Copy always uses draftText from data.json, never the page text. */
+.rcard{background:var(--card);border-radius:var(--radius);padding:14px;margin:0 0 12px;min-width:0;overflow-wrap:anywhere}
+.rcard .t1{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.vbadge{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--planned);color:var(--chipText);flex:none}
+.vbadge svg{width:10px;height:10px}
+.rq{white-space:pre-wrap;font-size:15px;margin:10px 0 0;padding-left:10px;border-left:3px solid var(--line)}
+.rq:not(.open){display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rcard .more{margin:0}
+.rcard .xlink svg{width:18px;height:18px}
+.rlab{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:12px 2px 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.ccount{font-size:12px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--muted)}
+.ccount.over{color:var(--missed)}
+.draft{white-space:pre-wrap;font-size:16px;line-height:1.45;background:var(--card2);border:1.5px solid var(--accent);border-radius:12px;padding:12px;user-select:text;-webkit-user-select:text}
+.rcard .btn.primary{width:100%;margin-top:10px;min-height:50px}
+.rcard .acts{margin-top:8px}
 .st-active{color:var(--planned)}.st-done{color:var(--posted)}.st-stopped{color:var(--missed)}.st-other{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -314,6 +329,8 @@ const PLATFORM_NAME = { X: "X", IG: "Instagram" };
 const OV_KEY = "pc.overrides.v1", DATA_KEY = "pc.lastData.v1";
 const PB_URL = "playbook.json", PB_KEY = "pc.lastPlaybook.v1";
 const PB_SCHEMA = 1; // highest playbook.json schemaVersion this page knows how to show
+const RP_KEY = "pc.replies.v1"; // phone-only Replied / Skip marks, keyed by reply id
+const X_LIMIT = 280;
 
 /* ---------- Small helpers ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -388,7 +405,9 @@ const S = {
   genDate: null, stampText: "", offline: false, expired: false, loadedAt: 0,
   prepared: {}, stripBuiltFor: null,
   // Playbook tab state. pbOpen remembers which panels were opened so a refresh keeps them.
-  pb: null, pbOffline: false, pbExpired: false, pbBad: false, pbOpen: new Map()
+  pb: null, pbOffline: false, pbExpired: false, pbBad: false, pbOpen: new Map(),
+  // Replies: marks made on this phone, and which reply texts are expanded.
+  replyMarks: store.get(RP_KEY, {}), rOpen: new Set()
 };
 const saveOv = () => store.set(OV_KEY, S.overrides);
 const pid = (p) => p.id || [p.date, p.platform, p.title].join("|");
@@ -423,6 +442,7 @@ async function loadCalendar() {
     S.raw = data;
     readStamp();
     reconcile();
+    reconcileReplies();
     derive();
   }
 }
@@ -553,6 +573,83 @@ function pendingChanges() {
   return list;
 }
 
+/* ---------- Replies ---------- */
+/* data.json "replies": items with status "pending" show in Needs attention until marked
+   Replied or Skip here (kept in localStorage by id) or until the data says otherwise. */
+const allReplies = () => (S.raw && Array.isArray(S.raw.replies) ? S.raw.replies : []).filter((r) => r && r.id);
+const findReply = (id) => allReplies().find((r) => String(r.id) === id) || null;
+function pendingReplies() {
+  const when = (r) => { const t = Date.parse(r.createdAt || ""); return isNaN(t) ? -Infinity : t; };
+  return allReplies()
+    .filter((r) => (r.status || "pending") === "pending" && !S.replyMarks[r.id] && typeof r.draftText === "string")
+    .sort((a, b) => when(b) - when(a));
+}
+function reconcileReplies() {
+  // Forget a phone mark once the reply is gone from the data or is 30 days old.
+  const ids = new Set(allReplies().map((r) => String(r.id)));
+  let changed = false;
+  for (const [id, m] of Object.entries(S.replyMarks)) {
+    if (!ids.has(id) || (m.at && Date.now() - Date.parse(m.at) > 30 * 864e5)) { delete S.replyMarks[id]; changed = true; }
+  }
+  if (changed) store.set(RP_KEY, S.replyMarks);
+}
+/* Character count close to how X counts: links count 23, most Latin text 1 per character,
+   emoji and CJK 2 per character. */
+function xLength(text) {
+  const s = String(text || "").normalize("NFC");
+  const url = /\b(?:https?:\/\/|www\.)\S+|\b[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|edu|gov|io|co|ly|me|ai|app|dev)(?:\/\S*)?/gi;
+  let n = 0, rest = s.replace(url, () => { n += 23; return ""; });
+  const light = (cp) => (cp <= 4351) || (cp >= 8192 && cp <= 8205) || (cp >= 8208 && cp <= 8223) || (cp >= 8242 && cp <= 8247);
+  const parts = typeof Intl !== "undefined" && Intl.Segmenter
+    ? Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(rest), (g) => g.segment)
+    : Array.from(rest);
+  for (const g of parts) { const cps = Array.from(g); n += (cps.length === 1 && light(cps[0].codePointAt(0))) ? 1 : 2; }
+  return n;
+}
+function fmtWhen(iso) {
+  const t = Date.parse(iso || "");
+  if (isNaN(t)) return "";
+  return new Date(t).toLocaleString("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " ET";
+}
+const VERIFIED = '<span class="vbadge" role="img" aria-label="Verified"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.3 2.3L9.5 3.8"/></svg></span>';
+function replyCard(r) {
+  const id = esc(r.id), p = r.parent || {};
+  const handle = String(r.authorHandle || "").trim();
+  const name = String(r.authorName || "").trim() || handle || "Unknown account";
+  const text = String(r.replyText || "");
+  const long = text.length > 140 || text.split("\n").length > 3;
+  const open = S.rOpen.has(String(r.id));
+  const link = String(r.replyUrl || "").trim() || String(p.url || "").trim();
+  const n = xLength(r.draftText), over = n > X_LIMIT;
+  const notes = Array.isArray(r.notes) ? r.notes.filter(Boolean) : (r.notes ? [r.notes] : []);
+  const sub = [handle ? esc(handle) : "", "replied to " + esc(r.account || "@Core_EM"), fmtWhen(r.createdAt)].filter(Boolean).join(" · ");
+  let h = `<article class="rcard" data-rid="${id}">
+    <div class="t1">${esc(name)}${r.authorVerified ? VERIFIED : ""}</div>
+    <div class="t2"><span class="fpill">Reply on ${esc(PLATFORM_NAME[r.platform] || r.platform || "X")}</span> ${sub}</div>
+    <div class="rq${open ? " open" : ""}">${esc(text)}</div>
+    ${long ? `<button class="more" data-act="rmore" data-rid="${id}">${open ? "Less" : "More"}</button>` : ""}
+    <div class="note">Under: ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title || "Core EM post")}</a>` : esc(p.title || "Core EM post")}${p.postedAt ? " · posted " + esc(fmtWhen(p.postedAt)) : ""}</div>
+    ${r.why ? `<div class="note"><b>Why answer:</b> ${esc(r.why)}</div>` : ""}
+    ${link ? `<a class="xlink" href="${esc(link)}" target="_blank" rel="noopener">${ICON.open}&nbsp;Open on X</a>` : ""}
+    ${link && !String(r.replyUrl || "").trim() ? `<div class="note">The reply's own link is not saved yet, so this opens the post. The reply is in its thread.</div>` : ""}
+    <div class="rlab"><span>Your reply</span><span class="ccount${over ? " over" : ""}">${n} / ${X_LIMIT}${over ? " · too long for X" : ""}</span></div>
+    <div class="draft">${esc(r.draftText)}</div>
+    <button class="btn primary" data-act="rcopy" data-rid="${id}">${ICON.copy} Copy reply</button>`;
+  if (notes.length) h += `<details class="inner"><summary><span class="sm">Fact-check notes (${notes.length})</span></summary><ul class="blist">${notes.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>`;
+  h += `<div class="acts"><button class="btn ok" data-act="rdone" data-rid="${id}">${ICON.check} Replied</button><button class="btn" data-act="rskip" data-rid="${id}">Skip</button></div>
+  </article>`;
+  return h;
+}
+function markReply(id, status) {
+  const prev = S.replyMarks[id] ? { ...S.replyMarks[id] } : null;
+  S.replyMarks[id] = { status, at: new Date().toISOString() };
+  store.set(RP_KEY, S.replyMarks); render();
+  toast(status === "replied" ? "Marked replied" : "Skipped", () => {
+    if (prev) S.replyMarks[id] = prev; else delete S.replyMarks[id];
+    store.set(RP_KEY, S.replyMarks); render();
+  });
+}
+
 /* ---------- Rendering ---------- */
 function thumb(i, cls = "thumb") {
   if (!i.thumb) return `<div class="${cls} ph">${esc(i.platform)}</div>`;
@@ -619,8 +716,11 @@ function renderToday() {
 
   const missed = S.items.filter((i) => i.status === "missed");
   const soon = S.items.filter((i) => isOpen(i) && i.date > t && i.date <= addDays(t, 3) && prepGaps(i).length);
-  if (missed.length || soon.length) {
+  const reps = pendingReplies();
+  if (missed.length || soon.length || reps.length) {
     h += `<h2>Needs attention</h2>`;
+    if (reps.length) h += `<div class="note">Replies to answer (${reps.length})</div>` + reps.map(replyCard).join("");
+    if (reps.length && missed.length) h += `<div class="note">Missed posts</div>`;
     h += missed.map(fullCard).join("");
     if (soon.length) h += `<div class="note">Due in the next 3 days, not ready</div>` + soon.map((i) => rowHTML(i, fmtDay(i.date) + ": " + prepGaps(i).join(", "))).join("");
   }
@@ -729,7 +829,7 @@ function renderMonth() {
 }
 
 function renderBadge() {
-  const n = S.items.filter((i) => i.status === "missed" || (i.date === S.today && isOpen(i))).length;
+  const n = S.items.filter((i) => i.status === "missed" || (i.date === S.today && isOpen(i))).length + pendingReplies().length;
   const b = $("#badge");
   b.textContent = n; b.classList.toggle("hidden", !n);
   try { if (navigator.setAppBadge) (n ? navigator.setAppBadge(n) : navigator.clearAppBadge()).catch(() => {}); } catch (e) {}
@@ -1415,6 +1515,27 @@ document.addEventListener("click", async (ev) => {
       el.parentNode.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === el));
       t.scrollIntoView({ behavior: "smooth", block: "start" });
       setTimeout(pbSpy, 1250);
+      break;
+    }
+    case "rcopy": {
+      const r = findReply(el.dataset.rid);
+      if (!r) break;
+      // Exactly draftText: nothing added, nothing trimmed.
+      if (await copyText(r.draftText)) {
+        const label = el.innerHTML;
+        el.innerHTML = `${ICON.check} Copied`; el.classList.add("ok");
+        toast("Reply copied");
+        setTimeout(() => { if (el.isConnected) { el.innerHTML = label; el.classList.remove("ok"); } }, 2000);
+      } else toast("Could not copy. Press and hold the reply text to copy it.");
+      break;
+    }
+    case "rdone": if (findReply(el.dataset.rid)) markReply(el.dataset.rid, "replied"); break;
+    case "rskip": if (findReply(el.dataset.rid)) markReply(el.dataset.rid, "skipped"); break;
+    case "rmore": {
+      const id = el.dataset.rid, q = el.closest(".rcard") && el.closest(".rcard").querySelector(".rq");
+      if (S.rOpen.has(id)) S.rOpen.delete(id); else S.rOpen.add(id);
+      if (q) q.classList.toggle("open", S.rOpen.has(id));
+      el.textContent = S.rOpen.has(id) ? "Less" : "More";
       break;
     }
     case "signin": location.reload(); break;
