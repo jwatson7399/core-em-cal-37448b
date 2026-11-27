@@ -207,7 +207,7 @@ h2:first-child{margin-top:4px}
 .quick{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 
 /* Toast */
-.toast{position:fixed;left:16px;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 12px);z-index:50;background:var(--text);color:var(--bg);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:15px;transform:translateY(150%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .2s ease,opacity .2s,visibility .2s}
+.toast{position:fixed;left:16px;right:16px;bottom:calc(var(--tab-h) + var(--safe-b) + 12px);z-index:70;background:var(--text);color:var(--bg);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:15px;transform:translateY(150%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .2s ease,opacity .2s,visibility .2s}
 .toast.on{transform:none;opacity:1;visibility:visible;pointer-events:auto}
 .toast button{min-height:44px;min-width:44px;margin:-10px 0 -10px auto;font-weight:700;color:var(--toastBtn)}
 /* Playbook (X only). Every value shown here comes from playbook.json. */
@@ -313,6 +313,44 @@ details.box>.body{padding:0 0 14px}
 .rcard .btn.primary{width:100%;margin-top:10px;min-height:50px}
 .rcard .acts{margin-top:8px}
 .st-active{color:var(--planned)}.st-done{color:var(--posted)}.st-stopped{color:var(--missed)}.st-other{color:var(--muted)}
+/* Text edits. An edit lives in pc.overrides.v1 under "edit" and wins over the Sheet text everywhere. */
+.tag.edit{color:var(--accent);border:1px solid currentColor;background:transparent}
+.tag.warn{color:var(--resched);border:1px solid currentColor;background:transparent}
+.txtbar{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.txtbar .more{margin:-6px 0 0}
+.txthead{display:flex;align-items:center;gap:8px;margin:14px 0 -4px}
+.txthead .sub-h{margin:0;flex:1}
+.linkbtn{min-height:44px;padding:0 8px;font-size:15px;font-weight:600;color:var(--accent)}
+.etag{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;border:1px solid currentColor;color:var(--accent);white-space:nowrap}
+.editbox{background:var(--card2);border-radius:12px;padding:10px 12px;margin:8px 0 0}
+.editbox.stale{border-left:4px solid var(--resched)}
+.editbox .acts{margin-top:8px}
+.editbox .btn{background:var(--card)}
+.editbox .btn.primary{background:var(--accent)}
+.origtxt{white-space:pre-wrap;font-size:14px;color:var(--muted);overflow-wrap:anywhere;padding:0 0 10px;user-select:text;-webkit-user-select:text}
+.editor{position:fixed;left:0;right:0;top:0;height:100vh;height:100dvh;z-index:60;display:flex;flex-direction:column;background:var(--bg);color:var(--text);padding:var(--safe-t) 12px calc(var(--safe-b) + 8px);overscroll-behavior:contain}
+.editor[hidden]{display:none}
+.editor.kb{padding-bottom:8px}
+.edhead{display:flex;align-items:center;gap:8px;min-height:52px;flex:none}
+.edhead .edttl{flex:1;text-align:center;font-weight:700;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.edbtn{min-height:44px;min-width:72px;padding:0 12px;border-radius:12px;font-weight:600;font-size:16px;color:var(--accent)}
+.edbtn.primary{background:var(--accent);color:var(--accentText)}
+.edbtn.primary[disabled]{opacity:.45}
+.edbtn.armed{color:var(--missed)}
+.edmeta{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin:0 2px 6px;flex:none;min-width:0}
+.edmeta .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.edwarn{flex:none;display:flex;flex-direction:column;gap:6px;margin:0 0 6px}
+.edwarn:empty{display:none}
+.wline{display:flex;align-items:center;gap:8px;font-size:14px;background:var(--card2);border-radius:10px;padding:4px 4px 4px 10px;border-left:4px solid var(--resched)}
+.wline.bad{border-left-color:var(--missed)}
+.wline span{flex:1;min-width:0}
+.wline button{min-height:40px;padding:0 10px;font-weight:600;color:var(--accent);white-space:nowrap}
+.edtext{flex:1 1 auto;min-height:120px;width:100%;resize:none;font:16px/1.45 var(--font);padding:12px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);overscroll-behavior:contain;-webkit-user-select:text;user-select:text}
+.edtext:focus{outline:none;border-color:var(--accent)}
+.edfoot{flex:none;display:flex;gap:8px;margin-top:8px}
+.edfoot .btn{flex:1;font-size:14px}
+.edorig{flex:none;max-height:30%;overflow-y:auto;margin-top:8px;background:var(--card2);border-radius:12px;padding:10px 12px}
+.edorig .sub-h{margin:0 0 6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -355,6 +393,18 @@ details.box>.body{padding:0 0 14px}
 
 <div class="backdrop" id="backdrop"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="sheethead"><div class="grab"></div><button class="closebtn" data-act="close">Close</button></div><div id="sheet-body"></div></div>
+<div class="editor" id="editor" role="dialog" aria-modal="true" aria-labelledby="ed-title" hidden>
+  <div class="edhead">
+    <button class="edbtn" id="ed-cancel" data-act="edcancel">Cancel</button>
+    <div class="edttl" id="ed-title">Edit text</div>
+    <button class="edbtn primary" id="ed-save" data-act="edsave">Save</button>
+  </div>
+  <div class="edmeta" id="ed-meta"></div>
+  <div class="edwarn" id="ed-warn" aria-live="polite"></div>
+  <textarea class="edtext" id="ed-text" aria-label="Post text" autocapitalize="sentences" autocomplete="off" spellcheck="true"></textarea>
+  <div class="edorig hidden" id="ed-orig"></div>
+  <div class="edfoot" id="ed-foot"></div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-msg"></span><button id="toast-undo">Undo</button></div>
 
 <script>
@@ -373,6 +423,8 @@ const PB_URL = "playbook.json", PB_KEY = "pc.lastPlaybook.v1";
 const PB_SCHEMA = 1; // highest playbook.json schemaVersion this page knows how to show
 const RP_KEY = "pc.replies.v1"; // phone-only Replied / Skip marks, keyed by reply id
 const X_LIMIT = 280;
+const IG_LIMIT = 2200; // Instagram caption limit, in characters
+const DRAFT_KEY = "pc.editDraft.v1"; // unsaved text in the editor, in case iOS closes the app mid-edit
 
 /* ---------- Small helpers ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -582,31 +634,75 @@ function readStamp() {
   S.stampText = time ? "Updated " + (date && date !== S.today ? fmt(date, { month: "short", day: "numeric" }) + ", " : "") + time + " ET" : "Updated time unknown";
 }
 
-/* Phone-only changes stay until the Sheet catches up. */
+/* Text compare that ignores line-ending style and leading or trailing blank space. */
+const normText = (s) => String(s ?? "").replace(/\r\n?/g, "\n").trim();
+const cleanText = (s) => String(s ?? "").replace(/\r\n?/g, "\n").replace(/\s+$/, "");
+
+/* Phone-only changes stay until the Sheet catches up.
+   An override can hold a status part (posted, resched, at) and a text part (edit). Each part
+   is kept or dropped on its own rules, so clearing one never loses the other. */
 function reconcile() {
   const posts = S.raw.posts;
   const byId = new Map(posts.map((p) => [pid(p), p]));
   const same = (a, b) => a.platform === b.platform && a.title === b.title;
+  const moved = (q) => /^RESCHEDULED/i.test(q.sheetStatus || "");
+  const newRow = (p) => posts.find((q) => same(q, p) && q.date > p.date && !moved(q));
+  const old = (iso, days) => iso && Date.now() - Date.parse(iso) > days * 864e5;
+  const carry = [];
   let changed = false;
   for (const [id, o] of Object.entries(S.overrides)) {
     const p = byId.get(id);
-    let drop = !p || (!o.posted && !o.resched);
-    if (p && !drop) {
-      const sheetMoved = /^RESCHEDULED/i.test(p.sheetStatus || "");
+    const sheetMoved = !!p && moved(p);
+
+    // Status part: same rules as before.
+    let dropStatus = !p || (!o.posted && !o.resched);
+    if (p && !dropStatus) {
       if (o.posted) {
-        drop = p.posted || posts.some((q) => q.posted && same(q, p) && q.date >= p.date);
-        if (!drop && o.resched && sheetMoved) {
+        dropStatus = p.posted || posts.some((q) => q.posted && same(q, p) && q.date >= p.date);
+        if (!dropStatus && o.resched && sheetMoved) {
           // Sheet made the new row: carry the phone-only "posted" over to it.
-          const target = posts.find((q) => same(q, p) && q.date > p.date && !/^RESCHEDULED/i.test(q.sheetStatus || ""));
-          if (target) S.overrides[pid(target)] = { posted: true, at: o.at };
-          drop = true;
+          const target = newRow(p);
+          if (target) carry.push([pid(target), { posted: true, at: o.at }]);
+          dropStatus = true;
         }
       } else if (o.resched) {
-        drop = p.posted || sheetMoved;
+        dropStatus = p.posted || sheetMoved;
       }
     }
-    if (o.at && Date.now() - Date.parse(o.at) > 30 * 864e5) drop = true;
-    if (drop) { delete S.overrides[id]; changed = true; }
+    if (old(o.at, 30)) dropStatus = true;
+
+    // Text part: kept until the Sheet shows the same text.
+    let edit = o.edit && typeof o.edit.text === "string" ? o.edit : null;
+    if (edit) {
+      if (!p) {
+        // Row missing from this data.json. Keep the edit for a while in case it comes back.
+        if (old(edit.at, 30)) edit = null;
+      } else if (sheetMoved) {
+        // Sheet moved the post to a new row (new id): the edit follows it.
+        const target = newRow(p);
+        if (target) { carry.push([pid(target), { edit }]); edit = null; }
+      } else if (normText(p.postText) === normText(edit.text)) {
+        edit = null; // EM Bot wrote the edit into the Sheet. Nothing left to keep.
+      }
+    }
+
+    const next = {};
+    if (!dropStatus) {
+      if (o.posted) next.posted = true;
+      if (o.resched) next.resched = o.resched;
+      if (o.at) next.at = o.at;
+    }
+    if (edit) next.edit = edit;
+    if (!next.posted && !next.resched && !next.edit) { delete S.overrides[id]; changed = true; }
+    else if (JSON.stringify(next) !== JSON.stringify(o)) { S.overrides[id] = next; changed = true; }
+  }
+  for (const [tid, patch] of carry) {
+    const cur = S.overrides[tid] || {};
+    // An edit already made on the new row wins over one carried from the old row.
+    if (patch.edit && cur.edit) delete patch.edit;
+    if (!patch.posted && !patch.edit) continue;
+    S.overrides[tid] = { ...cur, ...patch };
+    changed = true;
   }
   if (changed) saveOv();
 }
@@ -617,7 +713,11 @@ function derive() {
   for (const p of S.raw.posts) {
     const id = pid(p), o = S.overrides[id], ss = p.sheetStatus || "";
     const m = ss.match(/(\d{4}-\d{2}-\d{2})/);
-    const base = { ...p, id, baseId: id, media: p.media || [], postText: p.postText || "", local: null, movedTo: null };
+    const sheetText = p.postText || "", e = o && o.edit && typeof o.edit.text === "string" ? o.edit : null;
+    const base = { ...p, id, baseId: id, media: p.media || [], local: null, movedTo: null,
+      // postText is what every card, sheet, Copy and Copy-and-open button uses: the edit when there is one.
+      postText: e ? e.text : sheetText, sheetText,
+      edit: e, editStale: !!e && normText(e.base) !== normText(sheetText) };
     if (p.posted) { out.push({ ...base, key: id, status: "posted" }); continue; }
     if (/^RESCHEDULED/i.test(ss)) { out.push({ ...base, key: id, status: "rescheduled", movedTo: m ? m[1] : null }); continue; }
     if (o && o.resched) {
@@ -665,9 +765,11 @@ function pendingChanges() {
     const name = `${i.title} (${i.platform}, ${fmt(i.date, { month: "short", day: "numeric" })})`;
     if (o.resched) list.push(`${name}: moved to ${fmt(o.resched, { month: "short", day: "numeric" })}${o.posted ? ", then posted" : ""}`);
     else if (o.posted) list.push(`${name}: posted`);
+    if (o.edit) list.push(`${name}: text edited${o.edit.sentAt ? ", copied for EM Bot" : ", not sent to EM Bot yet"}${i.editStale ? " (Sheet text changed since)" : ""}`);
   }
   return list;
 }
+const editedItems = () => Object.keys(S.overrides).filter((id) => S.overrides[id].edit).map((id) => S.byKey.get(id)).filter(Boolean);
 
 /* ---------- Replies ---------- */
 /* data.json "replies": items with status "pending" show in Needs attention until marked
@@ -765,8 +867,17 @@ function tags(i) {
   if (i.status === "rescheduled" && i.movedTo) h += `<span class="tag">Moved to ${fmt(i.movedTo, { month: "short", day: "numeric" })}</span>`;
   if (isOpen(i)) for (const g of prepGaps(i)) h += `<span class="tag">${g}</span>`;
   if (isOpen(i) && quietText(i)) h += `<span class="tag quiet">${quietText(i)}</span>`;
+  if (i.edit) {
+    h += `<span class="tag edit">Edited</span>`;
+    if (i.editStale) h += `<span class="tag warn">Sheet text changed</span>`;
+    if (!i.edit.sentAt) h += `<span class="tag">Not sent to EM Bot</span>`;
+  }
   return h ? `<div>${h}</div>` : "";
 }
+/* Sheet-moved rows are a pointer to the new row, so the edit belongs there. */
+const canEdit = (i) => !(i.status === "rescheduled" && !i.local);
+const editBtn = (i, cls = "more") => canEdit(i)
+  ? `<button class="${cls}" data-act="edit" data-key="${esc(i.key)}">${(i.postText || "").trim() ? "Edit" : "Write text"}</button>` : "";
 
 function fullCard(i) {
   const hasText = !!i.postText.trim();
@@ -778,8 +889,8 @@ function fullCard(i) {
         <div class="ttl"><div class="t1">${esc(i.title)}</div><div class="t2">${formatPill(i)} ${dateLine(i)} ${pill(i.status)}</div></div>
         ${thumb(i)}
       </div>
-      ${hasText ? `<div class="txt clamp">${esc(i.postText)}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Full post and media</button>`
-                : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div><button class="more" data-act="sheet" data-key="${esc(i.key)}">Details</button>`}
+      ${hasText ? `<div class="txt clamp">${esc(i.postText)}</div>` : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div>`}
+      <div class="txtbar"><button class="more" data-act="sheet" data-key="${esc(i.key)}">${hasText ? "Full post and media" : "Details"}</button>${editBtn(i)}</div>
       ${tags(i)}
       <div class="acts">
         <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(i.platform)}</button>
@@ -793,7 +904,7 @@ function fullCard(i) {
 function rowHTML(i, extra = "") {
   return `<button class="row" data-act="sheet" data-key="${esc(i.key)}">${thumb(i)}
     <div class="rt"><div class="r1">${esc(i.title)}</div><div class="r2">${esc(extra || i.postText.trim() || prepGaps(i).join(", ") || quietText(i) || "No post text yet")}</div></div>
-    <span class="rchips">${chip(i.platform, i.status, i)}${formatPill(i)}</span></button>`;
+    <span class="rchips">${chip(i.platform, i.status, i)}${formatPill(i)}${i.edit ? `<span class="etag">Edited</span>` : ""}</span></button>`;
 }
 
 function renderToday() {
@@ -807,6 +918,8 @@ function renderToday() {
   if (S.offline) h += `<div class="banner warn">Offline. Showing the last saved copy.</div>`;
   if (S.genDate && S.genDate < t) h += `<div class="banner warn">This data is from ${fmtDay(S.genDate)}. Today's 8 AM update has not loaded yet.</div>`;
   if (S.raw.igPaused) h += `<div class="banner warn">Instagram is paused. Instagram posts are not counted as missed.</div>`;
+  const dr = readDraft();
+  if (dr && S.byKey.get(dr.key)) h += `<div class="banner warn"><span>Unsaved edit: ${esc(S.byKey.get(dr.key).title)}</span><button data-act="draftresume">Resume</button><button data-act="draftdrop" style="margin-left:0;color:var(--muted)">Discard</button></div>`;
   const pend = pendingChanges();
   if (pend.length) h += `<div class="banner">${pend.length} change${pend.length > 1 ? "s" : ""} not in the Sheet yet<button data-act="pending">Review</button></div>`;
 
@@ -953,14 +1066,28 @@ function render() {
 function setView(v) { S.view = v; render(); window.scrollTo(0, 0); document.body.scrollTop = 0; if (v === "playbook") pbSpy(); }
 
 /* ---------- Sheets ---------- */
-let sheetKey = null;
-function openSheet(html, key = null) {
-  sheetKey = key;
+let sheetKey = null, sheetKind = null;
+function openSheet(html, key = null, kind = null) {
+  sheetKey = key; sheetKind = kind;
   $("#sheet-body").innerHTML = html;
   $("#sheet").scrollTop = 0;
   $("#sheet").classList.add("on"); $("#backdrop").classList.add("on");
 }
-function closeSheet() { $("#sheet").classList.remove("on"); $("#backdrop").classList.remove("on"); sheetKey = null; }
+function closeSheet() { $("#sheet").classList.remove("on"); $("#backdrop").classList.remove("on"); sheetKey = null; sheetKind = null; }
+/* Redraw an open sheet after an edit, keeping its scroll position. */
+function refreshSheet() {
+  if (!$("#sheet").classList.contains("on")) return;
+  const top = $("#sheet").scrollTop;
+  if (sheetKind === "post") {
+    const i = S.byKey.get(sheetKey);
+    if (!i) { closeSheet(); return; }
+    postSheet(i);
+  } else if (sheetKind === "pending") {
+    if (!pendingChanges().length) { closeSheet(); return; }
+    pendingSheet();
+  } else return;
+  $("#sheet").scrollTop = top;
+}
 
 function postSheet(i) {
   const hasText = !!i.postText.trim(), open = isOpen(i);
@@ -971,7 +1098,9 @@ function postSheet(i) {
     <div class="t2">${chip(i.platform, i.status, i)} ${formatPill(i)} ${esc(PLATFORM_NAME[i.platform] || i.platform)} · ${fmtDay(i.date)}${i.time ? " · " + esc(i.time) : ""} ${pill(i.status)}</div>
     <div class="note">Sheet: ${esc(i.sheetStatus || "no status")}${i.author ? " · " + esc(i.author) : ""}${i.slotType ? " · " + esc(i.slotType) : ""}</div>
     ${tags(i)}
+    <div class="txthead"><div class="sub-h">${i.edit ? "Post text (your edit)" : "Post text"}</div>${editBtn(i, "linkbtn")}</div>
     ${hasText ? `<div class="txt">${esc(i.postText)}</div>` : `<div class="txt muted">${quietText(i) ? esc(quietText(i))+"." : "No post text yet."}</div>`}
+    ${i.edit ? editBox(i) : ""}
     <div class="acts">
       <button class="btn primary" data-act="open" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.open} Copy, open ${esc(PLATFORM_NAME[i.platform] || i.platform)}</button>
       <button class="btn" data-act="copy" data-key="${esc(i.key)}" ${hasText ? "" : "disabled"}>${ICON.copy} Copy text</button>
@@ -987,8 +1116,29 @@ function postSheet(i) {
     h += `<div class="links">` + pdf.map((m, n) => `<a class="first" href="${esc(m.href)}" target="_blank" rel="noopener">${esc(m.label)}</a>`).join("")
       + rest.map((m) => `<a href="${esc(m.href)}" target="_blank" rel="noopener">${esc(m.label)}</a>`).join("") + `</div>`;
   }
-  openSheet(h, i.key);
+  openSheet(h, i.key, "post");
   if (files.length) prepareFiles(i, files);
+}
+
+/* The edit panel inside the post sheet: status, original text, send and revert. */
+function editBox(i) {
+  const e = i.edit, k = esc(i.key);
+  let h = `<div class="editbox${i.editStale ? " stale" : ""}">`;
+  if (i.editStale) {
+    h += `<div class="note" style="margin:0 0 4px"><b>The Sheet text changed after your edit.</b> Copy still uses your edit. Check the new Sheet text below, then keep yours or switch.</div>
+      <div class="acts" style="margin-top:4px"><button class="btn" data-act="edkeep" data-key="${k}">Keep my edit</button><button class="btn" data-act="edrevert" data-key="${k}">Use Sheet text</button></div>`;
+  }
+  h += `<div class="note" style="margin:${i.editStale ? "8px" : "0"} 0 0">Edited ${esc(fmtWhen(e.at))}. ${e.sentAt
+      ? `Copied for EM Bot ${esc(fmtWhen(e.sentAt))}. This clears itself once the Sheet shows the same text.`
+      : `Not sent to EM Bot yet, so the Sheet and EM Bot still have the original.`}</div>`;
+  h += `<details class="inner"${i.editStale ? " open" : ""}><summary><span class="sm">${i.editStale ? "New Sheet text" : "Sheet original"}</span>${CHEV}</summary>
+      <div class="origtxt">${(i.sheetText || "").trim() ? esc(i.sheetText) : "(The Sheet has no text for this post.)"}</div></details>`;
+  h += `<div class="acts"><button class="btn primary" data-act="edsend" data-key="${k}">${ICON.copy} ${e.sentAt ? "Copy for EM Bot again" : "Send edit to EM Bot"}</button>
+      ${navigator.share ? `<button class="btn" data-act="edshare" data-key="${k}">Share</button>` : ""}</div>
+    <div class="acts"><button class="btn" data-act="edrevert" data-key="${k}">Revert to original</button></div>
+    <div class="note">Send copies a labeled block. Paste it in your chat with EM Bot so it can update the Sheet.</div>
+  </div>`;
+  return h;
 }
 
 async function prepareFiles(i, files) {
@@ -1040,14 +1190,18 @@ function keySheet() {
     <div class="note"><b>Today:</b> swipe a card right to mark it posted, left to reschedule. Buttons do the same.</div>
     <div class="note"><b>Calendar:</b> the month grid sits above a swipeable week. This week is highlighted, and the day you are on has an accent outline. Swiping into another month updates the grid. Tap a day on the month to jump to that week. Tap a post for full text and media.</div>
     <div class="note"><b>Phone only:</b> changes you make here are kept on this phone until the Sheet shows the same thing. The Sheet stays the source of truth.</div>
+    <div class="note"><b>Edit text:</b> tap Edit on a card or in a post. Copy buttons then use your text. Send edit to EM Bot copies a block to paste in your chat with EM Bot. The edit clears itself once the Sheet shows the same text, and you are warned if the Sheet text changes first.</div>
     <div class="note">${esc(S.stampText)}</div>`);
 }
 
 function pendingSheet() {
   const list = pendingChanges();
+  const edits = editedItems();
   openSheet(`<h3>Not in the Sheet yet</h3><div class="note">Update these rows in the Sheet. Each line disappears once the morning data matches.</div>
     <div class="txt">${esc(list.join("\n"))}</div>
-    <div class="acts"><button class="btn" data-act="copylist">${ICON.copy} Copy list</button><button class="btn" data-act="close">Done</button></div>`);
+    ${edits.length ? `<div class="acts"><button class="btn primary" data-act="edsendall">${ICON.copy} Send ${edits.length} text edit${edits.length > 1 ? "s" : ""} to EM Bot</button></div>
+      <div class="note">Copies one labeled block per edited post, with the full new text. Paste it in your chat with EM Bot.</div>` : ""}
+    <div class="acts"><button class="btn" data-act="copylist">${ICON.copy} Copy list</button><button class="btn" data-act="close">Done</button></div>`, null, "pending");
 }
 
 function daySheet(d) {
@@ -1538,12 +1692,222 @@ async function copyText(text) {
     ta.remove(); return ok;
   }
 }
+const clone = (v) => (v ? JSON.parse(JSON.stringify(v)) : null);
+/* Status changes (posted, moved). A text edit on the same post is always kept. */
 function setOverride(baseId, next, msg) {
-  const prev = S.overrides[baseId] ? { ...S.overrides[baseId] } : null;
-  if (next) S.overrides[baseId] = { ...next, at: new Date().toISOString() }; else delete S.overrides[baseId];
+  const prev = clone(S.overrides[baseId]);
+  const edit = prev && prev.edit;
+  if (next) {
+    const n = { ...next, at: new Date().toISOString() };
+    delete n.edit;
+    if (edit) n.edit = edit;
+    S.overrides[baseId] = n;
+  } else if (edit) S.overrides[baseId] = { edit };
+  else delete S.overrides[baseId];
   saveOv(); derive(); render();
   toast(msg, () => { if (prev) S.overrides[baseId] = prev; else delete S.overrides[baseId]; saveOv(); derive(); render(); });
 }
+/* Text edits. Only the "edit" part changes; posted and moved marks, and their dates, stay as they are. */
+function setEdit(baseId, edit, msg) {
+  const prev = clone(S.overrides[baseId]);
+  const o = { ...(S.overrides[baseId] || {}) };
+  if (edit) o.edit = edit; else delete o.edit;
+  if (o.posted || o.resched || o.edit) S.overrides[baseId] = o; else delete S.overrides[baseId];
+  const redo = () => { saveOv(); derive(); render(); refreshSheet(); };
+  redo();
+  if (msg) toast(msg, () => { if (prev) S.overrides[baseId] = prev; else delete S.overrides[baseId]; redo(); });
+}
+const sheetTextOf = (baseId) => {
+  const p = S.raw && S.raw.posts.find((q) => pid(q) === baseId);
+  return p ? p.postText || "" : "";
+};
+function revertEdit(i) {
+  setEdit(i.baseId, null, "Back to the Sheet text");
+}
+function keepEdit(i) {
+  // Accept the new Sheet text as the new "original" so the warning clears. The edit text stays.
+  const e = S.overrides[i.baseId] && S.overrides[i.baseId].edit;
+  if (!e) return;
+  setEdit(i.baseId, { ...e, base: sheetTextOf(i.baseId), sentAt: null }, "Kept your edit");
+}
+
+/* ---------- Text checks for the editor ---------- */
+const EM_DASH = /\u2014/g;
+let EMOJI = null;
+try { EMOJI = new RegExp("\\p{Emoji_Presentation}|\\p{Extended_Pictographic}\\uFE0F|\\u20E3", "gu"); } catch (e) { EMOJI = null; }
+const findAll = (re, s) => { if (!re) return []; re.lastIndex = 0; return Array.from(String(s).matchAll(re), (m) => ({ i: m.index, n: m[0].length })); };
+function countLine(platform, text) {
+  if (platform === "X") {
+    const n = xLength(text);
+    return { label: `${n} / ${X_LIMIT}`, over: n > X_LIMIT ? n - X_LIMIT : 0, unit: "X" };
+  }
+  if (platform === "IG") {
+    const n = Array.from(String(text)).length;
+    return { label: `${n.toLocaleString("en-US")} / ${IG_LIMIT.toLocaleString("en-US")}`, over: n > IG_LIMIT ? n - IG_LIMIT : 0, unit: "Instagram" };
+  }
+  return { label: `${Array.from(String(text)).length} characters`, over: 0, unit: "" };
+}
+
+/* ---------- EM Bot hand-off ----------
+   No secrets in this site, so the app cannot write to the Sheet. It builds a labeled block
+   for Julian to paste in his chat with EM Bot. The markers let the bot take the text exactly. */
+function botBlock(i) {
+  const e = i.edit, c = countLine(i.platform, e.text);
+  const lines = [
+    "EM BOT: POST TEXT EDIT (from the posting calendar app)",
+    "Post ID: " + i.baseId,
+    "Post: " + i.title,
+    "Platform: " + (PLATFORM_NAME[i.platform] || i.platform),
+    "Date: " + (i.virtual ? i.origDate + " (moved on phone to " + i.date + ")" : i.date),
+    "Edited: " + fmtWhen(e.at),
+    "Sheet text changed since this edit: " + (normText(e.base) === normText(sheetTextOf(i.baseId)) ? "no" : "yes")
+  ];
+  if (c.unit === "X") lines.push("X count: " + c.label + (c.over ? " (over the limit)" : ""));
+  lines.push("Please replace this post's text in the Sheet with the text between the markers, exactly as written, line breaks included. Approval and posting status stay as they are.");
+  lines.push("=== EDITED TEXT START ===", e.text, "=== EDITED TEXT END ===");
+  return lines.join("\n");
+}
+function markSent(items) {
+  const now = new Date().toISOString();
+  for (const i of items) { const o = S.overrides[i.baseId]; if (o && o.edit) o.edit.sentAt = now; }
+  saveOv(); derive(); render(); refreshSheet();
+}
+async function sendToBot(items, viaShare) {
+  items = items.filter((i) => i && i.edit);
+  if (!items.length) return;
+  const text = items.map(botBlock).join("\n\n");
+  if (viaShare && navigator.share) {
+    try { await navigator.share({ text }); markSent(items); toast("Shared for EM Bot"); }
+    catch (e) { if (e.name !== "AbortError") toast("Could not open the share sheet"); }
+    return;
+  }
+  if (await copyText(text)) {
+    markSent(items);
+    toast(items.length > 1 ? `${items.length} edits copied. Paste in your chat with EM Bot.` : "Copied. Paste it in your chat with EM Bot.");
+  } else toast("Could not copy. Try Share instead.");
+}
+
+/* ---------- Editor ---------- */
+const ED = { key: null, baseId: null, platform: null, start: "", armed: false, armTimer: null, findAt: { dash: 0, emoji: 0 }, draftTimer: null };
+const readDraft = () => {
+  const d = store.get(DRAFT_KEY, null);
+  if (!d || typeof d.text !== "string" || !d.key) return null;
+  if (Date.now() - Date.parse(d.at || 0) > 7 * 864e5) { store.set(DRAFT_KEY, null); return null; }
+  return d;
+};
+const clearDraft = () => { clearTimeout(ED.draftTimer); try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} };
+const edOpen = () => !$("#editor").hidden;
+
+function openEditor(i, draftText) {
+  if (!i || !canEdit(i)) return;
+  ED.key = i.key; ED.baseId = i.baseId; ED.platform = i.platform; ED.start = i.postText || "";
+  ED.armed = false; ED.findAt = { dash: 0, emoji: 0 };
+  const ta = $("#ed-text");
+  ta.value = typeof draftText === "string" ? draftText : ED.start;
+  $("#ed-title").textContent = i.edit ? "Edit your text" : "Edit text";
+  $("#ed-cancel").textContent = "Cancel"; $("#ed-cancel").classList.remove("armed");
+  $("#ed-orig").classList.add("hidden");
+  $("#editor").hidden = false;
+  document.documentElement.classList.add("ed-open");
+  fitEditor();
+  ta.scrollTop = 0;
+  // On a phone, let Julian read first and tap where he wants the cursor. On a computer, focus right away.
+  if (window.matchMedia("(pointer: fine)").matches) { ta.focus(); ta.setSelectionRange(0, 0); }
+  edUpdate();
+}
+function closeEditor() {
+  $("#editor").hidden = true;
+  document.documentElement.classList.remove("ed-open");
+  clearTimeout(ED.armTimer);
+  clearDraft();
+  ED.key = null; ED.baseId = null;
+  $("#ed-text").blur();
+}
+function edItem() { return S.byKey.get(ED.key) || S.items.find((x) => x.baseId === ED.baseId) || null; }
+function edUpdate() {
+  const i = edItem(), text = $("#ed-text").value, sheet = sheetTextOf(ED.baseId);
+  const c = countLine(ED.platform, text);
+  $("#ed-meta").innerHTML = `${i ? chip(i.platform, i.status, i) : ""}<span class="nm">${esc(i ? i.title : "")}</span><span class="ccount${c.over ? " over" : ""}">${esc(c.label)}</span>`;
+  const dashes = findAll(EM_DASH, text), emoji = findAll(EMOJI, text);
+  let w = "";
+  if (c.over) w += `<div class="wline bad"><span>${c.over} over the ${esc(c.unit)} limit.${c.unit === "X" ? " Links count as 23." : ""}</span></div>`;
+  if (dashes.length) w += `<div class="wline"><span>${dashes.length} em dash${dashes.length > 1 ? "es" : ""}. Your rule: no em dashes.</span><button data-act="edfind" data-what="dash">Show</button></div>`;
+  if (emoji.length) w += `<div class="wline"><span>${emoji.length} emoji. Your rule: no emoji in post text.</span><button data-act="edfind" data-what="emoji">Show</button></div>`;
+  if (i && i.editStale) w += `<div class="wline"><span>The Sheet text changed after your edit.</span><button data-act="edorig">${$("#ed-orig").classList.contains("hidden") ? "See it" : "Hide"}</button></div>`;
+  $("#ed-warn").innerHTML = w;
+  const differs = normText(text) !== normText(sheet);
+  $("#ed-foot").innerHTML = `<button class="btn" data-act="edorig">${$("#ed-orig").classList.contains("hidden") ? "Show Sheet original" : "Hide Sheet original"}</button>`
+    + `<button class="btn" data-act="eduseorig" ${differs ? "" : "disabled"}>Revert to original</button>`;
+  $("#ed-orig").innerHTML = `<div class="sub-h">Sheet original</div><div class="origtxt">${sheet.trim() ? esc(sheet) : "(The Sheet has no text for this post.)"}</div>`;
+  // Empty text can only be saved to drop an edit on a post the Sheet has no text for.
+  $("#ed-save").disabled = !text.trim() && !(i && i.edit && !sheet.trim());
+}
+function edDirty() { return cleanText($("#ed-text").value) !== cleanText(ED.start); }
+function edCancel() {
+  if (edDirty() && !ED.armed) {
+    // Two taps to throw away typing, so a stray tap does not lose work.
+    ED.armed = true;
+    $("#ed-cancel").textContent = "Discard?"; $("#ed-cancel").classList.add("armed");
+    clearTimeout(ED.armTimer);
+    ED.armTimer = setTimeout(() => { ED.armed = false; $("#ed-cancel").textContent = "Cancel"; $("#ed-cancel").classList.remove("armed"); }, 3000);
+    return;
+  }
+  closeEditor();
+}
+function edSave() {
+  const text = cleanText($("#ed-text").value);
+  const baseId = ED.baseId, sheet = sheetTextOf(baseId);
+  const cur = S.overrides[baseId] && S.overrides[baseId].edit;
+  if (!text.trim() && !(cur && !sheet.trim())) return;
+  closeEditor();
+  if (normText(text) === normText(sheet)) {
+    if (cur) setEdit(baseId, null, "Matches the Sheet text. Edit removed.");
+    else toast("No changes");
+    return;
+  }
+  if (cur && cur.text === text && normText(cur.base) === normText(sheet)) { toast("No changes"); return; }
+  setEdit(baseId, { text, base: sheet, at: new Date().toISOString(), sentAt: null }, "Edit saved");
+}
+function edFind(what) {
+  const ta = $("#ed-text"), hits = findAll(what === "dash" ? EM_DASH : EMOJI, ta.value);
+  if (!hits.length) return;
+  const from = ta.selectionEnd || 0;
+  const h = hits.find((x) => x.i >= from) || hits[0];
+  ta.focus();
+  ta.setSelectionRange(h.i, h.i + h.n);
+  // Rough scroll so the selection is on screen when the browser does not do it.
+  const lh = parseFloat(getComputedStyle(ta).lineHeight) || 23;
+  const line = ta.value.slice(0, h.i).split("\n").length - 1;
+  if (line * lh < ta.scrollTop || line * lh > ta.scrollTop + ta.clientHeight - lh) ta.scrollTop = Math.max(0, line * lh - ta.clientHeight / 3);
+}
+/* Keep the editor inside the visible area when the iPhone keyboard is up. */
+function fitEditor() {
+  const ed = $("#editor");
+  if (ed.hidden) return;
+  const vv = window.visualViewport;
+  if (!vv) return;
+  ed.style.height = vv.height + "px";
+  ed.style.top = vv.offsetTop + "px";
+  ed.classList.toggle("kb", vv.height < window.innerHeight - 120);
+}
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", fitEditor);
+  window.visualViewport.addEventListener("scroll", fitEditor);
+}
+$("#ed-text").addEventListener("input", () => {
+  edUpdate();
+  clearTimeout(ED.draftTimer);
+  ED.draftTimer = setTimeout(() => {
+    if (!edOpen()) return;
+    if (edDirty()) store.set(DRAFT_KEY, { key: ED.key, baseId: ED.baseId, text: $("#ed-text").value, at: new Date().toISOString() });
+    else clearDraft();
+  }, 400);
+});
+document.addEventListener("keydown", (ev) => {
+  if (!edOpen()) return;
+  if (ev.key === "Escape") { ev.preventDefault(); edCancel(); }
+  else if (ev.key === "Enter" && (ev.metaKey || ev.ctrlKey)) { ev.preventDefault(); edSave(); }
+});
 function markPosted(i) {
   const cur = S.overrides[i.baseId] || {};
   setOverride(i.baseId, { ...cur, posted: true }, `Marked posted: ${i.title}`);
@@ -1637,6 +2001,19 @@ document.addEventListener("click", async (ev) => {
       el.textContent = S.rOpen.has(id) ? "Less" : "More";
       break;
     }
+    case "edit": if (i) openEditor(i); break;
+    case "edcancel": edCancel(); break;
+    case "edsave": edSave(); break;
+    case "edfind": edFind(el.dataset.what); break;
+    case "edorig": $("#ed-orig").classList.toggle("hidden"); edUpdate(); break;
+    case "eduseorig": $("#ed-text").value = sheetTextOf(ED.baseId); $("#ed-text").dispatchEvent(new Event("input")); break;
+    case "edrevert": if (i) revertEdit(i); break;
+    case "edkeep": if (i) keepEdit(i); break;
+    case "edsend": if (i) sendToBot([i], false); break;
+    case "edshare": if (i) sendToBot([i], true); break;
+    case "edsendall": sendToBot(editedItems(), false); break;
+    case "draftresume": { const d = readDraft(), it = d && S.byKey.get(d.key); if (it) openEditor(it, d.text); break; }
+    case "draftdrop": clearDraft(); render(); break;
     case "signin": location.reload(); break;
     case "close": closeSheet(); break;
   }
