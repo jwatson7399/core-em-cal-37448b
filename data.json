@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T10:00:52-05:00",
+  "generatedAt": "2026-11-27T12:23:22-05:00",
   "dataAsOf": "Friday, November 27, 2026, 8:37 AM ET",
   "today": "2026-11-27",
   "igPaused": false,
@@ -2975,6 +2975,57 @@
         "Author handle not captured yet; only the display name is known.",
         "Reply URL not captured; Open on X goes to the parent post. The reply is in that thread.",
         "createdAt is when this item was queued, not when the reply was posted on X."
+      ]
+    },
+    {
+      "id": "x-reply-2026-11-27-hemoptysis-paralifeline-ett-size",
+      "status": "pending",
+      "platform": "X",
+      "account": "@Core_EM",
+      "authorHandle": "@PARALIFELINE",
+      "authorName": "Paramedic Lifeline | Critical Care",
+      "authorVerified": true,
+      "replyText": "@Core_EM Thanks. The ET tube size is not something that comes up often in consideration in the field with respect to bronchoscopy. After reading your direction, I did a little research and it indicated that the ET should be at least 2mm larger than the scope with is around 5.5mm.",
+      "replyUrl": "https://x.com/PARALIFELINE/status/2126149294973386937",
+      "parent": {
+        "title": "Core EM Hemoptysis card set (follow-up to Julian's reply on airway management)",
+        "url": "https://x.com/Core_EM/status/2126094030610010230",
+        "articleUrl": "https://coreem.net/core/hemoptysis/",
+        "postedAt": "2026-11-25T16:27:00-05:00",
+        "postId": "2026-11-25|X|Hemoptysis"
+      },
+      "why": "Verified EMS/critical care account following up on Julian's airway reply on the top Hemoptysis post, with a tube-size rule worth confirming",
+      "draftText": "Good research. That rule of thumb holds. Adult bronchoscopes are about 5 to 6 mm across, so an 8.0 tube leaves room to suction and still ventilate around the scope. In the field, place the largest tube that passes easily. Never delay a failing airway to upsize.",
+      "createdAt": "2026-11-27T12:30:00-05:00",
+      "notes": [
+        "Fact check: standard adult diagnostic bronchoscopes are about 4.9 to 5.5 mm outer diameter; therapeutic scopes about 6 mm or more. ETT internal diameter at least 2 mm larger than scope OD is the usual rule; 8.0 or larger is the standard massive hemoptysis advice.",
+        "Parent link is Julian's earlier reply to this account (posted 2026-11-26 6:21 PM ET), which sits under the Hemoptysis card set (https://x.com/Core_EM/status/2125702883756708161).",
+        "The older pending item x-reply-2026-11-26-hemoptysis-paramedic-lifeline looks already answered on X by that reply."
+      ]
+    },
+    {
+      "id": "x-reply-2026-11-27-thyroid-storm-giagkounov-esmolol",
+      "status": "pending",
+      "platform": "X",
+      "account": "@Core_EM",
+      "authorHandle": "@AlexandrosGiagk",
+      "authorName": "Dr. Alexandros Giagkounov",
+      "authorVerified": true,
+      "replyText": "@Core_EM Great reminder on the iodine delay: give it before the thionamide and you hand the gland fresh substrate (Jod-Basedow). Worth adding: if propranolol is risky (bronchospasm, decompensated HF), titratable esmolol gives rate control without the commitment.",
+      "replyUrl": "https://x.com/AlexandrosGiagk/status/2125980421791904095",
+      "parent": {
+        "title": "#TBT Core EM Ep 223 Thyroid Storm",
+        "url": "https://x.com/Core_EM/status/2125979011243254132",
+        "articleUrl": "https://coreem.net/podcast/episode-223-thyroid-storm/",
+        "postedAt": "2026-11-26T10:44:29-05:00",
+        "postId": "2026-11-26|X|Ep 223 Thyroid Storm"
+      },
+      "why": "Clinician adding a substantive esmolol point on a well-performing post (1.5K impressions, 34 likes, 16 bookmarks)",
+      "draftText": "Thanks, great points. Esmolol is a good choice when bronchospasm or heart failure is a worry. It is beta-1 selective and wears off in minutes if things go badly. In a failing heart, start low and watch closely. Even short-acting beta blockade can drop cardiac output fast.",
+      "createdAt": "2026-11-27T12:30:00-05:00",
+      "notes": [
+        "Fact check: esmolol is beta-1 selective and short-acting (half-life about 9 minutes), widely recommended as the titratable option in thyroid storm with reactive airways or HF. Thyrotoxic cardiomyopathy with low output can collapse even with esmolol, hence the caution line.",
+        "His use of 'Jod-Basedow' is loose (the term strictly means iodine-induced hyperthyroidism); the draft doesn't endorse or correct it."
       ]
     }
   ]
