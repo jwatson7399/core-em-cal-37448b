@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-26T21:47:57-05:00",
-  "dataAsOf": "Thursday, November 26, 2026, 11:45 AM ET",
-  "today": "2026-11-26",
+  "generatedAt": "2026-11-27T08:37:17-05:00",
+  "dataAsOf": "Friday, November 27, 2026, 8:37 AM ET",
+  "today": "2026-11-27",
   "igPaused": false,
   "posts": [
     {
@@ -56,7 +56,7 @@
       "postText": "#TBT Core EM Ep 212 (2025): Angioedema with Dr. Maria Mulligan-Buckmiller and host Brian Gilberti.\n\nAirway first. Make sure the airway is secure, they're controlling their secretions, and the airway is patent. Watch for stridor, labored breathing, a sensation of throat closure, and trouble breathing or talking.\n\nIf it's histamine-mediated, epi is lifesaving.\n\nNo hives and no itching should make you think bradykinin, like hereditary angioedema. In Mia's case, there was no redness and no itching, it had happened in her dad, and she had been off her prescribed medicine for a year.\n\nACE inhibitors are a frequent trigger for bradykinin-mediated angioedema. In rare situations, ARBs are also the culprits.\n\nTrust your clinical judgment. Labs and imaging often help with downstream care, not the initial decision.\n\nTargeted HAE treatments are covered in the full episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #Angioedema",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
@@ -126,27 +126,6 @@
       "ratio": "800/999"
     },
     {
-      "id": "2026-11-30|X|Ep 212 Angioedema",
-      "date": "2026-11-30",
-      "platform": "X",
-      "title": "Ep 212 Angioedema",
-      "format": "video",
-      "slotType": "Video short",
-      "author": "",
-      "postText": "No hives, no itch?\nThink bradykinin, not histamine.\n\nHives + itch: histamine.\nAirway first. Epi if unsure.\nTargeted drugs for HAE. Labs help later.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
-      "media": [
-        {
-          "label": "Video",
-          "href": "https://drive.google.com/file/d/13wsH9ch2ambZct0TbjiSXg2kAn-WpU2t/view"
-        }
-      ],
-      "sheetStatus": "READY",
-      "posted": false,
-      "thumb": "asset:ep212-x.jpg",
-      "ratio": "4/5",
-      "time": "8:00 AM ET"
-    },
-    {
       "id": "2026-11-25|IG|Ep 222 LAST",
       "date": "2026-11-25",
       "platform": "IG",
@@ -167,6 +146,27 @@
       "ratio": "800/1422"
     },
     {
+      "id": "2026-11-26|X|Ep 223 Thyroid Storm",
+      "date": "2026-11-26",
+      "platform": "X",
+      "title": "Ep 223 Thyroid Storm",
+      "format": "video",
+      "slotType": "Video short",
+      "author": "",
+      "postText": "Thyroid storm has no lab cutoff.\nAltered mentation is the tell.\n\nPTU first. Wait at least an hour. Then iodine.\nSteroids and high-dose propranolol block T4 to T3 conversion.\nFever? Acetaminophen. Never aspirin.\n\n#TBT Core EM Ep 223 (2026) with Dr. Annaliese Elam\nhttps://coreem.net/podcast/episode-223-thyroid-storm/\n#FOAMed",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/17-wo-aGexR27f2K6vLaiLbgqh327cOcn/view"
+        }
+      ],
+      "sheetStatus": "POSTED / POSTED",
+      "posted": true,
+      "thumb": "asset:thyroid-x.jpg",
+      "ratio": "800/1422",
+      "time": "10:44 AM ET"
+    },
+    {
       "id": "2026-11-27|IG|Ep 212 Angioedema",
       "date": "2026-11-27",
       "platform": "IG",
@@ -177,7 +177,7 @@
       "postText": "#TBT Core EM Ep 212 (2025): Angioedema\nwith Dr. Maria Mulligan-Buckmiller and host Brian Gilberti.\n\nAirway first.\nMake sure the airway is secure.\nThey're controlling their secretions, and the airway is patent.\n\nWatch for:\n• stridor\n• labored breathing\n• a sensation of throat closure\n• trouble breathing or talking\n\nIf it's histamine-mediated, epi is lifesaving.\n\nNo hives and no itching should make you think bradykinin, like hereditary angioedema.\n\nIn Mia's case, there was no redness and no itching.\nIt had happened in her dad.\nShe had been off her prescribed medicine for a year.\n\nACE inhibitors are a frequent trigger for bradykinin-mediated angioedema.\nIn rare situations, ARBs are also the culprits.\n\nTrust your clinical judgment.\nLabs and imaging often help with downstream care, not the initial decision.\n\nTargeted HAE treatments are covered in the full episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #Angioedema",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
@@ -253,7 +253,7 @@
       "postText": "#TBT Core EM Ep 220 (2026): Post-ROSC Care\nwith Dr. Jonathan Elmer and host Brian Gilberti.\n\nROSC isn't the finish line.\n\nExpect the crash, and be ready.\nThe epi we gave during the code wears off, so have a push-dose pressor at the bedside.\n\nDon't anchor on ischemic-looking EKG changes.\nThey may be a consequence of the arrest.\nCast a broad net.\n\nThe stunned brain often looks bleak in the first minutes or hours.\nIt often gets better with time.\n\nBring the family to the bedside if they're willing.\nWhen asked about prognosis, it's okay to say I don't know.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #CardiacArrest",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/1N9za8h2g0gIfxScIlBHc23M70ODc956g/view | IG reach cut 1:47 (was 5:33)"
         }
       ],
@@ -263,25 +263,25 @@
       "ratio": "800/1422"
     },
     {
-      "id": "2026-11-26|X|Ep 223 Thyroid Storm",
-      "date": "2026-11-26",
+      "id": "2026-11-30|X|Ep 212 Angioedema",
+      "date": "2026-11-30",
       "platform": "X",
-      "title": "Ep 223 Thyroid Storm",
+      "title": "Ep 212 Angioedema",
       "format": "video",
       "slotType": "Video short",
       "author": "",
-      "postText": "Thyroid storm has no lab cutoff.\nAltered mentation is the tell.\n\nPTU first. Wait at least an hour. Then iodine.\nSteroids and high-dose propranolol block T4 to T3 conversion.\nFever? Acetaminophen. Never aspirin.\n\n#TBT Core EM Ep 223 (2026) with Dr. Annaliese Elam\nhttps://coreem.net/podcast/episode-223-thyroid-storm/\n#FOAMed",
+      "postText": "No hives, no itch?\nThink bradykinin, not histamine.\n\nHives + itch: histamine.\nAirway first. Epi if unsure.\nTargeted drugs for HAE. Labs help later.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller\nhttps://coreem.net/podcast/episode-212-angioedema/\n#FOAMed",
       "media": [
         {
           "label": "Video",
-          "href": "https://drive.google.com/file/d/17-wo-aGexR27f2K6vLaiLbgqh327cOcn/view"
+          "href": "https://drive.google.com/file/d/13wsH9ch2ambZct0TbjiSXg2kAn-WpU2t/view"
         }
       ],
-      "sheetStatus": "POSTED 2026-11-26 10:44 AM ET https://x.com/Core_EM/status/2125979011243254132",
-      "posted": true,
-      "thumb": "asset:thyroid-x.jpg",
-      "ratio": "800/1422",
-      "time": "10:44 AM ET"
+      "sheetStatus": "READY",
+      "posted": false,
+      "thumb": "asset:ep212-x.jpg",
+      "ratio": "4/5",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-11-30|IG|Ep 218 SCAPE",
@@ -294,7 +294,7 @@
       "postText": "#TBT Core EM Ep 218 (2026): SCAPE\nwith Naz Sarpoulaki and host Brian Gilberti.\n\nSCAPE is a maldistribution problem, not necessarily volume overload.\nWet lungs, maybe a dry tank.\n\nDon't wait for the x-ray.\nBilateral B-lines on bedside ultrasound in a hypertensive, dyspneic patient point firmly to it, in seconds.\n\nStart BiPAP or CPAP immediately when appropriate.\n\nThen high-dose nitro for arterial dilation, roughly 100 to 150 mcg/min and up as described in the episode.\n\nAsk about phosphodiesterase inhibitors first, since they're a contraindication.\n\nTruly overloaded? Consider IV diuretics after stabilizing.\nThey take time.\n\nVasodilators fix the pipes, and in SCAPE the pipes are the immediate problem.\n\nAvoid morphine and beta blockers when possible.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #SCAPE #TBT",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/15XdBMJBVRSZo1KuXM6qk0aDx-6Qf_7l0/view | IG reach cut 1:58 (was 5:08)"
         }
       ],
@@ -330,7 +330,7 @@
       "postText": "#TBT Core EM Ep 229 (2026): Iron Poisoning\nwith Dr. Brian Chastain and host Brian Gilberti.\n\nThe latent phase is a dangerous trap.\nThey can look like they're turning the corner right before they crump.\n\nImprovement in GI symptoms doesn't mean the toxic effects have run their course.\nIron is being absorbed, and cardiovascular collapse and shock can follow.\n\nTreat the patient, not the number.\nIf they're in shock or have a profound metabolic acidosis, start deferoxamine even if the serum iron level hasn't peaked or is lower than expected.\nThere's little harm other than hypotension.\n\nIt's the elemental iron dose, not the mass of the pill.\nFerrous sulfate has roughly 65 mg of elemental iron per 325 mg pill.\nUnder 20 mg/kg is usually asymptomatic.\nOver 60 mg/kg is the threshold for serious toxicity and possible death.\n\nGet an X-ray.\nIf you see pills on KUB, reach for whole bowel irrigation.\nSkip the charcoal, and hold off on routine lavage.\nGet poison control on the line early.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #IronPoisoning",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/1_FjMxQVZRz3VEkBexw5CMonB62MefDka/view | IG reach cut 1:53 (was 3:09)"
         }
       ],
@@ -386,7 +386,7 @@
       "postText": "#TBT Core EM Ep 214 (2025): Acute PE\nwith Dr. Vivian Chiu and host Brian Gilberti.\n\nPE is a master of disguise, from subtle shortness of breath to collapse.\n\nKeep a broad differential:\n• pneumonia\n• ACS\n• pneumothorax\n• heart failure exacerbation\n• aortic dissection\n\nAlarm bells for high-risk PE:\n• SBP under 90 for over 15 minutes\n• needing vasopressors\n• signs of shock\n\nCall your PERT team.\n\nFor low or intermediate risk, a negative D-dimer lets you skip the CT radiation.\nHigh risk goes straight to imaging.\n\nTroponin and BNP gauge RV strain and severity, not the diagnosis.\n\nThe RV despises big swings:\n• skimp on fluids if you can\n• lead with norepinephrine for low pressure\n• avoid intubation when possible, since positive pressure can worsen RV dysfunction\n\nDon't anchor on the obvious.\nAlways risk stratify and resuscitate with precision.\n\nFull episode at coreem.net (link in bio)\n#FOAMed #EmergencyMedicine #MedEd #TBT #PulmonaryEmbolism",
       "media": [
         {
-          "label": "IG Reel",
+          "label": "Video",
           "href": "https://drive.google.com/file/d/19qD_M-JHqGeMBowK8Cu5n-l_RVuntDPM/view | IG reach cut 1:35 (was 5:51)"
         }
       ],
@@ -409,6 +409,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2026-12-05|X|Hyperkalemia",
+      "date": "2026-12-05",
+      "platform": "X",
+      "title": "Hyperkalemia",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Anand Swaminathan, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-05|IG|Ep 226 Superwarfarin video",
@@ -805,8 +821,23 @@
       "sheetStatus": "READY. Post time: 10:00 AM ET. Moved 2026-11-26 from Thu 2026-11-26 to Fri 2026-12-18 to follow the X remake (Mon 11-30 already has the Ep 218 SCAPE catch-up).",
       "posted": false,
       "thumb": "asset:thyroid-x.jpg",
-      "ratio": "800/1422",
-      "time": "10:00 AM ET"
+      "ratio": "800/1422"
+    },
+    {
+      "id": "2026-12-19|X|Peritonsillar Abscess",
+      "date": "2026-12-19",
+      "platform": "X",
+      "title": "Peritonsillar Abscess",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Di Coneybeare, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2026-12-21|X|Ep 225 Group A Strep",
@@ -1022,6 +1053,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-01-02|X|Aortic Dissection",
+      "date": "2027-01-02",
+      "platform": "X",
+      "title": "Aortic Dissection",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Alexandra Ortego, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-01-04|X|Ep 228 Tickborne Illnesses",
       "date": "2027-01-04",
       "platform": "X",
@@ -1087,7 +1134,7 @@
       "platform": "X",
       "title": "Ep 14 Grand Rounds with Mike Stone - US Guided Nerve Blocks",
       "format": "video",
-      "slotType": "short video",
+      "slotType": "Video short",
       "author": "",
       "postText": "",
       "media": [],
@@ -1230,6 +1277,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-01-16|X|Spinal Epidural Abscess",
+      "date": "2027-01-16",
+      "platform": "X",
+      "title": "Spinal Epidural Abscess",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Latrice Triplett, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-01-18|X|Ep 211 Granulomatosis with Polyangiitis",
@@ -1442,6 +1505,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-01-30|X|Thrombotic Thrombocytopenic Purpura (TTP)",
+      "date": "2027-01-30",
+      "platform": "X",
+      "title": "Thrombotic Thrombocytopenic Purpura (TTP)",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Samantha Kerester, Naillid Felipe, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-02-01|X|Ep 185 Anticoagulation Reversal",
       "date": "2027-02-01",
       "platform": "X",
@@ -1650,6 +1729,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-02-13|X|Shoulder Dystocia",
+      "date": "2027-02-13",
+      "platform": "X",
+      "title": "Shoulder Dystocia",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Jenny Beck-Esmay, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-02-15|X|Ep 206 Acute Back Pain",
@@ -1862,6 +1957,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-02-27|X|Updates in High dose Insulin and Euglycemia Therapy (HIET) for the treatment of Beta-adrenergic Receptor and Calcium Channel Antagonists Overdose",
+      "date": "2027-02-27",
+      "platform": "X",
+      "title": "Updates in High dose Insulin and Euglycemia Therapy (HIET) for the treatment of Beta-adrenergic Receptor and Calcium Channel Antagonists Overdose",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "William Plowe, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-03-01|X|Ep 202 Sexually Transmitted Infections 2.0",
       "date": "2027-03-01",
       "platform": "X",
@@ -2072,6 +2183,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-03-13|X|Stercoral Colitis",
+      "date": "2027-03-13",
+      "platform": "X",
+      "title": "Stercoral Colitis",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Zoe Grabinski, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-03-15|X|Ep 13 Diabetic Ketoacidosis: A Case",
       "date": "2027-03-15",
       "platform": "X",
@@ -2222,12 +2349,28 @@
       "ratio": ""
     },
     {
+      "id": "2027-03-23|X|Severe Hyponatremia",
+      "date": "2027-03-23",
+      "platform": "X",
+      "title": "Severe Hyponatremia",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Anand Swaminathan, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-03-25|X|Ep 46 Grand Rounds (Ilene Claudius) - Pediatric SOB",
       "date": "2027-03-25",
       "platform": "X",
       "title": "Ep 46 Grand Rounds (Ilene Claudius) - Pediatric SOB",
       "format": "video",
-      "slotType": "short video",
+      "slotType": "Video short",
       "author": "",
       "postText": "",
       "media": [],
@@ -2250,6 +2393,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-03-27|X|Anaphylaxis",
+      "date": "2027-03-27",
+      "platform": "X",
+      "title": "Anaphylaxis",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Heidi Sher, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-03-29|X|Ep 197 Acute Agitation",
@@ -2282,6 +2441,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-03-30|X|The Critically Ill Infant",
+      "date": "2027-03-30",
+      "platform": "X",
+      "title": "The Critically Ill Infant",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Michael Mojica, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-04-01|X|Ep 196 The Critically Ill Infant",
       "date": "2027-04-01",
       "platform": "X",
@@ -2310,6 +2485,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-04-03|X|Malignant Catatonia",
+      "date": "2027-04-03",
+      "platform": "X",
+      "title": "Malignant Catatonia",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Anna-Marie Francis, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-04-05|X|Ep 115 Wernicke's Encephalopathy",
@@ -2342,6 +2533,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-06|X|Wernicke Encephalopathy",
+      "date": "2027-04-06",
+      "platform": "X",
+      "title": "Wernicke Encephalopathy",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Anand Swaminathan, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-04-08|X|Ep 195 ARDS",
       "date": "2027-04-08",
       "platform": "X",
@@ -2370,6 +2577,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-04-10|X|Post-Intubation Sedation and Analgesia",
+      "date": "2027-04-10",
+      "platform": "X",
+      "title": "Post-Intubation Sedation and Analgesia",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Brian Lin, MD, Victor Lei, Anand Swaminathan, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-04-12|X|Ep 194 Nitrous Oxide Toxicity",
@@ -2402,6 +2625,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-13|X|ED Management of Minor Thermal Burns",
+      "date": "2027-04-13",
+      "platform": "X",
+      "title": "ED Management of Minor Thermal Burns",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Kaitlynn Tracy, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-04-15|X|Ep 56 Sedation of the Agitated Patient",
       "date": "2027-04-15",
       "platform": "X",
@@ -2430,6 +2669,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-04-17|X|Ultrasound-Guided Interscalene Brachial Plexus Nerve Block",
+      "date": "2027-04-17",
+      "platform": "X",
+      "title": "Ultrasound-Guided Interscalene Brachial Plexus Nerve Block",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Hannah St Francis, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-04-19|X|Ep 193 Threatened Abortion",
@@ -2462,6 +2717,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-20|X|Ultrasound Guided Lower Extremity Nerve Blocks",
+      "date": "2027-04-20",
+      "platform": "X",
+      "title": "Ultrasound Guided Lower Extremity Nerve Blocks",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Sadakat Chowdhury, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-04-22|X|Ep 192 Syncope in Children",
       "date": "2027-04-22",
       "platform": "X",
@@ -2490,6 +2761,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-04-24|X|Geriatric Trauma",
+      "date": "2027-04-24",
+      "platform": "X",
+      "title": "Geriatric Trauma",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Aya Itani, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-04-26|X|Ep 102 Valsalva Maneuver in SVT",
@@ -2522,6 +2809,22 @@
       "ratio": ""
     },
     {
+      "id": "2027-04-27|X|Recent-Onset Atrial Fibrillation",
+      "date": "2027-04-27",
+      "platform": "X",
+      "title": "Recent-Onset Atrial Fibrillation",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Anand Swaminathan, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
+    },
+    {
       "id": "2027-04-29|X|Ep 191 Rapid Atrial Fibrillation",
       "date": "2027-04-29",
       "platform": "X",
@@ -2550,6 +2853,22 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2027-05-01|X|Ultrasound Guided Lumbar Puncture",
+      "date": "2027-05-01",
+      "platform": "X",
+      "title": "Ultrasound Guided Lumbar Puncture",
+      "format": "carousel",
+      "slotType": "Infographic cards",
+      "author": "Aaron Bola, MD",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "7:30 PM ET"
     },
     {
       "id": "2027-05-03|X|Ep 190 Electrical Storm",
@@ -2582,342 +2901,6 @@
       "ratio": ""
     },
     {
-      "id": "2027-05-06|X|Ep 149 Simplified Approach to Peds Trauma",
-      "date": "2027-05-06",
-      "platform": "X",
-      "title": "Ep 149 Simplified Approach to Peds Trauma",
-      "format": "video",
-      "slotType": "Video short",
-      "author": "",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "8:00 AM ET"
-    },
-    {
-      "id": "2026-12-05|X|Hyperkalemia",
-      "date": "2026-12-05",
-      "platform": "X",
-      "title": "Hyperkalemia",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Anand Swaminathan, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2026-12-19|X|Peritonsillar Abscess",
-      "date": "2026-12-19",
-      "platform": "X",
-      "title": "Peritonsillar Abscess",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Di Coneybeare, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-01-02|X|Aortic Dissection",
-      "date": "2027-01-02",
-      "platform": "X",
-      "title": "Aortic Dissection",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Alexandra Ortego, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-01-16|X|Spinal Epidural Abscess",
-      "date": "2027-01-16",
-      "platform": "X",
-      "title": "Spinal Epidural Abscess",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Latrice Triplett, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-01-30|X|Thrombotic Thrombocytopenic Purpura (TTP)",
-      "date": "2027-01-30",
-      "platform": "X",
-      "title": "Thrombotic Thrombocytopenic Purpura (TTP)",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Samantha Kerester, Naillid Felipe, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-02-13|X|Shoulder Dystocia",
-      "date": "2027-02-13",
-      "platform": "X",
-      "title": "Shoulder Dystocia",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Jenny Beck-Esmay, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-02-27|X|Updates in High dose Insulin and Euglycemia Therapy (HIET) for the treatment of Beta-adrenergic Receptor and Calcium Channel Antagonists Overdose",
-      "date": "2027-02-27",
-      "platform": "X",
-      "title": "Updates in High dose Insulin and Euglycemia Therapy (HIET) for the treatment of Beta-adrenergic Receptor and Calcium Channel Antagonists Overdose",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "William Plowe, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-03-13|X|Stercoral Colitis",
-      "date": "2027-03-13",
-      "platform": "X",
-      "title": "Stercoral Colitis",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Zoe Grabinski, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-03-23|X|Severe Hyponatremia",
-      "date": "2027-03-23",
-      "platform": "X",
-      "title": "Severe Hyponatremia",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Anand Swaminathan, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-03-27|X|Anaphylaxis",
-      "date": "2027-03-27",
-      "platform": "X",
-      "title": "Anaphylaxis",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Heidi Sher, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-03-30|X|The Critically Ill Infant",
-      "date": "2027-03-30",
-      "platform": "X",
-      "title": "The Critically Ill Infant",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Michael Mojica, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-03|X|Malignant Catatonia",
-      "date": "2027-04-03",
-      "platform": "X",
-      "title": "Malignant Catatonia",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Anna-Marie Francis, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-06|X|Wernicke Encephalopathy",
-      "date": "2027-04-06",
-      "platform": "X",
-      "title": "Wernicke Encephalopathy",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Anand Swaminathan, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-10|X|Post-Intubation Sedation and Analgesia",
-      "date": "2027-04-10",
-      "platform": "X",
-      "title": "Post-Intubation Sedation and Analgesia",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Brian Lin, MD, Victor Lei, Anand Swaminathan, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-13|X|ED Management of Minor Thermal Burns",
-      "date": "2027-04-13",
-      "platform": "X",
-      "title": "ED Management of Minor Thermal Burns",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Kaitlynn Tracy, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-17|X|Ultrasound-Guided Interscalene Brachial Plexus Nerve Block",
-      "date": "2027-04-17",
-      "platform": "X",
-      "title": "Ultrasound-Guided Interscalene Brachial Plexus Nerve Block",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Hannah St Francis, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-20|X|Ultrasound Guided Lower Extremity Nerve Blocks",
-      "date": "2027-04-20",
-      "platform": "X",
-      "title": "Ultrasound Guided Lower Extremity Nerve Blocks",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Sadakat Chowdhury, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-24|X|Geriatric Trauma",
-      "date": "2027-04-24",
-      "platform": "X",
-      "title": "Geriatric Trauma",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Aya Itani, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-04-27|X|Recent-Onset Atrial Fibrillation",
-      "date": "2027-04-27",
-      "platform": "X",
-      "title": "Recent-Onset Atrial Fibrillation",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Anand Swaminathan, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
-      "id": "2027-05-01|X|Ultrasound Guided Lumbar Puncture",
-      "date": "2027-05-01",
-      "platform": "X",
-      "title": "Ultrasound Guided Lumbar Puncture",
-      "format": "carousel",
-      "slotType": "Infographic cards",
-      "author": "Aaron Bola, MD",
-      "postText": "",
-      "media": [],
-      "sheetStatus": "TO MAKE",
-      "posted": false,
-      "thumb": "",
-      "ratio": "",
-      "time": "7:30 PM ET"
-    },
-    {
       "id": "2027-05-04|X|Peri-Mortem C-Section",
       "date": "2027-05-04",
       "platform": "X",
@@ -2932,6 +2915,22 @@
       "thumb": "",
       "ratio": "",
       "time": "7:30 PM ET"
+    },
+    {
+      "id": "2027-05-06|X|Ep 149 Simplified Approach to Peds Trauma",
+      "date": "2027-05-06",
+      "platform": "X",
+      "title": "Ep 149 Simplified Approach to Peds Trauma",
+      "format": "video",
+      "slotType": "Video short",
+      "author": "",
+      "postText": "",
+      "media": [],
+      "sheetStatus": "TO MAKE",
+      "posted": false,
+      "thumb": "",
+      "ratio": "",
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-05-08|X|Ultrasound Diagnosis of Necrotizing Soft Tissue Infections",
