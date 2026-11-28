@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T12:23:22-05:00",
-  "dataAsOf": "Friday, November 27, 2026, 8:37 AM ET",
+  "generatedAt": "2026-11-27T21:51:51-05:00",
+  "dataAsOf": "Friday, November 27, 2026, 9:51 PM ET",
   "today": "2026-11-27",
   "igPaused": false,
   "posts": [
@@ -181,7 +181,7 @@
           "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
-      "sheetStatus": "READY",
+      "sheetStatus": "RESCHEDULED to 2026-12-19. Missed 11-27 after 9:44 PM ET approval. New 3-min cut and caption moved to Sat 2026-12-19 10:00 AM ET.",
       "posted": false,
       "thumb": "asset:ep212-ig.jpg",
       "ratio": "800/1422"
@@ -2947,6 +2947,48 @@
       "thumb": "",
       "ratio": "",
       "time": "7:30 PM ET"
+    },
+    {
+      "id": "2026-12-19|IG|Ep 212 Angioedema",
+      "date": "2026-12-19",
+      "platform": "IG",
+      "title": "Ep 212 Angioedema",
+      "format": "Reel",
+      "slotType": "CATCH-UP",
+      "author": "",
+      "postText": "Hives and itching point to histamine; no hives, no itch, think bradykinin.\n\nAirway first. Can't tell early? Epi is lifesaving if it's histamine.\n\nACE inhibitors are a frequent bradykinin trigger.\n\n#TBT Core EM Ep 212 (2025) with Dr. Maria Mulligan-Buckmiller and Dr. Brian Gilberti\nFull episode at coreem.net (link in bio)\n#FOAMed #MedEd #EmergencyMedicine",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0/view | IG 9:16 3-min cut (2:55)"
+        }
+      ],
+      "sheetStatus": "READY. Post time: 10:00 AM ET. Moved 2026-11-27 from Fri 2026-11-27 after Julian approved the 3-min cut at 9:44 PM ET (the 11-27 slot had already passed). New file replaces the 1:45 IG reach cut. First open ~10 AM ET IG day after the catch-up queue; does not clash with Wound Irrigation Sat 11/28 10:00 AM ET.",
+      "posted": false,
+      "thumb": "asset:ep212-ig.jpg",
+      "ratio": "800/1422",
+      "time": "10:00 AM ET"
+    },
+    {
+      "id": "2026-12-20|IG|EKG 13176 LVAD VT",
+      "date": "2026-12-20",
+      "platform": "IG",
+      "title": "EKG 13176 LVAD VT",
+      "format": "Reel",
+      "slotType": "EKG series",
+      "author": "Jonathan Kobles, MD",
+      "postText": "Wide-complex tachycardia at 231 in a patient with an LVAD is VT until proven otherwise.\n\nContinuous flow can let VT be tolerated, with only vague symptoms. Most of this VT is scar re-entry.\n\nIf you need to shock, use anterior-posterior pads and stay off the pump. Do not disconnect the LVAD.\n\nAmiodarone terminated the rhythm.\n\nCase and EKG from Jonathan Kobles, MD\nhttps://coreem.net/ekgs/13176/\n#FOAMed #MedEd #EmergencyMedicine",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/196srHE24S4kOfQOosqfe2Mb_9tYQkKMK/view | IG 9:16 (2:57)"
+        }
+      ],
+      "sheetStatus": "READY. Post time: 10:00 AM ET. EKG series pilot. Slotted 2026-11-27 in the next open ~10 AM ET IG day after Ep 212 (Sat 12-19). Does not clash with Wound Irrigation Sat 11/28 10:00 AM ET.",
+      "posted": false,
+      "thumb": "asset:ekg13176-ig.jpg",
+      "ratio": "800/1422",
+      "time": "10:00 AM ET"
     }
   ],
   "replies": [
