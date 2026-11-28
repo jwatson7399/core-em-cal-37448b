@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T21:51:51-05:00",
-  "dataAsOf": "Friday, November 27, 2026, 9:51 PM ET",
+  "generatedAt": "2026-11-27T22:04:52-05:00",
+  "dataAsOf": "Friday, November 27, 2026, 10:04 PM ET",
   "today": "2026-11-27",
   "igPaused": false,
   "posts": [
@@ -181,7 +181,7 @@
           "href": "https://drive.google.com/file/d/1zD2_U1U_biiQwgGZiWFkKbq8djeN9C83/view | IG reach cut 1:45 (was 5:29)"
         }
       ],
-      "sheetStatus": "RESCHEDULED to 2026-12-19. Missed 11-27 after 9:44 PM ET approval. New 3-min cut and caption moved to Sat 2026-12-19 10:00 AM ET.",
+      "sheetStatus": "RESCHEDULED to 2026-12-07. Missed 11-27 after 9:44 PM ET approval. New 3-min cut later swapped (2026-11-27, t353u) from Sat 2026-12-19 to Mon 2026-12-07 10:00 AM ET.",
       "posted": false,
       "thumb": "asset:ep212-ig.jpg",
       "ratio": "800/1422"
@@ -498,8 +498,8 @@
       "time": "8:00 AM ET"
     },
     {
-      "id": "2026-12-07|IG|Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves)",
-      "date": "2026-12-07",
+      "id": "2026-12-19|IG|Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves)",
+      "date": "2026-12-19",
       "platform": "IG",
       "title": "Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves)",
       "format": "Reel",
@@ -507,10 +507,11 @@
       "author": "",
       "postText": "",
       "media": [],
-      "sheetStatus": "TO WRITE",
+      "sheetStatus": "TO WRITE. Post time: 10:00 AM ET. Swapped 2026-11-27 with Ep 212 Angioedema 3-min reel, which moved to Mon 2026-12-07 10:00 AM ET (Julian t353u).",
       "posted": false,
       "thumb": "",
-      "ratio": ""
+      "ratio": "",
+      "time": "10:00 AM ET"
     },
     {
       "id": "2026-12-08|X|Abnormal Uterine Bleeding",
@@ -2949,8 +2950,8 @@
       "time": "7:30 PM ET"
     },
     {
-      "id": "2026-12-19|IG|Ep 212 Angioedema",
-      "date": "2026-12-19",
+      "id": "2026-12-07|IG|Ep 212 Angioedema",
+      "date": "2026-12-07",
       "platform": "IG",
       "title": "Ep 212 Angioedema",
       "format": "Reel",
@@ -2963,7 +2964,7 @@
           "href": "https://drive.google.com/file/d/1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0/view | IG 9:16 3-min cut (2:55)"
         }
       ],
-      "sheetStatus": "READY. Post time: 10:00 AM ET. Moved 2026-11-27 from Fri 2026-11-27 after Julian approved the 3-min cut at 9:44 PM ET (the 11-27 slot had already passed). New file replaces the 1:45 IG reach cut. First open ~10 AM ET IG day after the catch-up queue; does not clash with Wound Irrigation Sat 11/28 10:00 AM ET.",
+      "sheetStatus": "READY. Post time: 10:00 AM ET. Swapped 2026-11-27 with Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves), which moved to Sat 2026-12-19 10:00 AM ET (Julian t353u). File is the current 3-min cut (Drive 1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0); a _v2 preview-crop fix is coming and will replace this link.",
       "posted": false,
       "thumb": "asset:ep212-ig.jpg",
       "ratio": "800/1422",
