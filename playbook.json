@@ -292,7 +292,7 @@
       "adopted": "2026-11-26",
       "status": "current",
       "title": "4-week timing test",
-      "detail": "From Thursday 2026-11-26 through Thursday 2026-12-24: X videos at 8:00 AM ET on Monday and Thursday; X card sets at 7:30 PM ET on Tuesday and Saturday. Write 'Post time: H:MM AM/PM ET' at the start of the row's Notes. Compare views and engagement to the November video baseline after Dec 24. This is a test, not a fixed rule. IG times are unchanged.",
+      "detail": "From Thursday 2026-11-26 through Thursday 2026-12-24: X videos at 8:00 AM ET on Monday and Thursday; X card sets at 8:00 AM ET on Tuesday and Saturday (changed 2026-11-28: Julian, we post early, not 7:30 PM). Write 'Post time: H:MM AM/PM ET' at the start of the row's Notes. Compare views and engagement to the November video baseline after Dec 24. This is a test, not a fixed rule. IG times are unchanged.",
       "source": "Julian 2026-11-26 (approved playbook, Sheet rule 52, t267)"
     },
     {
@@ -639,7 +639,7 @@
   "observedEffects": [
     {
       "id": "timing-test-2026-11-26",
-      "change": "4-week X posting-time test: videos Monday and Thursday at 8:00 AM ET; cards Tuesday and Saturday at 7:30 PM ET.",
+      "change": "4-week X posting-time test: videos Monday and Thursday at 8:00 AM ET; cards Tuesday and Saturday at 7:30 PM ET (changed 2026-11-28 to 8:00 AM ET: Julian, post early).",
       "startDate": "2026-11-26",
       "endDatePlanned": "2026-12-24",
       "status": "in progress",
