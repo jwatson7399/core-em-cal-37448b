@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-28T08:34:40-05:00",
+  "generatedAt": "2026-11-28T08:35:17-05:00",
   "dataAsOf": "Saturday, November 28, 2026, 8:33 AM ET",
   "today": "2026-11-28",
   "igPaused": false,
@@ -793,8 +793,8 @@
       "ratio": "800/999"
     },
     {
-      "id": "2026-11-28|X|Wound Irrigation in the ED: A Simple Hack for Better Pressure, More Volume, and Less Splash",
-      "date": "2026-11-28",
+      "id": "2026-12-02|X|Wound Irrigation in the ED: A Simple Hack for Better Pressure, More Volume, and Less Splash",
+      "date": "2026-12-02",
       "platform": "X",
       "title": "Wound Irrigation in the ED: A Simple Hack for Better Pressure, More Volume, and Less Splash",
       "format": "carousel",
@@ -822,11 +822,11 @@
           "file": "media/bag-and-guard/card3.jpg"
         }
       ],
-      "sheetStatus": "CARDS MADE",
+      "sheetStatus": "CARDS MADE. Post time: 8:00 AM ET. Moved 2026-11-28 from Sat 11/28 (Julian: post early, not 7:30 PM) to the next open X day, Wed 12/2.",
       "posted": false,
       "thumb": "asset:bag-cards.jpg",
       "ratio": "800/800",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-01|X|Point-of-Care Ultrasound for Suspected Pulmonary Embolism",
@@ -842,7 +842,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-08|X|Abnormal Uterine Bleeding",
@@ -858,7 +858,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-12|X|Anterior Jaw Dislocations",
@@ -874,7 +874,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-15|X|Pediatric Asthma",
@@ -890,7 +890,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-22|X|Measles",
@@ -906,7 +906,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-26|X|Infant Botulism",
@@ -1207,7 +1207,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-12-19|X|Peritonsillar Abscess",
@@ -1223,7 +1223,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-01-02|X|Aortic Dissection",
@@ -1239,7 +1239,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-01-16|X|Spinal Epidural Abscess",
@@ -1255,7 +1255,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-01-30|X|Thrombotic Thrombocytopenic Purpura (TTP)",
@@ -1271,7 +1271,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-02-13|X|Shoulder Dystocia",
@@ -1287,7 +1287,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-02-27|X|Updates in High dose Insulin and Euglycemia Therapy (HIET) for the treatment of Beta-adrenergic Receptor and Calcium Channel Antagonists Overdose",
@@ -1303,7 +1303,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-03-13|X|Stercoral Colitis",
@@ -1319,7 +1319,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-03-23|X|Severe Hyponatremia",
@@ -1335,7 +1335,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-03-27|X|Anaphylaxis",
@@ -1351,7 +1351,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-03-30|X|The Critically Ill Infant",
@@ -1367,7 +1367,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-03|X|Malignant Catatonia",
@@ -1383,7 +1383,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-06|X|Wernicke Encephalopathy",
@@ -1399,7 +1399,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-10|X|Post-Intubation Sedation and Analgesia",
@@ -1415,7 +1415,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-13|X|ED Management of Minor Thermal Burns",
@@ -1431,7 +1431,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-17|X|Ultrasound-Guided Interscalene Brachial Plexus Nerve Block",
@@ -1447,7 +1447,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-20|X|Ultrasound Guided Lower Extremity Nerve Blocks",
@@ -1463,7 +1463,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-24|X|Geriatric Trauma",
@@ -1479,7 +1479,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-04-27|X|Recent-Onset Atrial Fibrillation",
@@ -1495,7 +1495,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-05-01|X|Ultrasound Guided Lumbar Puncture",
@@ -1511,7 +1511,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-05-04|X|Peri-Mortem C-Section",
@@ -1527,7 +1527,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2027-05-08|X|Ultrasound Diagnosis of Necrotizing Soft Tissue Infections",
@@ -1543,7 +1543,7 @@
       "posted": false,
       "thumb": "",
       "ratio": "",
-      "time": "7:30 PM ET"
+      "time": "8:00 AM ET"
     },
     {
       "id": "2026-11-21|IG|Ep 71 Acute Pulmonary Edema",
@@ -3035,6 +3035,27 @@
       "ratio": "800/1422",
       "time": "10:00 AM ET",
       "textStatus": "awaiting_ok"
+    },
+    {
+      "id": "2026-11-28|X|EKG 13176 LVAD VT",
+      "date": "2026-11-28",
+      "platform": "X",
+      "title": "EKG 13176 LVAD VT",
+      "format": "video",
+      "slotType": "EKG series",
+      "author": "Jonathan Kobles, MD",
+      "postText": "Wide, regular, fast with an LVAD: VT until proven otherwise.\n\nContinuous flow lets VT be tolerated, so symptoms can be vague.\nStable? Check for suction first.\nShock with AP pads, never over the pump.\n\nEKG: Jonathan Kobles, MD\nhttps://coreem.net/ekgs/13176/\n#FOAMed",
+      "media": [
+        {
+          "label": "Video (X 9:16 v3, 3:40)",
+          "href": "https://drive.google.com/file/d/1DHL_wIQa5FvaBdT2Mx_DJWZbZqYRHQes/view"
+        }
+      ],
+      "sheetStatus": "READY. Post time: 10:00 AM ET (Julian asked to post today, t361u; X Premium confirmed, t362u). X 9:16 v3 cut, 220.7 s (3:40). Julian posts it himself. IG v3 cut (2:58) stays slotted Sun 12/20.",
+      "posted": false,
+      "thumb": "asset:ekg13176-x.jpg",
+      "ratio": "800/1422",
+      "time": "10:00 AM ET"
     }
   ],
   "replies": [
