@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T22:16:55-05:00",
+  "generatedAt": "2026-11-27T22:52:54-05:00",
   "dataAsOf": "Friday, November 27, 2026, 10:16 PM ET",
   "today": "2026-11-27",
   "igPaused": false,
@@ -261,6 +261,28 @@
       "posted": false,
       "thumb": "asset:postrosc-ig.jpg",
       "ratio": "800/1422"
+    },
+    {
+      "id": "2026-11-29|X|Residency lecture: Creepy Crawlies (Edom Girma, MD)",
+      "date": "2026-11-29",
+      "platform": "X",
+      "title": "Residency lecture: Creepy Crawlies (Edom Girma, MD)",
+      "format": "video",
+      "slotType": "Residency lecture",
+      "author": "Edom Girma, MD",
+      "postText": "",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1J7o9dkfNVepN4lxKi485tSzB2t_-A0WY/view"
+        }
+      ],
+      "sheetStatus": "READY (video). Post time: 8:00 AM ET. Post text drafted, awaiting Julian's OK. X 4:5 cut v3, 8:01.6, -14.4 LUFS. Julian approved scheduling 2026-11-27 (t360u).",
+      "posted": false,
+      "thumb": "asset:lecture-x.jpg",
+      "ratio": "4/5",
+      "time": "8:00 AM ET",
+      "textStatus": "awaiting_ok"
     },
     {
       "id": "2026-11-30|X|Ep 212 Angioedema",
@@ -901,6 +923,28 @@
       "posted": false,
       "thumb": "",
       "ratio": ""
+    },
+    {
+      "id": "2026-12-23|IG|Residency lecture: Creepy Crawlies (Edom Girma, MD)",
+      "date": "2026-12-23",
+      "platform": "IG",
+      "title": "Residency lecture: Creepy Crawlies (Edom Girma, MD)",
+      "format": "Reel",
+      "slotType": "Residency lecture",
+      "author": "Edom Girma, MD",
+      "postText": "",
+      "media": [
+        {
+          "label": "Video",
+          "href": "https://drive.google.com/file/d/1UNOVFSqFvGqLsDINOG4XKqCyqliLu_X4/view"
+        }
+      ],
+      "sheetStatus": "READY (video). Post time: 10:00 AM ET. Post text drafted, awaiting Julian's OK. IG 9:16 reel v3, 2:59.3, -14.4 LUFS. Julian approved scheduling 2026-11-27 (t360u).",
+      "posted": false,
+      "thumb": "asset:lecture-ig.jpg",
+      "ratio": "800/1422",
+      "time": "10:00 AM ET",
+      "textStatus": "awaiting_ok"
     },
     {
       "id": "2026-12-24|X|Ep 224 Kidney Stones",
