@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T22:04:52-05:00",
-  "dataAsOf": "Friday, November 27, 2026, 10:04 PM ET",
+  "generatedAt": "2026-11-27T22:16:55-05:00",
+  "dataAsOf": "Friday, November 27, 2026, 10:16 PM ET",
   "today": "2026-11-27",
   "igPaused": false,
   "posts": [
@@ -2961,10 +2961,10 @@
       "media": [
         {
           "label": "Video",
-          "href": "https://drive.google.com/file/d/1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0/view | IG 9:16 3-min cut (2:55)"
+          "href": "https://drive.google.com/file/d/14782j7l6JzPR6Qee2AfG0k7Y6MAs-z_7/view | IG 9:16 3-min cut v2 (2:55)"
         }
       ],
-      "sheetStatus": "READY. Post time: 10:00 AM ET. Swapped 2026-11-27 with Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves), which moved to Sat 2026-12-19 10:00 AM ET (Julian t353u). File is the current 3-min cut (Drive 1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0); a _v2 preview-crop fix is coming and will replace this link.",
+      "sheetStatus": "READY. Post time: 10:00 AM ET. Swapped 2026-11-27 with Ep 26 Grand Rounds: Dying in the ED (feat. Ashley Shreves), which moved to Sat 2026-12-19 10:00 AM ET (Julian t353u). v2 preview-crop fix (all elements inside the 4:5 crop). Drive: https://drive.google.com/file/d/14782j7l6JzPR6Qee2AfG0k7Y6MAs-z_7/view. v1 kept: https://drive.google.com/file/d/1aBEGJeJzlPjprwKYP3YeeJoXA8mNs3Q0/view.",
       "posted": false,
       "thumb": "asset:ep212-ig.jpg",
       "ratio": "800/1422",
@@ -2982,10 +2982,10 @@
       "media": [
         {
           "label": "Video",
-          "href": "https://drive.google.com/file/d/196srHE24S4kOfQOosqfe2Mb_9tYQkKMK/view | IG 9:16 (2:57)"
+          "href": "https://drive.google.com/file/d/1eKHXNdA3Z55jBVa7e-MXjwzHP77tYcpU/view | IG 9:16 v2 (2:57)"
         }
       ],
-      "sheetStatus": "READY. Post time: 10:00 AM ET. EKG series pilot. Slotted 2026-11-27 in the next open ~10 AM ET IG day after Ep 212 (Sat 12-19). Does not clash with Wound Irrigation Sat 11/28 10:00 AM ET.",
+      "sheetStatus": "READY. Post time: 10:00 AM ET. EKG series pilot. Slotted 2026-11-27 in the next open ~10 AM ET IG day after Ep 212 (Sat 12-19). Does not clash with Wound Irrigation Sat 11/28 10:00 AM ET. v2 preview-crop fix (all elements inside the 4:5 crop). Drive: https://drive.google.com/file/d/1eKHXNdA3Z55jBVa7e-MXjwzHP77tYcpU/view. v1 kept: https://drive.google.com/file/d/196srHE24S4kOfQOosqfe2Mb_9tYQkKMK/view. A v3 with dynamic teaching text is coming.",
       "posted": false,
       "thumb": "asset:ekg13176-ig.jpg",
       "ratio": "800/1422",
